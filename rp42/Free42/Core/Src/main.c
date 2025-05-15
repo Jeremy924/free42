@@ -17,6 +17,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <rp/RP.hh>
 #include "main.h"
 #include "spi.h"
 #include "gpio.h"
@@ -24,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "core_main.h"
 #include "shell_main.h"
@@ -33,7 +35,6 @@
 //extern uint32_t __attribute__((section("SYS_FUNC"))) (*sys_func)(uint32_t command, void* args);
 //uint64_t (*system_call_data)(uint16_t, void*) = 0x20000000;
 
-SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 
 //int Scan_Keyboard(void);
 //void Basic_Hardware_Test();
@@ -77,9 +78,7 @@ bool enqueued = false;
 int repeat = 0;
 
 void update_lcd() {
-	systemCallData.args = frame; // the frame array contains the bytes to draw to the LCD
-	systemCallData.command = 0x0012; // 0x0012 = DRAW_LCD
-	__asm__("SVC #0");
+	RP_DISPLAY_DRAW(frame);
 	//__asm__("SVC #0"); // perform the sys call
 	// DRAW_LCD has no return value, so nothing is needed afterward
 	//frame[0] ^= 0xff;
@@ -134,7 +133,8 @@ int main(void)
   // while interrupt handlers are being copied into RAM
   //__enable_irq();
 
-  core_init(0, 1, "", 0);
+  RP_MKDIR("0:/Free42");
+  core_init(1, 1, "0:/Free42/free42.dat", 0);
   update_lcd();
   //ROW0_GPIO_Port->BSRR = ROW0_Pin|ROW1_Pin|ROW2_Pin|ROW3_Pin|ROW4_Pin|ROW5_Pin|ROW6_Pin;
 
@@ -142,7 +142,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  bool keydown = false;
   bool* enqueued = (bool*) malloc(sizeof(bool));
   int* repeat = (int*) malloc(sizeof(int));
   while (1)
@@ -161,36 +160,24 @@ int main(void)
 	  if (key == 254) key = key_queue[kqri++];*/
 	  //uint8_t key = (uint8_t) sys_func(0x0002, 0);
 	  while (1) {
-		  systemCallData.command = 0x0002;
-		  __asm__("SVC #0");
-		  uint8_t key = (uint8_t) systemCallData.result;
+		  char key = RP_WA_KEY();
 		  // read all keys before redrawing
 
 		  if (key == 255) {
 			//if (!*enqueued) core_keyup();
 
-			  keydown = false;
 		  } else {
 			  if (core_keydown(key, enqueued, repeat)) {
-				  while (core_keydown(0, &enqueued, &repeat)) continue;
+				  while (core_keydown(0, enqueued, repeat)) continue;
 			  }
 
-			  while (program_running()) core_keydown(0, &enqueued, &repeat);
+			  while (program_running()) core_keydown(0, enqueued, repeat);
 
 			  core_keyup();
-
-			  keydown = true;
 		  }
 
 		  //update_lcd();
 
-	  }
-
-	  uint8_t key = systemCallData.result;
-	  if (key != 255) keydown = true;
-	  if (key == 255) core_keyup();
-	  else {
-		  core_keydown(key, enqueued, repeat);
 	  }
 
 	  //frame_ready = true;
