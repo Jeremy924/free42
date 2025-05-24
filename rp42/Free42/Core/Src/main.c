@@ -63,7 +63,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+const uint32_t Magic = 912559;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

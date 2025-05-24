@@ -38,7 +38,7 @@ extern SPI_HandleTypeDef hspi3;
 #define LCD_WIDTH 132;
 #define LCD_HEIGHT 32;
 
-extern uint8_t characters[10][5];
+extern uint8_t digits[10][5];
 
 /* USER CODE END Private defines */
 

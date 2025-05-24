@@ -21,7 +21,7 @@
 #include "spi.h"
 
 /* USER CODE BEGIN 0 */
-uint8_t characters[10][5] = {
+uint8_t digits[10][5] = {
 	{
 		0b00111110,
 		0b01111111,
@@ -149,7 +149,7 @@ void MX_SPI3_Init(void)
 
   sendCommand(LCD_INIT_COMMANDS, LCD_INIT_COMMAND_COUNT);
   setAddress(0, 0);
-  sendData(characters[0], 5);
+  sendData(digits[0], 5);
   /* USER CODE END SPI3_Init 2 */
 
 }
