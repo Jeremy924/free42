@@ -1,0 +1,13 @@
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	32	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1179:3:constexpr bool std::isnan(double)	24	static
+../Core/Src/Free42/core_linalg2.cc:52:5:int lu_decomp_r(vartype_realmatrix*, int*, int (*)(int, vartype_realmatrix*, int*, double))	32	static
+../Core/Src/Free42/core_linalg2.cc:78:12:int lu_decomp_r_worker(bool)	136	static
+../Core/Src/Free42/core_linalg2.cc:235:5:int lu_decomp_c(vartype_complexmatrix*, int*, int (*)(int, vartype_complexmatrix*, int*, double, double))	32	static
+../Core/Src/Free42/core_linalg2.cc:262:12:int lu_decomp_c_worker(bool)	224	static
+../Core/Src/Free42/core_linalg2.cc:462:5:int lu_backsubst_rr(vartype_realmatrix*, int*, vartype_realmatrix*, int (*)(int, vartype_realmatrix*, int*, vartype_realmatrix*))	40	static
+../Core/Src/Free42/core_linalg2.cc:484:12:int lu_backsubst_rr_worker(bool)	96	static
+../Core/Src/Free42/core_linalg2.cc:577:5:int lu_backsubst_rc(vartype_realmatrix*, int*, vartype_complexmatrix*, int (*)(int, vartype_realmatrix*, int*, vartype_complexmatrix*))	40	static
+../Core/Src/Free42/core_linalg2.cc:599:12:int lu_backsubst_rc_worker(bool)	128	static
+../Core/Src/Free42/core_linalg2.cc:713:5:int lu_backsubst_cc(vartype_complexmatrix*, int*, vartype_complexmatrix*, int (*)(int, vartype_complexmatrix*, int*, vartype_complexmatrix*))	40	static
+../Core/Src/Free42/core_linalg2.cc:735:12:int lu_backsubst_cc_worker(bool)	168	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1070:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = double]	24	static

@@ -1,0 +1,13 @@
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:809:1:unpack_BID64	128	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:851:1:get_BID64	824	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:1078:1:fast_get_BID64_check_OF	168	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:81:1:bid_get_add64	1576	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:478:1:__bid_simple_round64_sticky	1008	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:517:1:__bid_full_round64	1176	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:649:1:__bid_full_round64_remainder	1184	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:764:1:__truncate	968	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:789:1:__get_dec_digits64	56	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:821:1:bid_get_add128	1592	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:1168:1:BID_normalize	112	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:1249:1:add_zero64	72	static
+../Core/IntelDecimal/bid64_fma.c:63:1:__bid64_fma	1312	static

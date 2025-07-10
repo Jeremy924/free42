@@ -1,0 +1,6 @@
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:809:1:unpack_BID64	128	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:851:1:get_BID64	824	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:1846:1:unpack_BID128_value	152	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:2044:1:bid_get_BID128_very_fast	56	static
+../Core/IntelDecimal/bid64_to_bid128.c:37:1:__bid64_to_bid128	344	static
+../Core/IntelDecimal/bid64_to_bid128.c:70:1:__bid128_to_bid64	2344	static

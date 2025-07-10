@@ -1,0 +1,10 @@
+../Core/IntelDecimal/bid128_to_int16.c:35:1:__bid128_to_int16_rnint	96	static
+../Core/IntelDecimal/bid128_to_int16.c:39:1:__bid128_to_int16_xrnint	96	static
+../Core/IntelDecimal/bid128_to_int16.c:43:1:__bid128_to_int16_rninta	96	static
+../Core/IntelDecimal/bid128_to_int16.c:47:1:__bid128_to_int16_xrninta	96	static
+../Core/IntelDecimal/bid128_to_int16.c:51:1:__bid128_to_int16_int	96	static
+../Core/IntelDecimal/bid128_to_int16.c:55:1:__bid128_to_int16_xint	96	static
+../Core/IntelDecimal/bid128_to_int16.c:59:1:__bid128_to_int16_floor	96	static
+../Core/IntelDecimal/bid128_to_int16.c:63:1:__bid128_to_int16_ceil	96	static
+../Core/IntelDecimal/bid128_to_int16.c:67:1:__bid128_to_int16_xfloor	96	static
+../Core/IntelDecimal/bid128_to_int16.c:71:1:__bid128_to_int16_xceil	96	static

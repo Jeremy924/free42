@@ -1,0 +1,66 @@
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	32	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1179:3:constexpr bool std::isnan(double)	24	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_variables.h:92:11:char* vartype_string::txt()	16	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_variables.h:95:17:const char* vartype_string::txt() const	16	static
+../Core/Src/Free42/core_helpers.cc:31:5:int resolve_ind_arg(arg_struct*, char*, int*)	104	static
+../Core/Src/Free42/core_helpers.cc:136:5:int arg_to_num(arg_struct*, int*)	24	static
+../Core/Src/Free42/core_helpers.cc:153:5:int recall_result_silently(vartype*)	16	static
+../Core/Src/Free42/core_helpers.cc:175:5:int recall_result(vartype*)	24	static
+../Core/Src/Free42/core_helpers.cc:182:5:int recall_two_results(vartype*, vartype*)	24	static
+../Core/Src/Free42/core_helpers.cc:213:6:void unary_result(vartype*)	16	static
+../Core/Src/Free42/core_helpers.cc:220:5:int unary_two_results(vartype*, vartype*)	16	static
+../Core/Src/Free42/core_helpers.cc:243:5:int binary_result(vartype*)	24	static
+../Core/Src/Free42/core_helpers.cc:266:6:void binary_two_results(vartype*, vartype*)	16	static
+../Core/Src/Free42/core_helpers.cc:281:5:int ternary_result(vartype*)	24	static
+../Core/Src/Free42/core_helpers.cc:312:6:bool ensure_stack_capacity(int)	24	static
+../Core/Src/Free42/core_helpers.cc:326:6:void shrink_stack()	16	static
+../Core/Src/Free42/core_helpers.cc:337:8:double rad_to_angle(double)	16	static
+../Core/Src/Free42/core_helpers.cc:346:8:double rad_to_deg(double)	16	static
+../Core/Src/Free42/core_helpers.cc:350:8:double deg_to_rad(double)	16	static
+../Core/Src/Free42/core_helpers.cc:354:6:void append_alpha_char(char)	24	static
+../Core/Src/Free42/core_helpers.cc:364:6:void append_alpha_string(const char*, int, int)	32	static
+../Core/Src/Free42/core_helpers.cc:385:6:void string_copy(char*, int*, const char*, int)	32	static
+../Core/Src/Free42/core_helpers.cc:392:6:bool string_equals(const char*, int, const char*, int)	32	static
+../Core/Src/Free42/core_helpers.cc:402:5:int string_pos(const char*, int, const vartype*, int)	72	static
+../Core/Src/Free42/core_helpers.cc:436:6:bool vartype_equals(const vartype*, const vartype*)	128	static
+../Core/Src/Free42/core_helpers.cc:518:5:int anum(const char*, int, double*)	104	static
+../Core/Src/Free42/core_helpers.cc:621:6:bool shell_always_on(int)	24	static
+../Core/Src/Free42/core_helpers.cc:629:5:int virtual_flag_handler(int, int)	40	static
+../Core/Src/Free42/core_helpers.cc:765:5:int get_base()	16	static
+../Core/Src/Free42/core_helpers.cc:779:6:void set_base(int, bool)	24	static
+../Core/Src/Free42/core_helpers.cc:801:5:int get_base_param(const vartype*, long long int*)	24	static
+../Core/Src/Free42/core_helpers.cc:806:5:int base_range_check(long long int*, bool)	176	static
+../Core/Src/Free42/core_helpers.cc:848:5:int effective_wsize()	4	static
+../Core/Src/Free42/core_helpers.cc:856:8:double base2phloat(long long int)	16	static
+../Core/Src/Free42/core_helpers.cc:863:6:bool phloat2base(double, long long int*)	272	static
+../Core/Src/Free42/core_helpers.cc:906:6:void print_text(const char*, int, bool)	272	static
+../Core/Src/Free42/core_helpers.cc:965:6:void print_lines(const char*, int, bool)	32	static
+../Core/Src/Free42/core_helpers.cc:975:6:void print_right(const char*, int, const char*, int)	80	static
+../Core/Src/Free42/core_helpers.cc:1015:6:void print_wide(const char*, int, const char*, int)	64	static
+../Core/Src/Free42/core_helpers.cc:1048:6:void print_command(int, const arg_struct*)	152	static
+../Core/Src/Free42/core_helpers.cc:1108:6:void print_trace()	8	static
+../Core/Src/Free42/core_helpers.cc:1116:6:void print_stack_trace()	8	static
+../Core/Src/Free42/core_helpers.cc:1121:6:void generic_r2p(double, double, double*, double*)	48	static
+../Core/Src/Free42/core_helpers.cc:1144:6:void generic_p2r(double, double, double*, double*)	48	static
+../Core/Src/Free42/core_helpers.cc:1193:15:double sin_or_cos_deg(double, bool)	56	static
+../Core/Src/Free42/core_helpers.cc:1225:8:double sin_deg(double)	16	static
+../Core/Src/Free42/core_helpers.cc:1229:8:double cos_deg(double)	16	static
+../Core/Src/Free42/core_helpers.cc:1233:15:double sin_or_cos_grad(double, bool)	56	static
+../Core/Src/Free42/core_helpers.cc:1265:8:double sin_grad(double)	16	static
+../Core/Src/Free42/core_helpers.cc:1269:8:double cos_grad(double)	16	static
+../Core/Src/Free42/core_helpers.cc:1273:5:int dimension_array(const char*, int, int, int, bool)	48	static
+../Core/Src/Free42/core_helpers.cc:1310:5:int dimension_array_ref(vartype*, int, int)	160	static
+../Core/Src/Free42/core_helpers.cc:1551:8:double fix_hms(double)	48	static
+../Core/Src/Free42/core_helpers.cc:1584:6:void char2buf(char*, int, int*, char)	24	static
+../Core/Src/Free42/core_helpers.cc:1591:6:void string2buf(char*, int, int*, const char*, int)	32	static
+../Core/Src/Free42/core_helpers.cc:1597:5:int uint2string(unsigned int, char*, int)	32	static
+../Core/Src/Free42/core_helpers.cc:1609:5:int int2string(int, char*, int)	32	static
+../Core/Src/Free42/core_helpers.cc:1620:5:int ulong2string(long long unsigned int, char*, int)	64	static
+../Core/Src/Free42/core_helpers.cc:1632:5:int vartype2string(const vartype*, char*, int, int)	192	static
+../Core/Src/Free42/core_helpers.cc:1786:13:const char* phloat2program(double)	96	static
+../Core/Src/Free42/core_helpers.cc:1878:5:int easy_phloat2string(double, char*, int, int)	56	static
+../Core/Src/Free42/core_helpers.cc:1899:5:int ip2revstring(double, char*, int)	48	static
+../Core/Src/Free42/core_helpers.cc:1920:5:int matedit_get(vartype**)	56	static
+../Core/Src/Free42/core_helpers.cc:1986:6:void leave_matrix_editor()	8	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1070:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = double; _Up = int]	24	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1061:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::fmod(_Tp, _Up) [with _Tp = double; _Up = int]	24	static

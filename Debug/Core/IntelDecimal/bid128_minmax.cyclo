@@ -1,0 +1,4 @@
+../Core/IntelDecimal/bid128_minmax.c:37:1:__bid128_minnum	95
+../Core/IntelDecimal/bid128_minmax.c:292:1:__bid128_minnum_mag	106
+../Core/IntelDecimal/bid128_minmax.c:555:1:__bid128_maxnum	97
+../Core/IntelDecimal/bid128_minmax.c:809:1:__bid128_maxnum_mag	106

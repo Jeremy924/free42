@@ -1,0 +1,4 @@
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:1649:1:handle_UF_128	42
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:2098:1:bid_get_BID128	19
+../Core/Src/IntelDecimal/bid128_string.c:55:1:__bid128_to_string	71
+../Core/Src/IntelDecimal/bid128_string.c:285:1:__bid128_from_string	159

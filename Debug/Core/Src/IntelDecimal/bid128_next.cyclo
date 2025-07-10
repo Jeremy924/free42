@@ -1,0 +1,3 @@
+../Core/Src/IntelDecimal/bid128_next.c:37:1:__bid128_nextup	41
+../Core/Src/IntelDecimal/bid128_next.c:232:1:__bid128_nextdown	41
+../Core/Src/IntelDecimal/bid128_next.c:425:1:__bid128_nextafter	27

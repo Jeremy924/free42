@@ -1,0 +1,3 @@
+../Core/Src/IntelDecimal/bid64_next.c:45:1:__bid64_nextup	22
+../Core/Src/IntelDecimal/bid64_next.c:191:1:__bid64_nextdown	22
+../Core/Src/IntelDecimal/bid64_next.c:339:1:__bid64_nextafter	21

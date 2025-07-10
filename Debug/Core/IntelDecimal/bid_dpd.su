@@ -1,0 +1,7 @@
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:1155:1:very_fast_get_BID64	112	static
+../Core/IntelDecimal/bid_dpd.c:42:1:__bid_to_dpd32	64	static
+../Core/IntelDecimal/bid_dpd.c:106:1:__bid_to_dpd64	400	static
+../Core/IntelDecimal/bid_dpd.c:200:1:__bid_dpd_to_bid32	64	static
+../Core/IntelDecimal/bid_dpd.c:252:1:__bid_dpd_to_bid64	320	static
+../Core/IntelDecimal/bid_dpd.c:312:1:__bid_to_dpd128	13032	static
+../Core/IntelDecimal/bid_dpd.c:448:1:__bid_dpd_to_bid128	880	static

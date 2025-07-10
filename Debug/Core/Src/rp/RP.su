@@ -1,0 +1,35 @@
+../Core/Src/rp/RP.cc:63:6:void RP_NOP()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:69:6:char RP_GET_KEY()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:76:6:char RP_WA_KEY()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:83:6:void RP_PUSH_KEY(uint8_t)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:90:6:void RP_RELEASE_KEY()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:96:6:void RP_CLEAR_KEY_QUEUE()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:103:6:void RP_DISPLAY_ON()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:108:6:void RP_DISPLAY_OFF()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:113:6:void RP_DISPLAY_DRAW(char*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:119:6:void RP_DRAW_PAGE0(uint8_t*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:125:6:void RP_DRAW_PAGE1(uint8_t*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:131:6:void RP_DRAW_PAGE2(uint8_t*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:137:6:void RP_DRAW_PAGE3(uint8_t*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:145:6:void RP_POWER_OFF()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:152:10:uint32_t RP_GET_ERROR()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:159:10:uint32_t RP_CLEAR_ERROR(uint32_t)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:169:6:void RP_DELAY(uint32_t)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:175:6:void RP_DELAY_UNTIL(uint32_t)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:181:10:uint32_t RP_MILLIS()	4	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:190:9:uint8_t RP_PASTE(char*)	16	static
+../Core/Src/rp/RP.cc:193:9:uint8_t RP_PASTE_IMM(char*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:203:6:void RP_EXIT(uint32_t)	16	static
+../Core/Src/rp/RP.cc:208:10:uint32_t RP_FOPEN(RP_FILE*, const char*, unsigned char)	40	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:227:10:uint32_t RP_FCLOSE(RP_FILE)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:237:10:uint32_t RP_FILE_SELECTOR(const char*, const char*, char*, unsigned int)	40	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:257:10:uint32_t RP_FREAD(RP_FILE, char*, uint32_t, uint32_t*)	40	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:278:10:uint32_t RP_FWRITE(RP_FILE, const char*, uint32_t, uint32_t*)	40	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:298:10:uint32_t RP_FSEEK(RP_FILE, uint32_t, uint32_t)	40	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:317:10:uint32_t RP_STAT(const char*, stat*)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:334:10:uint32_t RP_FSTAT(RP_FILE, stat*)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:351:10:uint32_t RP_FLIST(const char*, char**)	16	static
+../Core/Src/rp/RP.cc:354:10:uint32_t RP_MKDIR(const char*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:362:10:uint32_t RP_UNLINK(const char*)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:370:10:uint32_t RP_RENAME(const char*, const char*)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:383:10:uint32_t RP_RMDIR(const char*)	16	static,ignoring_inline_asm

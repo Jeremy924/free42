@@ -1,0 +1,6 @@
+../Core/IntelDecimal/bid32_round_integral.c:36:1:__bid32_round_integral_exact	56	static
+../Core/IntelDecimal/bid32_round_integral.c:52:1:__bid32_round_integral_nearest_even	48	static
+../Core/IntelDecimal/bid32_round_integral.c:71:1:__bid32_round_integral_negative	48	static
+../Core/IntelDecimal/bid32_round_integral.c:90:1:__bid32_round_integral_positive	48	static
+../Core/IntelDecimal/bid32_round_integral.c:109:1:__bid32_round_integral_zero	48	static
+../Core/IntelDecimal/bid32_round_integral.c:128:1:__bid32_round_integral_nearest_away	48	static

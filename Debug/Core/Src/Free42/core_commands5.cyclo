@@ -1,0 +1,59 @@
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	3
+../Core/Src/Free42/core_commands5.cc:33:5:int appmenu_exitcallback_2(int, bool)	4
+../Core/Src/Free42/core_commands5.cc:47:12:int base_helper(int)	3
+../Core/Src/Free42/core_commands5.cc:59:5:int docmd_binm(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:63:5:int docmd_octm(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:67:5:int docmd_decm(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:71:5:int docmd_hexm(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:75:5:int docmd_a_thru_f(arg_struct*)	2
+../Core/Src/Free42/core_commands5.cc:85:5:int docmd_linf(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:93:5:int docmd_logf(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:101:5:int docmd_expf(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:109:5:int docmd_pwrf(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:117:5:int docmd_allsigma(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:122:5:int docmd_and(arg_struct*)	4
+../Core/Src/Free42/core_commands5.cc:138:5:int docmd_baseadd(arg_struct*)	22
+../Core/Src/Free42/core_commands5.cc:180:5:int docmd_basesub(arg_struct*)	25
+../Core/Src/Free42/core_commands5.cc:223:5:int docmd_basemul(arg_struct*)	37
+../Core/Src/Free42/core_commands5.cc:332:5:int docmd_basediv(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:354:5:int docmd_basechs(arg_struct*)	8
+../Core/Src/Free42/core_commands5.cc:400:12:int get_summation()	8
+../Core/Src/Free42/core_commands5.cc:458:12:int get_model_summation(int)	11
+../Core/Src/Free42/core_commands5.cc:510:12:int corr_helper(int, double*)	9
+../Core/Src/Free42/core_commands5.cc:534:12:int slope_yint_helper()	12
+../Core/Src/Free42/core_commands5.cc:557:12:int get_model()	5
+../Core/Src/Free42/core_commands5.cc:570:5:int docmd_best(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:601:5:int docmd_bit_t(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:613:5:int docmd_corr(arg_struct*)	3
+../Core/Src/Free42/core_commands5.cc:626:12:int mappable_fcstx(double, double*)	9
+../Core/Src/Free42/core_commands5.cc:644:5:int docmd_fcstx(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:663:12:int mappable_fcsty(double, double*)	8
+../Core/Src/Free42/core_commands5.cc:679:5:int docmd_fcsty(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:698:5:int docmd_mean(arg_struct*)	14
+../Core/Src/Free42/core_commands5.cc:729:5:int docmd_sdev(arg_struct*)	15
+../Core/Src/Free42/core_commands5.cc:765:5:int docmd_slope(arg_struct*)	4
+../Core/Src/Free42/core_commands5.cc:779:5:int docmd_sum(arg_struct*)	5
+../Core/Src/Free42/core_commands5.cc:800:5:int docmd_wmean(arg_struct*)	8
+../Core/Src/Free42/core_commands5.cc:818:5:int docmd_yint(arg_struct*)	8
+../Core/Src/Free42/core_commands5.cc:839:5:int docmd_integ(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:856:5:int docmd_linsigma(arg_struct*)	1
+../Core/Src/Free42/core_commands5.cc:861:5:int docmd_not(arg_struct*)	3
+../Core/Src/Free42/core_commands5.cc:876:5:int docmd_or(arg_struct*)	4
+../Core/Src/Free42/core_commands5.cc:892:5:int docmd_pgmslv(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:912:5:int docmd_pgmint(arg_struct*)	7
+../Core/Src/Free42/core_commands5.cc:932:5:int appmenu_exitcallback_3(int, bool)	3
+../Core/Src/Free42/core_commands5.cc:941:5:int docmd_pgmslvi(arg_struct*)	4
+../Core/Src/Free42/core_commands5.cc:959:5:int appmenu_exitcallback_4(int, bool)	3
+../Core/Src/Free42/core_commands5.cc:968:5:int appmenu_exitcallback_5(int, bool)	3
+../Core/Src/Free42/core_commands5.cc:980:5:int docmd_pgminti(arg_struct*)	4
+../Core/Src/Free42/core_commands5.cc:1003:5:int docmd_rotxy(arg_struct*)	9
+../Core/Src/Free42/core_commands5.cc:1040:5:int docmd_solve(arg_struct*)	12
+../Core/Src/Free42/core_commands5.cc:1077:5:int docmd_vmsolve(arg_struct*)	6
+../Core/Src/Free42/core_commands5.cc:1101:5:int docmd_xor(arg_struct*)	4
+../Core/Src/Free42/core_commands5.cc:1117:5:int docmd_to_dec(arg_struct*)	9
+../Core/Src/Free42/core_commands5.cc:1157:5:int docmd_to_oct(arg_struct*)	8
+../Core/Src/Free42/core_commands5.cc:1193:13:void accum(double*, double, int)	6
+../Core/Src/Free42/core_commands5.cc:1205:15:double sigma_helper_2(double*, double, double, int)	5
+../Core/Src/Free42/core_commands5.cc:1251:12:int sigma_helper_1(int)	18
+../Core/Src/Free42/core_commands5.cc:1319:5:int docmd_sigmaadd(arg_struct*)	2
+../Core/Src/Free42/core_commands5.cc:1326:5:int docmd_sigmasub(arg_struct*)	2

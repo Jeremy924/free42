@@ -1,0 +1,4 @@
+../Core/IntelDecimal/bid_round.c:116:6:__bid_round64_2_18	312	static
+../Core/IntelDecimal/bid_round.c:218:6:__bid_round128_19_38	1120	static
+../Core/IntelDecimal/bid_round.c:398:6:__bid_round192_39_57	2464	static
+../Core/IntelDecimal/bid_round.c:663:6:__bid_round256_58_76	4440	static

@@ -1,0 +1,10 @@
+../Core/IntelDecimal/bid_flag_operations.c:62:1:__bid_signalException	1
+../Core/IntelDecimal/bid_flag_operations.c:82:1:__bid_lowerFlags	1
+../Core/IntelDecimal/bid_flag_operations.c:104:1:__bid_testFlags	1
+../Core/IntelDecimal/bid_flag_operations.c:131:1:__bid_testSavedFlags	1
+../Core/IntelDecimal/bid_flag_operations.c:162:1:__bid_restoreFlags	1
+../Core/IntelDecimal/bid_flag_operations.c:191:1:__bid_saveFlags	1
+../Core/IntelDecimal/bid_flag_operations.c:249:1:__bid_getDecimalRoundingDirection	1
+../Core/IntelDecimal/bid_flag_operations.c:299:1:__bid_setDecimalRoundingDirection	6
+../Core/IntelDecimal/bid_flag_operations.c:336:1:__bid_is754	1
+../Core/IntelDecimal/bid_flag_operations.c:348:1:__bid_is754R	1

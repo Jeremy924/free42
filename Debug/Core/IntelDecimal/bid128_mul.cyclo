@@ -1,0 +1,7 @@
+../Core/IntelDecimal/bid128_mul.c:43:1:__bid64dq_mul	1
+../Core/IntelDecimal/bid128_mul.c:76:1:__bid64qd_mul	1
+../Core/IntelDecimal/bid128_mul.c:109:1:__bid64qq_mul	19
+../Core/IntelDecimal/bid128_mul.c:219:1:__bid128dd_mul	1
+../Core/IntelDecimal/bid128_mul.c:255:1:__bid128dq_mul	1
+../Core/IntelDecimal/bid128_mul.c:289:1:__bid128qd_mul	1
+../Core/IntelDecimal/bid128_mul.c:328:1:__bid128_mul	19

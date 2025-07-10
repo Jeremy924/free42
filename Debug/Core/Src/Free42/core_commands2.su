@@ -1,0 +1,134 @@
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	32	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1179:3:constexpr bool std::isnan(double)	24	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_variables.h:92:11:char* vartype_string::txt()	16	static
+../Core/Src/Free42/core_commands2.cc:38:5:int docmd_sf(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:72:5:int docmd_cf(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:92:5:int docmd_fs_t(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:108:5:int docmd_fc_t(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:124:5:int docmd_fsc_t(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:145:5:int docmd_fcc_t(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:166:5:int docmd_comb(arg_struct*)	72	static
+../Core/Src/Free42/core_commands2.cc:209:5:int docmd_perm(arg_struct*)	56	static
+../Core/Src/Free42/core_commands2.cc:235:12:int mappable_fact(double, double*)	40	static
+../Core/Src/Free42/core_commands2.cc:253:5:int docmd_fact(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:261:12:int mappable_gamma(double, double*)	32	static
+../Core/Src/Free42/core_commands2.cc:274:5:int docmd_gamma(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:282:5:int docmd_ran(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:289:5:int docmd_seed(arg_struct*)	176	static
+../Core/Src/Free42/core_commands2.cc:348:5:int docmd_lbl(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:354:5:int docmd_rtn(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:366:5:int docmd_input(arg_struct*)	56	static
+../Core/Src/Free42/core_commands2.cc:428:5:int view_helper(arg_struct*, bool)	72	static
+../Core/Src/Free42/core_commands2.cc:481:5:int docmd_view(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:485:13:void aview_helper(const char*, int)	40	static
+../Core/Src/Free42/core_commands2.cc:517:5:int docmd_aview(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:528:5:int docmd_xeq(arg_struct*)	40	static
+../Core/Src/Free42/core_commands2.cc:553:5:int docmd_prompt(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:561:5:int docmd_pse(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:572:12:int generic_loop_helper(double*, bool)	184	static
+../Core/Src/Free42/core_commands2.cc:657:12:int generic_loop(arg_struct*, bool)	48	static
+../Core/Src/Free42/core_commands2.cc:734:5:int docmd_isg(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:738:5:int docmd_dse(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:742:5:int docmd_aip(arg_struct*)	64	static
+../Core/Src/Free42/core_commands2.cc:751:5:int docmd_xtoa(arg_struct*)	136	static
+../Core/Src/Free42/core_commands2.cc:798:5:int docmd_agraph(arg_struct*)	64	static
+../Core/Src/Free42/core_commands2.cc:839:13:void pixel_helper(double, double)	56	static
+../Core/Src/Free42/core_commands2.cc:864:5:int docmd_pixel(arg_struct*)	32	static
+../Core/Src/Free42/core_commands2.cc:897:5:int docmd_beep(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:905:5:int docmd_tone(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:919:5:int docmd_mvar(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:923:5:int docmd_varmenu(arg_struct*)	80	static
+../Core/Src/Free42/core_commands2.cc:955:5:int docmd_getkey(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:962:5:int docmd_menu(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:970:5:int docmd_x_eq_0(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:974:5:int docmd_x_ne_0(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:978:5:int docmd_x_lt_0(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:982:5:int docmd_x_gt_0(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:986:5:int docmd_x_le_0(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:990:5:int docmd_x_ge_0(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:994:5:int docmd_x_eq_y(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:998:5:int docmd_x_ne_y(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1002:5:int docmd_x_lt_y(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1009:5:int docmd_x_gt_y(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1016:5:int docmd_x_le_y(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1023:5:int docmd_x_ge_y(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1051:5:int docmd_prsigma(arg_struct*)	168	static
+../Core/Src/Free42/core_commands2.cc:1101:5:int docmd_prp(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1125:5:int docmd_prv(arg_struct*)	192	static
+../Core/Src/Free42/core_commands2.cc:1182:12:int prv_worker(bool)	248	static
+../Core/Src/Free42/core_commands2.cc:1284:5:int docmd_prreg(arg_struct*)	32	static
+../Core/Src/Free42/core_commands2.cc:1302:5:int docmd_prstk(arg_struct*)	208	static
+../Core/Src/Free42/core_commands2.cc:1366:12:int pra_helper(bool, const char*, int)	48	static
+../Core/Src/Free42/core_commands2.cc:1396:5:int docmd_pra(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1401:5:int docmd_xview(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1413:5:int docmd_prx(arg_struct*)	152	static
+../Core/Src/Free42/core_commands2.cc:1470:5:int docmd_prusr(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1486:12:int prusr_worker(bool)	176	static
+../Core/Src/Free42/core_commands2.cc:1552:5:int docmd_list(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1562:5:int docmd_adv(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1572:5:int docmd_prlcd(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1585:5:int docmd_delay(arg_struct*)	32	static
+../Core/Src/Free42/core_commands2.cc:1596:5:int docmd_pon(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1602:5:int docmd_poff(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1608:5:int docmd_man(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1614:5:int docmd_norm(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1620:5:int docmd_trace(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1626:5:int docmd_gto(arg_struct*)	48	static
+../Core/Src/Free42/core_commands2.cc:1694:5:int docmd_number(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1712:5:int docmd_string(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1725:5:int docmd_gtodot(arg_struct*)	32	static
+../Core/Src/Free42/core_commands2.cc:1753:5:int docmd_gtodotdot(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1758:5:int docmd_stop(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1762:5:int docmd_newmat(arg_struct*)	48	static
+../Core/Src/Free42/core_commands2.cc:1790:5:int docmd_rup(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1800:5:int docmd_real_t(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1804:5:int docmd_cpx_t(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1808:5:int docmd_str_t(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1812:5:int docmd_mat_t(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1817:5:int docmd_dim_t(arg_struct*)	32	static
+../Core/Src/Free42/core_commands2.cc:1836:12:int assign_helper(int, arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:1851:5:int docmd_asgn01(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1855:5:int docmd_asgn02(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1859:5:int docmd_asgn03(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1863:5:int docmd_asgn04(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1867:5:int docmd_asgn05(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1871:5:int docmd_asgn06(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1875:5:int docmd_asgn07(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1879:5:int docmd_asgn08(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1883:5:int docmd_asgn09(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1887:5:int docmd_asgn10(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1891:5:int docmd_asgn11(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1895:5:int docmd_asgn12(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1899:5:int docmd_asgn13(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1903:5:int docmd_asgn14(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1907:5:int docmd_asgn15(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1911:5:int docmd_asgn16(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1915:5:int docmd_asgn17(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1919:5:int docmd_asgn18(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1923:5:int docmd_on(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1928:5:int docmd_off(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1943:5:int docmd_key1g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1948:5:int docmd_key2g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1953:5:int docmd_key3g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1958:5:int docmd_key4g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1963:5:int docmd_key5g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1968:5:int docmd_key6g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1973:5:int docmd_key7g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1978:5:int docmd_key8g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1983:5:int docmd_key9g(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1988:5:int docmd_key1x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1993:5:int docmd_key2x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:1998:5:int docmd_key3x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:2003:5:int docmd_key4x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:2008:5:int docmd_key5x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:2013:5:int docmd_key6x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:2018:5:int docmd_key7x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:2023:5:int docmd_key8x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:2028:5:int docmd_key9x(arg_struct*)	16	static
+../Core/Src/Free42/core_commands2.cc:2033:5:int docmd_vmsto(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:2043:5:int docmd_vmsto2(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:2062:5:int docmd_sigma_reg(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:2080:5:int docmd_sigma_reg_t(arg_struct*)	24	static
+../Core/Src/Free42/core_commands2.cc:2087:5:int docmd_cld(arg_struct*)	16	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1070:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = double]	24	static
+C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1070:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = double; _Up = int]	24	static

@@ -1,0 +1,4 @@
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:2262:1:unpack_BID32	32	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:2302:1:get_BID32	416	static
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:2474:1:get_BID32_UF	440	static
+../Core/IntelDecimal/bid32_div.c:71:1:__bid32_div	376	static

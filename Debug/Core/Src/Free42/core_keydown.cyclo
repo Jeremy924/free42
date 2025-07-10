@@ -1,0 +1,10 @@
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_globals.h:350:17:bool prgm_struct::is_end(int)	3
+../Core/Src/Free42/core_keydown.cc:34:13:bool is_number_key(int, int, bool*)	24
+../Core/Src/Free42/core_keydown.cc:61:12:int basekeys()	4
+../Core/Src/Free42/core_keydown.cc:68:13:void set_solve_integ(int)	9
+../Core/Src/Free42/core_keydown.cc:91:13:void view(const char*, int)	3
+../Core/Src/Free42/core_keydown.cc:155:6:void keydown(int, int)	112
+../Core/Src/Free42/core_keydown.cc:407:6:void keydown_number_entry(int, int)	91
+../Core/Src/Free42/core_keydown.cc:681:6:void keydown_command_entry(int, int)	515
+../Core/Src/Free42/core_keydown.cc:1791:6:void keydown_alpha_mode(int, int)	108
+../Core/Src/Free42/core_keydown.cc:2056:6:void keydown_normal_mode(int, int)	285

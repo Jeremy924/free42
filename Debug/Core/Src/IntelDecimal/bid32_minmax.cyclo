@@ -1,0 +1,4 @@
+../Core/Src/IntelDecimal/bid32_minmax.c:40:1:__bid32_minnum	49
+../Core/Src/IntelDecimal/bid32_minmax.c:243:1:__bid32_minnum_mag	39
+../Core/Src/IntelDecimal/bid32_minmax.c:422:1:__bid32_maxnum	49
+../Core/Src/IntelDecimal/bid32_minmax.c:624:1:__bid32_maxnum_mag	39

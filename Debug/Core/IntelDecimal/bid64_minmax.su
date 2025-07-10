@@ -1,0 +1,4 @@
+../Core/IntelDecimal/bid64_minmax.c:44:1:__bid64_minnum	784	static
+../Core/IntelDecimal/bid64_minmax.c:255:1:__bid64_minnum_mag	776	static
+../Core/IntelDecimal/bid64_minmax.c:438:1:__bid64_maxnum	784	static
+../Core/IntelDecimal/bid64_minmax.c:647:1:__bid64_maxnum_mag	776	static

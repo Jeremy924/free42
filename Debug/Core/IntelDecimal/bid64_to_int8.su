@@ -1,0 +1,10 @@
+../Core/IntelDecimal/bid64_to_int8.c:37:1:__bid64_to_int8_rnint	48	static
+../Core/IntelDecimal/bid64_to_int8.c:41:1:__bid64_to_int8_xrnint	48	static
+../Core/IntelDecimal/bid64_to_int8.c:45:1:__bid64_to_int8_rninta	48	static
+../Core/IntelDecimal/bid64_to_int8.c:49:1:__bid64_to_int8_xrninta	48	static
+../Core/IntelDecimal/bid64_to_int8.c:53:1:__bid64_to_int8_int	48	static
+../Core/IntelDecimal/bid64_to_int8.c:57:1:__bid64_to_int8_xint	48	static
+../Core/IntelDecimal/bid64_to_int8.c:61:1:__bid64_to_int8_floor	48	static
+../Core/IntelDecimal/bid64_to_int8.c:65:1:__bid64_to_int8_ceil	48	static
+../Core/IntelDecimal/bid64_to_int8.c:69:1:__bid64_to_int8_xfloor	48	static
+../Core/IntelDecimal/bid64_to_int8.c:73:1:__bid64_to_int8_xceil	48	static
