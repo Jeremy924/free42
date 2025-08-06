@@ -83,7 +83,7 @@ static int4 oldpc;
 core_settings_struct core_settings;
 
 extern "C" {
-bool program_running() {
+__attribute__((section(".RamFunc"))) bool program_running() {
     return mode_running;
 }
 
@@ -158,7 +158,8 @@ void core_init(int read_saved_state, int4 version, const char *state_file_name, 
                        !flags.f.rad && flags.f.grad,
                        flags.f.rad || flags.f.grad);
 }
-bool core_keydown(int key, bool *enqueued, int *repeat) {
+
+__attribute__((section(".RamFunc"))) bool core_keydown(int key, bool *enqueued, int *repeat) {
     *enqueued = 0;
     *repeat = 0;
 
@@ -501,7 +502,7 @@ bool core_timeout3(bool repaint) {
     return false;
 }
 
-bool core_keyup() {
+__attribute__((section(".RamFunc"))) bool core_keyup() {
     if (mode_pause) {
         /* The only way this can happen is if they key in question was Shift */
         return false;

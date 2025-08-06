@@ -1,1 +1,1 @@
-../Core/Src/IntelDecimal/bid128_lgamma.c:62:1:__bid128_lgamma	416	static
+../Core/Src/IntelDecimal/bid128_lgamma.c:62:1:__bid128_lgamma	360	static

@@ -684,7 +684,7 @@ bool unpersist_display(int version) {
     return true;
 }
 
-void clear_display() {
+__attribute__((section(".RamFunc"))) void clear_display() {
     int i;
     for (i = 0; i < 272; i++)
         display[i] = 0;
@@ -692,7 +692,7 @@ void clear_display() {
     memset(special_key, 0, 6);
 }
 
-void flush_display() {
+__attribute__((section(".RamFunc"))) void flush_display() {
     if (!is_dirty)
         return;
     shell_blitter(display, 17, dirty_left, dirty_top,
@@ -704,12 +704,12 @@ void repaint_display() {
     shell_blitter(display, 17, 0, 0, 131, 16);
 }
 
-void draw_pixel(int x, int y) {
+__attribute__((section(".RamFunc"))) void draw_pixel(int x, int y) {
     display[y * 17 + (x >> 3)] |= 1 << (x & 7);
     mark_dirty(y, x, y + 1, x + 1);
 }
 
-void draw_pattern(phloat dx, phloat dy, const char *pattern, int pattern_width){
+__attribute__((section(".RamFunc"))) void draw_pattern(phloat dx, phloat dy, const char *pattern, int pattern_width){
     int x, y, h, v, hmin, hmax, vmin, vmax;
     x = dx < 0 ? to_int(-floor(-dx + 0.5)) : to_int(floor(dx + 0.5));
     y = dy < 0 ? to_int(-floor(-dy + 0.5)) : to_int(floor(dy + 0.5));
@@ -816,7 +816,7 @@ void tone(int n) {
 }
 
 
-static void mark_dirty(int top, int left, int bottom, int right) {
+__attribute__((section(".RamFunc"))) static void mark_dirty(int top, int left, int bottom, int right) {
     if (is_dirty) {
         if (top < dirty_top)
             dirty_top = top;
@@ -835,7 +835,7 @@ static void mark_dirty(int top, int left, int bottom, int right) {
     }
 }
 
-void draw_char(int x, int y, char c) {
+__attribute__((section(".RamFunc"))) void draw_char(int x, int y, char c) {
     int X, Y, h, v;
     unsigned char uc = (unsigned char) c;
     if (x < 0 || x >= 22 || y < 0 || y >= 2)

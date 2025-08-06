@@ -1,10 +1,10 @@
-../Core/Src/IntelDecimal/bid64_to_uint32.c:45:1:__bid64_to_uint32_rnint	26
+../Core/Src/IntelDecimal/bid64_to_uint32.c:45:1:__bid64_to_uint32_rnint	25
 ../Core/Src/IntelDecimal/bid64_to_uint32.c:276:1:__bid64_to_uint32_xrnint	34
 ../Core/Src/IntelDecimal/bid64_to_uint32.c:547:1:__bid64_to_uint32_floor	18
 ../Core/Src/IntelDecimal/bid64_to_uint32.c:727:1:__bid64_to_uint32_xfloor	22
-../Core/Src/IntelDecimal/bid64_to_uint32.c:932:1:__bid64_to_uint32_ceil	24
-../Core/Src/IntelDecimal/bid64_to_uint32.c:1145:1:__bid64_to_uint32_xceil	24
-../Core/Src/IntelDecimal/bid64_to_uint32.c:1364:1:__bid64_to_uint32_int	19
-../Core/Src/IntelDecimal/bid64_to_uint32.c:1553:1:__bid64_to_uint32_xint	23
-../Core/Src/IntelDecimal/bid64_to_uint32.c:1767:1:__bid64_to_uint32_rninta	22
-../Core/Src/IntelDecimal/bid64_to_uint32.c:1977:1:__bid64_to_uint32_xrninta	30
+../Core/Src/IntelDecimal/bid64_to_uint32.c:932:1:__bid64_to_uint32_ceil	22
+../Core/Src/IntelDecimal/bid64_to_uint32.c:1145:1:__bid64_to_uint32_xceil	22
+../Core/Src/IntelDecimal/bid64_to_uint32.c:1364:1:__bid64_to_uint32_int	18
+../Core/Src/IntelDecimal/bid64_to_uint32.c:1553:1:__bid64_to_uint32_xint	22
+../Core/Src/IntelDecimal/bid64_to_uint32.c:1767:1:__bid64_to_uint32_rninta	21
+../Core/Src/IntelDecimal/bid64_to_uint32.c:1977:1:__bid64_to_uint32_xrninta	28

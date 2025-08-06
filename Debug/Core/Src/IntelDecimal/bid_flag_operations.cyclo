@@ -5,6 +5,6 @@
 ../Core/Src/IntelDecimal/bid_flag_operations.c:162:1:__bid_restoreFlags	1
 ../Core/Src/IntelDecimal/bid_flag_operations.c:191:1:__bid_saveFlags	1
 ../Core/Src/IntelDecimal/bid_flag_operations.c:257:1:__bid_getDecimalRoundingDirection	1
-../Core/Src/IntelDecimal/bid_flag_operations.c:316:1:__bid_setDecimalRoundingDirection	6
+../Core/Src/IntelDecimal/bid_flag_operations.c:316:1:__bid_setDecimalRoundingDirection	2
 ../Core/Src/IntelDecimal/bid_flag_operations.c:336:1:__bid_is754	1
 ../Core/Src/IntelDecimal/bid_flag_operations.c:348:1:__bid_is754R	1

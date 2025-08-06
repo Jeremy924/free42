@@ -77,7 +77,7 @@ const uint32_t Magic = 912559;
 bool enqueued = false;
 int repeat = 0;
 
-void update_lcd() {
+__ramFunc void update_lcd() {
 	RP_DISPLAY_DRAW(frame);
 	//__asm__("SVC #0"); // perform the sys call
 	// DRAW_LCD has no return value, so nothing is needed afterward
@@ -94,6 +94,37 @@ void update_lcd() {
 	  sendData(frame + 132 * 3, 132);
   }*/
  }
+#define __ramFunc __attribute__((section(".RamFunc")))
+char state_file[64];
+
+__ramFunc void main_loop() {
+	bool enqueued = false;
+	int repeat = 0;
+
+	  while (1) {
+		systemCallData.command = 0x0002;
+		__asm volatile("SVC #0");
+
+		char key = (char) systemCallData.result;
+		  if (key == 255) {
+		  } else {
+			  if (core_keydown(key, &enqueued, &repeat)) {
+				  while (core_keydown(0, &enqueued, &repeat)) continue;
+			  }
+
+			  while (program_running()) core_keydown(0, &enqueued, &repeat);
+
+			  core_keyup();
+
+            if (should_power_off) {
+          		//core_save_state(state_file);
+
+          		RP_POWER_OFF();
+          		should_power_off = false;
+            }
+		  }
+	  }
+}
 
 /* USER CODE END 0 */
 
@@ -133,7 +164,6 @@ int main(void)
   // while interrupt handlers are being copied into RAM
   //__enable_irq();
 
- char state_file[64];
  RP_FILE_SELECTOR("states", ".f42", state_file, sizeof(state_file));
 
  core_update_allow_big_stack();
@@ -145,8 +175,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  bool* enqueued = (bool*) malloc(sizeof(bool));
-  int* repeat = (int*) malloc(sizeof(int));
   while (1)
   {
 	  //HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
@@ -162,26 +190,7 @@ int main(void)
 
 	  if (key == 254) key = key_queue[kqri++];*/
 	  //uint8_t key = (uint8_t) sys_func(0x0002, 0);
-	  while (1) {
-		  char key = RP_WA_KEY();
-
-		  if (key == 255) {
-		  } else {
-			  if (core_keydown(key, enqueued, repeat)) {
-				  while (core_keydown(0, enqueued, repeat)) continue;
-			  }
-
-			  while (program_running()) core_keydown(0, enqueued, repeat);
-
-			  core_keyup();
-
-              if (should_power_off) {
-            		core_save_state(state_file);
-
-            		RP_POWER_OFF();
-              }
-		  }
-	  }
+	  main_loop();
 
 	  //frame_ready = true;
 	  //update_lcd();

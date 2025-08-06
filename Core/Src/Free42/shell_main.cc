@@ -36,7 +36,6 @@ void shell_get_time_date(unsigned int*, unsigned int*, int*) {
 
 void shell_powerdown() {
 	should_power_off = true;
-	RP_DISPLAY_OFF();
 }
 
 
@@ -67,7 +66,7 @@ int8 shell_random_seed() {
 //0x20017ee0 0x900485fa
 
 int out_of_bounds_counter = 0;
-void shell_blitter(char const* bits, int bytesperline, int x, int y, int width, int height) {
+__attribute__((section(".RamFunc"))) void shell_blitter(char const* bits, int bytesperline, int x, int y, int width, int height) {
 	for (int yi = y; yi < y + height; yi++) {
 		for (int xi = x; xi < x + width; xi++) {
 			unsigned int index1 = xi+(yi*2)/8*132;

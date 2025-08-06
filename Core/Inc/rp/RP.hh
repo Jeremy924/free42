@@ -30,7 +30,7 @@ void RP_NOP();
 
 // Key controls
 char RP_GET_KEY();
-char RP_WA_KEY();
+extern inline char RP_WA_KEY();
 void RP_PUSH_KEY(uint8_t key_code);
 void RP_RELEASE_KEY();
 void RP_CLEAR_KEY_QUEUE();

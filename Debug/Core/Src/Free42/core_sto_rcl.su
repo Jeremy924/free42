@@ -1,29 +1,27 @@
-C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	32	static
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_variables.h:92:11:char* vartype_string::txt()	16	static
-../Core/Src/Free42/core_sto_rcl.cc:35:12:int apply_sto_operation(char, vartype*, bool)	24	static
-../Core/Src/Free42/core_sto_rcl.cc:63:5:int assert_numeric(const vartype*)	16	static
-../Core/Src/Free42/core_sto_rcl.cc:73:5:int generic_rcl(arg_struct*, vartype**)	56	static
+../Core/Src/Free42/core_sto_rcl.cc:918:12:int div_rr(double, double, double*)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:935:12:int div_rc(double, double, double, double*, double*)	48	static
+../Core/Src/Free42/core_sto_rcl.cc:966:12:int div_cr(double, double, double, double*, double*)	64	static
+../Core/Src/Free42/core_sto_rcl.cc:1011:12:int div_cc(double, double, double, double, double*, double*)	72	static
+../Core/Src/Free42/core_sto_rcl.cc:1057:12:int mul_rr(double, double, double*)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:1072:12:int mul_rc(double, double, double, double*, double*)	48	static
+../Core/Src/Free42/core_sto_rcl.cc:1096:12:int mul_cr(double, double, double, double*, double*)	48	static
+../Core/Src/Free42/core_sto_rcl.cc:1120:12:int mul_cc(double, double, double, double, double*, double*)	64	static
+../Core/Src/Free42/core_sto_rcl.cc:1145:12:int sub_rr(double, double, double*)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:1160:12:int sub_rc(double, double, double, double*, double*)	40	static
+../Core/Src/Free42/core_sto_rcl.cc:1176:12:int sub_cr(double, double, double, double*, double*)	40	static
+../Core/Src/Free42/core_sto_rcl.cc:1192:12:int sub_cc(double, double, double, double, double*, double*)	48	static
+../Core/Src/Free42/core_sto_rcl.cc:1217:12:int add_rr(double, double, double*)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:1232:12:int add_rc(double, double, double, double*, double*)	40	static
+../Core/Src/Free42/core_sto_rcl.cc:1248:12:int add_cr(double, double, double, double*, double*)	40	static
+../Core/Src/Free42/core_sto_rcl.cc:1264:12:int add_cc(double, double, double, double, double*, double*)	48	static
 ../Core/Src/Free42/core_sto_rcl.cc:158:12:int generic_sto_completion(int, vartype*)	32	static
-../Core/Src/Free42/core_sto_rcl.cc:197:5:int generic_sto(arg_struct*, char)	208	static
-../Core/Src/Free42/core_sto_rcl.cc:467:5:int map_unary(const vartype*, vartype**, mappable_r, mappable_c)	104	static
-../Core/Src/Free42/core_sto_rcl.cc:537:5:int map_binary(const vartype*, const vartype*, vartype**, mappable_rr, mappable_rc, mappable_cr, mappable_cc)	352	static
-../Core/Src/Free42/core_sto_rcl.cc:918:12:int div_rr(double, double, double*)	48	static
-../Core/Src/Free42/core_sto_rcl.cc:935:12:int div_rc(double, double, double, double*, double*)	64	static
-../Core/Src/Free42/core_sto_rcl.cc:966:12:int div_cr(double, double, double, double*, double*)	128	static
-../Core/Src/Free42/core_sto_rcl.cc:1011:12:int div_cc(double, double, double, double, double*, double*)	104	static
-../Core/Src/Free42/core_sto_rcl.cc:1057:12:int mul_rr(double, double, double*)	48	static
-../Core/Src/Free42/core_sto_rcl.cc:1072:12:int mul_rc(double, double, double, double*, double*)	64	static
-../Core/Src/Free42/core_sto_rcl.cc:1096:12:int mul_cr(double, double, double, double*, double*)	64	static
-../Core/Src/Free42/core_sto_rcl.cc:1120:12:int mul_cc(double, double, double, double, double*, double*)	80	static
-../Core/Src/Free42/core_sto_rcl.cc:1145:12:int sub_rr(double, double, double*)	48	static
-../Core/Src/Free42/core_sto_rcl.cc:1160:12:int sub_rc(double, double, double, double*, double*)	56	static
-../Core/Src/Free42/core_sto_rcl.cc:1176:12:int sub_cr(double, double, double, double*, double*)	64	static
-../Core/Src/Free42/core_sto_rcl.cc:1192:12:int sub_cc(double, double, double, double, double*, double*)	72	static
-../Core/Src/Free42/core_sto_rcl.cc:1217:12:int add_rr(double, double, double*)	48	static
-../Core/Src/Free42/core_sto_rcl.cc:1232:12:int add_rc(double, double, double, double*, double*)	56	static
-../Core/Src/Free42/core_sto_rcl.cc:1248:12:int add_cr(double, double, double, double*, double*)	56	static
-../Core/Src/Free42/core_sto_rcl.cc:1264:12:int add_cc(double, double, double, double, double*, double*)	72	static
-../Core/Src/Free42/core_sto_rcl.cc:1289:5:int generic_div(const vartype*, const vartype*, int (*)(int, vartype*))	48	static
-../Core/Src/Free42/core_sto_rcl.cc:1300:5:int generic_mul(const vartype*, const vartype*, int (*)(int, vartype*))	48	static
-../Core/Src/Free42/core_sto_rcl.cc:1311:5:int generic_sub(const vartype*, const vartype*, vartype**)	40	static
-../Core/Src/Free42/core_sto_rcl.cc:1315:5:int generic_add(const vartype*, const vartype*, vartype**)	40	static
+../Core/Src/Free42/core_sto_rcl.cc:63:5:int assert_numeric(const vartype*)	0	static
+../Core/Src/Free42/core_sto_rcl.cc:73:5:int generic_rcl(arg_struct*, vartype**)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:467:5:int map_unary(const vartype*, vartype**, mappable_r, mappable_c)	48	static
+../Core/Src/Free42/core_sto_rcl.cc:537:5:int map_binary(const vartype*, const vartype*, vartype**, mappable_rr, mappable_rc, mappable_cr, mappable_cc)	56	static
+../Core/Src/Free42/core_sto_rcl.cc:1289:5:int generic_div(const vartype*, const vartype*, int (*)(int, vartype*))	40	static
+../Core/Src/Free42/core_sto_rcl.cc:1300:5:int generic_mul(const vartype*, const vartype*, int (*)(int, vartype*))	40	static
+../Core/Src/Free42/core_sto_rcl.cc:1311:5:int generic_sub(const vartype*, const vartype*, vartype**)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:1315:5:int generic_add(const vartype*, const vartype*, vartype**)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:35:12:int apply_sto_operation(char, vartype*, bool)	24	static
+../Core/Src/Free42/core_sto_rcl.cc:197:5:int generic_sto(arg_struct*, char)	72	static

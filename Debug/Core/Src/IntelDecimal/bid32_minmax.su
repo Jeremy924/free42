@@ -1,4 +1,4 @@
-../Core/Src/IntelDecimal/bid32_minmax.c:40:1:__bid32_minnum	144	static
-../Core/Src/IntelDecimal/bid32_minmax.c:243:1:__bid32_minnum_mag	144	static
-../Core/Src/IntelDecimal/bid32_minmax.c:422:1:__bid32_maxnum	144	static
-../Core/Src/IntelDecimal/bid32_minmax.c:624:1:__bid32_maxnum_mag	144	static
+../Core/Src/IntelDecimal/bid32_minmax.c:40:1:__bid32_minnum	12	static
+../Core/Src/IntelDecimal/bid32_minmax.c:243:1:__bid32_minnum_mag	12	static
+../Core/Src/IntelDecimal/bid32_minmax.c:422:1:__bid32_maxnum	12	static
+../Core/Src/IntelDecimal/bid32_minmax.c:624:1:__bid32_maxnum_mag	12	static

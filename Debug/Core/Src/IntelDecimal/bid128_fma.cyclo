@@ -1,9 +1,7 @@
-../Core/Src/IntelDecimal/bid128_fma.c:39:1:bid_rounding_correction	38
-../Core/Src/IntelDecimal/bid128_fma.c:137:1:bid_add256	7
-../Core/Src/IntelDecimal/bid128_fma.c:166:1:bid_sub256	7
-../Core/Src/IntelDecimal/bid128_fma.c:196:1:bid_bid_nr_digits256	35
-../Core/Src/IntelDecimal/bid128_fma.c:258:1:bid_add_and_round	93
-../Core/Src/IntelDecimal/bid128_fma.c:664:1:bid128_ext_fma	712
+../Core/Src/IntelDecimal/bid128_fma.c:39:1:bid_rounding_correction	40
+../Core/Src/IntelDecimal/bid128_fma.c:196:1:bid_bid_nr_digits256	26
+../Core/Src/IntelDecimal/bid128_fma.c:258:1:bid_add_and_round.constprop	144
+../Core/Src/IntelDecimal/bid128_fma.c:664:1:bid128_ext_fma	887
 ../Core/Src/IntelDecimal/bid128_fma.c:3654:1:__bid128_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:3690:1:__bid128ddd_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:3734:1:__bid128ddq_fma	1
@@ -12,10 +10,10 @@
 ../Core/Src/IntelDecimal/bid128_fma.c:3855:1:__bid128qdd_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:3896:1:__bid128qdq_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:3935:1:__bid128qqd_fma	1
+../Core/Src/IntelDecimal/bid128_fma.c:4181:1:__bid64qqq_fma	92
 ../Core/Src/IntelDecimal/bid128_fma.c:3977:1:__bid64ddq_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:4012:1:__bid64dqd_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:4047:1:__bid64dqq_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:4080:1:__bid64qdd_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:4115:1:__bid64qdq_fma	1
 ../Core/Src/IntelDecimal/bid128_fma.c:4148:1:__bid64qqd_fma	1
-../Core/Src/IntelDecimal/bid128_fma.c:4181:1:__bid64qqq_fma	125

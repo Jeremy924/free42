@@ -1,28 +1,27 @@
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_variables.h:92:11:char* vartype_string::txt()	2
+../Core/Src/Free42/core_variables.cc:712:12:int lookup_private_var(const char*, int)	8
 ../Core/Src/Free42/core_variables.cc:38:10:vartype* new_real(double)	3
 ../Core/Src/Free42/core_variables.cc:52:10:vartype* new_complex(double, double)	3
 ../Core/Src/Free42/core_variables.cc:67:10:vartype* new_string(const char*, int)	9
 ../Core/Src/Free42/core_variables.cc:94:10:vartype* new_realmatrix(int, int)	7
 ../Core/Src/Free42/core_variables.cc:133:10:vartype* new_complexmatrix(int, int)	6
 ../Core/Src/Free42/core_variables.cc:164:10:vartype* new_list(int)	5
-../Core/Src/Free42/core_variables.cc:186:6:void free_vartype(vartype*)	16
 ../Core/Src/Free42/core_variables.cc:249:6:void clean_vartype_pools()	4
 ../Core/Src/Free42/core_variables.cc:258:6:void free_long_strings(char*, double*, int)	3
+../Core/Src/Free42/core_variables.cc:186:6:void free_vartype(vartype*)	16
 ../Core/Src/Free42/core_variables.cc:264:6:void get_matrix_string(vartype_realmatrix*, int, char**, int*)	2
 ../Core/Src/Free42/core_variables.cc:276:6:void get_matrix_string(const vartype_realmatrix*, int, const char**, int*)	1
 ../Core/Src/Free42/core_variables.cc:280:6:bool put_matrix_string(vartype_realmatrix*, int, const char*, int)	8
-../Core/Src/Free42/core_variables.cc:312:10:vartype* dup_vartype(const vartype*)	11
-../Core/Src/Free42/core_variables.cc:362:5:int disentangle(vartype*)	24
+../Core/Src/Free42/core_variables.cc:312:10:vartype* dup_vartype(const vartype*)	12
+../Core/Src/Free42/core_variables.cc:362:5:int disentangle(vartype*)	23
 ../Core/Src/Free42/core_variables.cc:476:5:int lookup_var(const char*, int)	6
 ../Core/Src/Free42/core_variables.cc:492:10:vartype* recall_var(const char*, int)	2
 ../Core/Src/Free42/core_variables.cc:500:6:bool ensure_var_space(int)	3
-../Core/Src/Free42/core_variables.cc:512:5:int store_var(const char*, int, vartype*, bool)	19
-../Core/Src/Free42/core_variables.cc:571:6:bool purge_var(const char*, int, bool, bool)	16
+../Core/Src/Free42/core_variables.cc:512:5:int store_var(const char*, int, vartype*, bool)	16
+../Core/Src/Free42/core_variables.cc:571:6:bool purge_var(const char*, int, bool, bool)	14
 ../Core/Src/Free42/core_variables.cc:613:6:void purge_all_vars()	2
-../Core/Src/Free42/core_variables.cc:620:6:bool vars_exist(int)	17
+../Core/Src/Free42/core_variables.cc:620:6:bool vars_exist(int)	16
 ../Core/Src/Free42/core_variables.cc:659:6:bool contains_strings(const vartype_realmatrix*)	3
 ../Core/Src/Free42/core_variables.cc:671:5:int matrix_copy(vartype*, const vartype*)	15
-../Core/Src/Free42/core_variables.cc:712:12:int lookup_private_var(const char*, int)	8
 ../Core/Src/Free42/core_variables.cc:734:10:vartype* recall_private_var(const char*, int)	2
 ../Core/Src/Free42/core_variables.cc:742:10:vartype* recall_and_purge_private_var(const char*, int)	3
 ../Core/Src/Free42/core_variables.cc:753:5:int store_private_var(const char*, int, vartype*)	5

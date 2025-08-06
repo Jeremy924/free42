@@ -1,65 +1,61 @@
-C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	32	static
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_variables.h:92:11:char* vartype_string::txt()	16	static
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_globals.h:350:17:bool prgm_struct::is_end(int)	16	static
-../Core/Src/Free42/core_display.cc:614:6:bool persist_display()	40	static
-../Core/Src/Free42/core_display.cc:645:6:bool unpersist_display(int)	56	static
-../Core/Src/Free42/core_display.cc:687:6:void clear_display()	16	static
-../Core/Src/Free42/core_display.cc:695:6:void flush_display()	24	static
-../Core/Src/Free42/core_display.cc:703:6:void repaint_display()	16	static
-../Core/Src/Free42/core_display.cc:707:6:void draw_pixel(int, int)	16	static
-../Core/Src/Free42/core_display.cc:712:6:void draw_pattern(double, double, const char*, int)	120	static
-../Core/Src/Free42/core_display.cc:783:6:void fly_goose()	16	static
-../Core/Src/Free42/core_display.cc:808:6:void squeak()	8	static
-../Core/Src/Free42/core_display.cc:813:6:void tone(int)	16	static
-../Core/Src/Free42/core_display.cc:819:13:void mark_dirty(int, int, int, int)	24	static
-../Core/Src/Free42/core_display.cc:838:6:void draw_char(int, int, char)	56	static
-../Core/Src/Free42/core_display.cc:861:13:const char* get_char(char)	24	static
-../Core/Src/Free42/core_display.cc:868:6:void draw_string(int, int, const char*, int)	24	static
-../Core/Src/Free42/core_display.cc:875:13:void fill_rect(int, int, int, int, int)	32	static
-../Core/Src/Free42/core_display.cc:886:13:void draw_key(int, int, int, const char*, int)	104	static
-../Core/Src/Free42/core_display.cc:978:5:int special_menu_key(int)	24	static
-../Core/Src/Free42/core_display.cc:985:6:void clear_row(int)	24	static
-../Core/Src/Free42/core_display.cc:989:12:int prgmline2buf(char*, int, int, int, int, arg_struct*, const char*, bool, bool, char**)	64	static
-../Core/Src/Free42/core_display.cc:1073:6:void tb_write(textbuf*, const char*, size_t)	32	static
-../Core/Src/Free42/core_display.cc:1096:6:void tb_indent(textbuf*, int)	24	static
-../Core/Src/Free42/core_display.cc:1101:6:void tb_write_null(textbuf*)	24	static
-../Core/Src/Free42/core_display.cc:1106:6:void tb_print_current_program(textbuf*)	728	static
-../Core/Src/Free42/core_display.cc:1141:6:void display_prgm_line(int, int)	152	static
-../Core/Src/Free42/core_display.cc:1196:6:void xlabel2buf(char*, int, int*)	48	static
-../Core/Src/Free42/core_display.cc:1225:6:void display_x(int)	48	static
-../Core/Src/Free42/core_display.cc:1237:6:void display_y(int)	48	static
-../Core/Src/Free42/core_display.cc:1256:6:void display_incomplete_command(int)	88	static
-../Core/Src/Free42/core_display.cc:1321:6:void display_error(int, bool)	24	static
-../Core/Src/Free42/core_display.cc:1340:6:void display_command(int)	88	static
-../Core/Src/Free42/core_display.cc:1430:12:int set_appmenu(int, bool)	24	static
-../Core/Src/Free42/core_display.cc:1458:6:void draw_varmenu()	88	static
-../Core/Src/Free42/core_display.cc:1640:13:void draw_catalog()	120	static
-../Core/Src/Free42/core_display.cc:1867:6:void display_mem()	40	static
+../Core/Src/Free42/core_display.cc:819:50:void mark_dirty(int, int, int, int)	20	static
+../Core/Src/Free42/core_display.cc:1430:12:int set_appmenu(int, bool)	4	static
+../Core/Src/Free42/core_display.cc:886:13:void draw_key(int, int, int, const char*, int)	64	static
 ../Core/Src/Free42/core_display.cc:1879:12:int procrustean_phloat2string(double, char*, int)	168	static
-../Core/Src/Free42/core_display.cc:1936:6:void show()	152	static
-../Core/Src/Free42/core_display.cc:2054:6:void redisplay()	64	static
+../Core/Src/Free42/core_display.cc:2660:12:int get_cat_index()	0	static
+../Core/Src/Free42/core_display.cc:614:6:bool persist_display()	40	static
+../Core/Src/Free42/core_display.cc:645:6:bool unpersist_display(int)	48	static
+../Core/Src/Free42/core_display.cc:687:43:void clear_display()	8	static
+../Core/Src/Free42/core_display.cc:695:43:void flush_display()	16	static
+../Core/Src/Free42/core_display.cc:703:6:void repaint_display()	16	static
+../Core/Src/Free42/core_display.cc:707:43:void draw_pixel(int, int)	8	static
+../Core/Src/Free42/core_display.cc:712:43:void draw_pattern(double, double, const char*, int)	56	static
+../Core/Src/Free42/core_display.cc:808:6:void squeak()	0	static
+../Core/Src/Free42/core_display.cc:813:6:void tone(int)	0	static
+../Core/Src/Free42/core_display.cc:838:43:void draw_char(int, int, char)	36	static
+../Core/Src/Free42/core_display.cc:861:13:const char* get_char(char)	0	static
+../Core/Src/Free42/core_display.cc:868:6:void draw_string(int, int, const char*, int)	24	static
+../Core/Src/Free42/core_display.cc:978:5:int special_menu_key(int)	0	static
+../Core/Src/Free42/core_display.cc:985:6:void clear_row(int)	20	static
+../Core/Src/Free42/core_display.cc:783:6:void fly_goose()	8	static
+../Core/Src/Free42/core_display.cc:1073:6:void tb_write(textbuf*, const char*, size_t)	24	static
+../Core/Src/Free42/core_display.cc:1096:6:void tb_indent(textbuf*, int)	24	static
+../Core/Src/Free42/core_display.cc:1101:6:void tb_write_null(textbuf*)	16	static
+../Core/Src/Free42/core_display.cc:1196:6:void xlabel2buf(char*, int, int*)	48	static
+../Core/Src/Free42/core_display.cc:1225:6:void display_x(int)	40	static
+../Core/Src/Free42/core_display.cc:1237:6:void display_y(int)	40	static
+../Core/Src/Free42/core_display.cc:1256:6:void display_incomplete_command(int)	88	static
+../Core/Src/Free42/core_display.cc:1321:6:void display_error(int, bool)	16	static
+../Core/Src/Free42/core_display.cc:1458:6:void draw_varmenu()	96	static
+../Core/Src/Free42/core_display.cc:1867:6:void display_mem()	40	static
 ../Core/Src/Free42/core_display.cc:2363:6:void print_display()	24	static
-../Core/Src/Free42/core_display.cc:2386:5:int print_program(int, int, int, bool)	40	static
-../Core/Src/Free42/core_display.cc:2428:12:int print_program_worker(bool)	96	static
-../Core/Src/Free42/core_display.cc:2544:6:void print_program_line(int, int)	16	static
-../Core/Src/Free42/core_display.cc:2548:5:int command2buf(char*, int, int, const arg_struct*)	96	static
-../Core/Src/Free42/core_display.cc:2660:12:int get_cat_index()	4	static
-../Core/Src/Free42/core_display.cc:2675:6:void set_menu(int, int)	24	static
-../Core/Src/Free42/core_display.cc:2683:5:int set_menu_return_err(int, int, bool)	48	static
-../Core/Src/Free42/core_display.cc:2742:6:void set_appmenu_exitcallback(int)	16	static
-../Core/Src/Free42/core_display.cc:2746:6:void set_plainmenu(int)	40	static
+../Core/Src/Free42/core_display.cc:2548:5:int command2buf(char*, int, int, const arg_struct*)	64	static
+../Core/Src/Free42/core_display.cc:989:12:int prgmline2buf(char*, int, int, int, int, arg_struct*, const char*, bool, bool, char**)	64	static
+../Core/Src/Free42/core_display.cc:1106:6:void tb_print_current_program(textbuf*)	720	static
+../Core/Src/Free42/core_display.cc:1141:6:void display_prgm_line(int, int)	152	static
+../Core/Src/Free42/core_display.cc:1936:6:void show()	128	static
+../Core/Src/Free42/core_display.cc:2428:12:int print_program_worker(bool)	72	static
+../Core/Src/Free42/core_display.cc:2386:5:int print_program(int, int, int, bool)	48	static
+../Core/Src/Free42/core_display.cc:2544:6:void print_program_line(int, int)	0	static
+../Core/Src/Free42/core_display.cc:2742:6:void set_appmenu_exitcallback(int)	0	static
+../Core/Src/Free42/core_display.cc:2863:5:int get_front_menu()	0	static
+../Core/Src/Free42/core_display.cc:2683:5:int set_menu_return_err(int, int, bool)	16	static
+../Core/Src/Free42/core_display.cc:2675:6:void set_menu(int, int)	8	static
+../Core/Src/Free42/core_display.cc:2875:6:void set_cat_section(int)	8	static
+../Core/Src/Free42/core_display.cc:2881:5:int get_cat_section()	8	static
+../Core/Src/Free42/core_display.cc:1340:6:void display_command(int)	72	static
+../Core/Src/Free42/core_display.cc:1640:13:void draw_catalog()	56	static
+../Core/Src/Free42/core_display.cc:2054:6:void redisplay()	48	static
+../Core/Src/Free42/core_display.cc:2746:6:void set_plainmenu(int)	32	static
+../Core/Src/Free42/core_display.cc:2889:6:void move_cat_row(int)	8	static
 ../Core/Src/Free42/core_display.cc:2804:6:void set_catalog_menu(int)	16	static
-../Core/Src/Free42/core_display.cc:2863:5:int get_front_menu()	4	static
-../Core/Src/Free42/core_display.cc:2875:6:void set_cat_section(int)	24	static
-../Core/Src/Free42/core_display.cc:2881:5:int get_cat_section()	16	static
-../Core/Src/Free42/core_display.cc:2889:6:void move_cat_row(int)	24	static
-../Core/Src/Free42/core_display.cc:2906:6:void set_cat_row(int)	24	static
-../Core/Src/Free42/core_display.cc:2913:5:int get_cat_row()	16	static
-../Core/Src/Free42/core_display.cc:2921:5:int get_cat_item(int)	24	static
-../Core/Src/Free42/core_display.cc:2929:6:void update_catalog()	16	static
-../Core/Src/Free42/core_display.cc:3028:6:void clear_custom_menu()	16	static
-../Core/Src/Free42/core_display.cc:3035:6:void assign_custom_key(int, const char*, int)	40	static
-../Core/Src/Free42/core_display.cc:3044:6:void get_custom_key(int, char*, int*)	32	static
-../Core/Src/Free42/core_display.cc:3051:6:void clear_prgm_menu()	16	static
-../Core/Src/Free42/core_display.cc:3059:6:void assign_prgm_key(int, bool, const arg_struct*)	40	static
+../Core/Src/Free42/core_display.cc:2906:6:void set_cat_row(int)	8	static
+../Core/Src/Free42/core_display.cc:2913:5:int get_cat_row()	8	static
+../Core/Src/Free42/core_display.cc:2921:5:int get_cat_item(int)	8	static
+../Core/Src/Free42/core_display.cc:2929:6:void update_catalog()	8	static
+../Core/Src/Free42/core_display.cc:3028:6:void clear_custom_menu()	0	static
+../Core/Src/Free42/core_display.cc:3035:6:void assign_custom_key(int, const char*, int)	12	static
+../Core/Src/Free42/core_display.cc:3044:6:void get_custom_key(int, char*, int*)	8	static
+../Core/Src/Free42/core_display.cc:3051:6:void clear_prgm_menu()	0	static
+../Core/Src/Free42/core_display.cc:3059:6:void assign_prgm_key(int, bool, const arg_struct*)	20	static
 ../Core/Src/Free42/core_display.cc:3074:6:void do_prgm_menu_key(int)	32	static

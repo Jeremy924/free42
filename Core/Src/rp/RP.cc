@@ -73,7 +73,7 @@ char RP_GET_KEY() {
 	return (char) systemCallData.result;
 }
 
-char RP_WA_KEY() {
+inline char RP_WA_KEY() {
 	systemCallData.command = WA_KEY;
 	__asm volatile("SVC #0");
 

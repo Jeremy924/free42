@@ -1,4 +1,4 @@
-../Core/Src/IntelDecimal/bid128_minmax.c:37:1:__bid128_minnum	95
-../Core/Src/IntelDecimal/bid128_minmax.c:292:1:__bid128_minnum_mag	106
-../Core/Src/IntelDecimal/bid128_minmax.c:555:1:__bid128_maxnum	97
-../Core/Src/IntelDecimal/bid128_minmax.c:809:1:__bid128_maxnum_mag	106
+../Core/Src/IntelDecimal/bid128_minmax.c:37:1:__bid128_minnum	111
+../Core/Src/IntelDecimal/bid128_minmax.c:292:1:__bid128_minnum_mag	126
+../Core/Src/IntelDecimal/bid128_minmax.c:555:1:__bid128_maxnum	110
+../Core/Src/IntelDecimal/bid128_minmax.c:809:1:__bid128_maxnum_mag	126

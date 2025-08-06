@@ -1,3 +1,3 @@
-../Core/Src/IntelDecimal/bid32_next.c:44:1:__bid32_nextup	48	static
-../Core/Src/IntelDecimal/bid32_next.c:173:1:__bid32_nextdown	48	static
-../Core/Src/IntelDecimal/bid32_next.c:295:1:__bid32_nextafter	56	static
+../Core/Src/IntelDecimal/bid32_next.c:44:1:__bid32_nextup	12	static
+../Core/Src/IntelDecimal/bid32_next.c:173:1:__bid32_nextdown	12	static
+../Core/Src/IntelDecimal/bid32_next.c:295:1:__bid32_nextafter	32	static

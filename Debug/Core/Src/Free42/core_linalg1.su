@@ -1,27 +1,22 @@
-C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	32	static
-../Core/Src/Free42/core_linalg1.cc:52:5:int linalg_div(const vartype*, const vartype*, int (*)(int, vartype*))	136	static
-../Core/Src/Free42/core_linalg1.cc:177:12:int div_rr_completion1(int, vartype_realmatrix*, int*, double)	32	static
 ../Core/Src/Free42/core_linalg1.cc:192:12:int div_rr_completion2(int, vartype_realmatrix*, int*, vartype_realmatrix*)	24	static
-../Core/Src/Free42/core_linalg1.cc:201:12:int div_rc_completion1(int, vartype_complexmatrix*, int*, double, double)	40	static
-../Core/Src/Free42/core_linalg1.cc:216:12:int div_rc_completion2(int, vartype_complexmatrix*, int*, vartype_complexmatrix*)	24	static
-../Core/Src/Free42/core_linalg1.cc:225:12:int div_cr_completion1(int, vartype_realmatrix*, int*, double)	32	static
-../Core/Src/Free42/core_linalg1.cc:240:12:int div_cr_completion2(int, vartype_realmatrix*, int*, vartype_complexmatrix*)	24	static
-../Core/Src/Free42/core_linalg1.cc:249:12:int div_cc_completion1(int, vartype_complexmatrix*, int*, double, double)	40	static
-../Core/Src/Free42/core_linalg1.cc:264:12:int div_cc_completion2(int, vartype_complexmatrix*, int*, vartype_complexmatrix*)	24	static
-../Core/Src/Free42/core_linalg1.cc:291:12:int matrix_mul_rr(vartype_realmatrix*, vartype_realmatrix*, int (*)(int, vartype*))	32	static
-../Core/Src/Free42/core_linalg1.cc:337:12:int matrix_mul_rr_worker(bool)	88	static
-../Core/Src/Free42/core_linalg1.cc:544:12:int matrix_mul_rc(vartype_realmatrix*, vartype_complexmatrix*, int (*)(int, vartype*))	32	static
-../Core/Src/Free42/core_linalg1.cc:591:12:int matrix_mul_rc_worker(bool)	112	static
-../Core/Src/Free42/core_linalg1.cc:676:12:int matrix_mul_cr(vartype_complexmatrix*, vartype_realmatrix*, int (*)(int, vartype*))	32	static
-../Core/Src/Free42/core_linalg1.cc:723:12:int matrix_mul_cr_worker(bool)	112	static
-../Core/Src/Free42/core_linalg1.cc:808:12:int matrix_mul_cc(vartype_complexmatrix*, vartype_complexmatrix*, int (*)(int, vartype*))	32	static
-../Core/Src/Free42/core_linalg1.cc:850:12:int matrix_mul_cc_worker(bool)	144	static
-../Core/Src/Free42/core_linalg1.cc:925:5:int linalg_mul(const vartype*, const vartype*, int (*)(int, vartype*))	24	static
-../Core/Src/Free42/core_linalg1.cc:965:5:int linalg_inv(const vartype*, void (*)(int, vartype*))	48	static
-../Core/Src/Free42/core_linalg1.cc:1022:12:int inv_r_completion1(int, vartype_realmatrix*, int*, double)	48	static
+../Core/Src/Free42/core_linalg1.cc:216:12:int div_rc_completion2(int, vartype_complexmatrix*, int*, vartype_complexmatrix*)	0	static
+../Core/Src/Free42/core_linalg1.cc:240:12:int div_cr_completion2(int, vartype_realmatrix*, int*, vartype_complexmatrix*)	0	static
+../Core/Src/Free42/core_linalg1.cc:264:12:int div_cc_completion2(int, vartype_complexmatrix*, int*, vartype_complexmatrix*)	0	static
 ../Core/Src/Free42/core_linalg1.cc:1039:12:int inv_r_completion2(int, vartype_realmatrix*, int*, vartype_realmatrix*)	24	static
-../Core/Src/Free42/core_linalg1.cc:1049:12:int inv_c_completion1(int, vartype_complexmatrix*, int*, double, double)	56	static
-../Core/Src/Free42/core_linalg1.cc:1067:12:int inv_c_completion2(int, vartype_complexmatrix*, int*, vartype_complexmatrix*)	24	static
-../Core/Src/Free42/core_linalg1.cc:1090:5:int linalg_det(const vartype*, void (*)(int, vartype*))	32	static
-../Core/Src/Free42/core_linalg1.cc:1167:12:int det_r_completion(int, vartype_realmatrix*, int*, double)	40	static
-../Core/Src/Free42/core_linalg1.cc:1198:12:int det_c_completion(int, vartype_complexmatrix*, int*, double, double)	48	static
+../Core/Src/Free42/core_linalg1.cc:1067:12:int inv_c_completion2(int, vartype_complexmatrix*, int*, vartype_complexmatrix*)	0	static
+../Core/Src/Free42/core_linalg1.cc:337:12:int matrix_mul_rr_worker(bool)	80	static
+../Core/Src/Free42/core_linalg1.cc:591:12:int matrix_mul_rc_worker(bool)	104	static
+../Core/Src/Free42/core_linalg1.cc:723:12:int matrix_mul_cr_worker(bool)	104	static
+../Core/Src/Free42/core_linalg1.cc:850:12:int matrix_mul_cc_worker(bool)	136	static
+../Core/Src/Free42/core_linalg1.cc:1049:12:int inv_c_completion1(int, vartype_complexmatrix*, int*, double, double)	32	static
+../Core/Src/Free42/core_linalg1.cc:1022:12:int inv_r_completion1(int, vartype_realmatrix*, int*, double)	32	static
+../Core/Src/Free42/core_linalg1.cc:1198:12:int det_c_completion(int, vartype_complexmatrix*, int*, double, double)	40	static
+../Core/Src/Free42/core_linalg1.cc:1167:12:int det_r_completion(int, vartype_realmatrix*, int*, double)	24	static
+../Core/Src/Free42/core_linalg1.cc:225:12:int div_cr_completion1(int, vartype_realmatrix*, int*, double)	24	static
+../Core/Src/Free42/core_linalg1.cc:249:12:int div_cc_completion1(int, vartype_complexmatrix*, int*, double, double)	24	static
+../Core/Src/Free42/core_linalg1.cc:177:12:int div_rr_completion1(int, vartype_realmatrix*, int*, double)	24	static
+../Core/Src/Free42/core_linalg1.cc:201:12:int div_rc_completion1(int, vartype_complexmatrix*, int*, double, double)	24	static
+../Core/Src/Free42/core_linalg1.cc:52:5:int linalg_div(const vartype*, const vartype*, int (*)(int, vartype*))	32	static
+../Core/Src/Free42/core_linalg1.cc:925:5:int linalg_mul(const vartype*, const vartype*, int (*)(int, vartype*))	24	static
+../Core/Src/Free42/core_linalg1.cc:965:5:int linalg_inv(const vartype*, void (*)(int, vartype*))	24	static
+../Core/Src/Free42/core_linalg1.cc:1090:5:int linalg_det(const vartype*, void (*)(int, vartype*))	24	static

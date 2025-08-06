@@ -87,8 +87,8 @@ all: main-build
 main-build: Free42.elf secondary-outputs
 
 # Tool invocations
-Free42.elf Free42.map: $(OBJS) $(USER_OBJS) C:\Users\Jerem\OneDrive\Documents\career\my_projects\stm-workspace\Free42\STM32L475RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "Free42.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Jerem\OneDrive\Documents\career\my_projects\stm-workspace\Free42\STM32L475RCTX_FLASH.ld" -Wl,-Map="Free42.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Free42.elf Free42.map: $(OBJS) $(USER_OBJS) C:\Users\Jerem\STM32CubeIDE\rp42-workspace\Free42\STM32L475RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "Free42.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Jerem\STM32CubeIDE\rp42-workspace\Free42\STM32L475RCTX_FLASH.ld" -Wl,-Map="Free42.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

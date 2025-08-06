@@ -1,67 +1,58 @@
-C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1152:3:constexpr bool std::isinf(double)	3
-C:\ST\STM32CubeIDE_1.15.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:1179:3:constexpr bool std::isnan(double)	2
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_variables.h:92:11:char* vartype_string::txt()	2
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_globals.h:350:17:bool prgm_struct::is_end(int)	3
+../Core/Src/Free42/core_main.cc:2918:12:int ascii2hp(char*, int, const char*, int)	133
+../Core/Src/Free42/core_main.cc:3428:13:bool nexttoken(const char*, int, int, int*, int*)	5
+../Core/Src/Free42/core_main.cc:4160:12:int parse_int(const char*, int)	3
+../Core/Src/Free42/core_main.cc:4171:14:char* parse_string(const char*, int, int*)	5
+../Core/Src/Free42/core_main.cc:1921:15:double parse_number_line(char*)	12
+../Core/Src/Free42/core_main.cc:2431:12:int real2buf(char*, double, const char*, bool)	3
+../Core/Src/Free42/core_main.cc:2440:12:int complex2buf(char*, double, double, bool, const char*)	13
+../Core/Src/Free42/core_main.cc:2468:13:void serialize_list(textbuf*, vartype_list*, int)	25
+../Core/Src/Free42/core_main.cc:4111:12:int get_token(const char*, int*, int*)	17
+../Core/Src/Free42/core_main.cc:2720:12:int scan_number(const char*, int, int, const char*, bool)	38
+../Core/Src/Free42/core_main.cc:2795:13:bool parse_phloat(const char*, int, double*, const char*)	49
+../Core/Src/Free42/core_main.cc:3277:12:int parse_scalar(const char*, int, bool, double*, double*, int*, const char*)	55
+../Core/Src/Free42/core_main.cc:4193:17:vartype* deserialize_list(const char*, int*)	51
 ../Core/Src/Free42/core_main.cc:66:13:void set_shift(bool)	2
-../Core/Src/Free42/core_main.cc:86:6:bool program_running()	1
-../Core/Src/Free42/core_main.cc:90:6:void core_init(int, int, const char*, int)	18
-../Core/Src/Free42/core_main.cc:161:6:bool core_keydown(int, bool*, int*)	55
-../Core/Src/Free42/core_main.cc:335:6:void core_save_state(const char*)	4
-../Core/Src/Free42/core_main.cc:359:6:void core_cleanup()	3
-../Core/Src/Free42/core_main.cc:378:6:void core_repaint_display()	1
-../Core/Src/Free42/core_main.cc:382:6:bool core_menu()	3
-../Core/Src/Free42/core_main.cc:386:6:bool alpha_active()	3
-../Core/Src/Free42/core_main.cc:391:6:bool core_alpha_menu()	3
-../Core/Src/Free42/core_main.cc:395:6:bool core_hex_menu()	1
-../Core/Src/Free42/core_main.cc:401:5:int core_special_menu_key(int)	1
-../Core/Src/Free42/core_main.cc:405:6:bool core_keydown_command(const char*, bool, bool*, int*)	6
-../Core/Src/Free42/core_main.cc:427:5:int core_repeat()	1
-../Core/Src/Free42/core_main.cc:434:6:void core_keytimeout1()	13
-../Core/Src/Free42/core_main.cc:464:6:void core_keytimeout2()	6
-../Core/Src/Free42/core_main.cc:481:6:bool core_timeout3(bool)	7
-../Core/Src/Free42/core_main.cc:504:6:bool core_keyup()	65
-../Core/Src/Free42/core_main.cc:653:6:bool core_powercycle()	16
-../Core/Src/Free42/core_main.cc:739:6:void core_update_allow_big_stack()	4
-../Core/Src/Free42/core_main.cc:753:7:char* core_list_programs()	12
-../Core/Src/Free42/core_main.cc:818:13:void export_hp42s(int)	115
-../Core/Src/Free42/core_main.cc:1138:6:int core_program_size(int)	55
-../Core/Src/Free42/core_main.cc:1268:6:void core_export_programs(int, const int*, const char*)	6
-../Core/Src/Free42/core_main.cc:1909:13:bool looks_like_zero(const char*)	5
-../Core/Src/Free42/core_main.cc:1920:15:double parse_number_line(char*)	12
-../Core/Src/Free42/core_main.cc:1952:6:void core_import_programs(int, const char*)	150
-../Core/Src/Free42/core_main.cc:2430:12:int real2buf(char*, double, const char*, bool)	4
-../Core/Src/Free42/core_main.cc:2439:12:int complex2buf(char*, double, double, bool, const char*)	17
-../Core/Src/Free42/core_main.cc:2467:13:void serialize_list(textbuf*, vartype_list*, int)	24
-../Core/Src/Free42/core_main.cc:2605:7:char* core_copy()	27
-../Core/Src/Free42/core_main.cc:2719:12:int scan_number(const char*, int, int, const char*, bool)	49
-../Core/Src/Free42/core_main.cc:2794:13:bool parse_phloat(const char*, int, double*, const char*)	55
-../Core/Src/Free42/core_main.cc:2917:12:int ascii2hp(char*, int, const char*, int)	154
-../Core/Src/Free42/core_main.cc:3208:12:int text2hp(char*, int)	6
-../Core/Src/Free42/core_main.cc:3228:17:vartype* parse_base(const char*, int)	23
-../Core/Src/Free42/core_main.cc:3276:12:int parse_scalar(const char*, int, bool, double*, double*, int*, const char*)	64
-../Core/Src/Free42/core_main.cc:3427:13:bool nexttoken(const char*, int, int, int*, int*)	5
-../Core/Src/Free42/core_main.cc:3448:13:void paste_programs(const char*)	276
-../Core/Src/Free42/core_main.cc:4110:12:int get_token(const char*, int*, int*)	22
-../Core/Src/Free42/core_main.cc:4159:12:int parse_int(const char*, int)	4
-../Core/Src/Free42/core_main.cc:4170:14:char* parse_string(const char*, int, int*)	5
-../Core/Src/Free42/core_main.cc:4192:17:vartype* deserialize_list(const char*, int*)	52
-../Core/Src/Free42/core_main.cc:4333:6:void core_paste(const char*)	83
-../Core/Src/Free42/core_main.cc:4678:6:void set_alpha_entry(bool)	1
-../Core/Src/Free42/core_main.cc:4682:6:void set_running(bool)	3
-../Core/Src/Free42/core_main.cc:4696:6:void do_interactive(int)	29
-../Core/Src/Free42/core_main.cc:4787:13:void continue_running()	11
-../Core/Src/Free42/core_main.cc:4884:5:int find_builtin(const char*, int)	14
-../Core/Src/Free42/core_main.cc:4921:6:void sst()	3
-../Core/Src/Free42/core_main.cc:4934:6:void bst()	2
-../Core/Src/Free42/core_main.cc:4945:6:void fix_thousands_separators(char*, int*)	18
-../Core/Src/Free42/core_main.cc:4989:5:int find_menu_key(int)	7
-../Core/Src/Free42/core_main.cc:5001:6:void start_incomplete_command(int)	38
-../Core/Src/Free42/core_main.cc:5077:6:void finish_command_entry(bool)	23
-../Core/Src/Free42/core_main.cc:5154:6:void finish_xeq()	10
-../Core/Src/Free42/core_main.cc:5207:6:void start_alpha_prgm_line()	4
-../Core/Src/Free42/core_main.cc:5221:6:void finish_alpha_prgm_line()	3
-../Core/Src/Free42/core_main.cc:5238:13:void stop_interruptible()	2
-../Core/Src/Free42/core_main.cc:5250:6:void set_old_pc(int)	1
-../Core/Src/Free42/core_main.cc:5254:13:void set_last_err(int)	2
-../Core/Src/Free42/core_main.cc:5263:12:int handle_error(int)	60
-../Core/Src/Free42/core_main.cc:5366:13:const char* number_format()	13
+../Core/Src/Free42/core_main.cc:5255:13:void set_last_err(int)	2
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_globals.h:350:17:bool prgm_struct::is_end(int)	2
+../Core/Src/Free42/core_main.cc:86:43:bool program_running()	1
+../Core/Src/Free42/core_main.cc:90:6:void core_init(int, int, const char*, int)	11
+../Core/Src/Free42/core_main.cc:360:6:void core_cleanup()	3
+../Core/Src/Free42/core_main.cc:379:6:void core_repaint_display()	1
+../Core/Src/Free42/core_main.cc:383:6:bool core_menu()	2
+../Core/Src/Free42/core_main.cc:387:6:bool alpha_active()	1
+../Core/Src/Free42/core_main.cc:392:6:bool core_alpha_menu()	2
+../Core/Src/Free42/core_main.cc:396:6:bool core_hex_menu()	1
+../Core/Src/Free42/core_main.cc:402:5:int core_special_menu_key(int)	1
+../Core/Src/Free42/core_main.cc:428:5:int core_repeat()	1
+../Core/Src/Free42/core_main.cc:435:6:void core_keytimeout1()	9
+../Core/Src/Free42/core_main.cc:465:6:void core_keytimeout2()	4
+../Core/Src/Free42/core_main.cc:482:6:bool core_timeout3(bool)	7
+../Core/Src/Free42/core_main.cc:740:6:void core_update_allow_big_stack()	4
+../Core/Src/Free42/core_main.cc:754:7:char* core_list_programs()	12
+../Core/Src/Free42/core_main.cc:1139:6:int core_program_size(int)	49
+../Core/Src/Free42/core_main.cc:1269:6:void core_export_programs(int, const int*, const char*)	98
+../Core/Src/Free42/core_main.cc:4679:6:void set_alpha_entry(bool)	1
+../Core/Src/Free42/core_main.cc:4683:6:void set_running(bool)	3
+../Core/Src/Free42/core_main.cc:5264:12:int handle_error(int)	47
+../Core/Src/Free42/core_main.cc:5239:13:void stop_interruptible()	2
+../Core/Src/Free42/core_main.cc:336:6:void core_save_state(const char*)	4
+../Core/Src/Free42/core_main.cc:505:43:bool core_keyup()	50
+../Core/Src/Free42/core_main.cc:162:43:bool core_keydown(int, bool*, int*)	62
+../Core/Src/Free42/core_main.cc:1953:6:void core_import_programs(int, const char*)	111
+../Core/Src/Free42/core_main.cc:4885:5:int find_builtin(const char*, int)	14
+../Core/Src/Free42/core_main.cc:406:6:bool core_keydown_command(const char*, bool, bool*, int*)	5
+../Core/Src/Free42/core_main.cc:4922:6:void sst()	3
+../Core/Src/Free42/core_main.cc:4935:6:void bst()	2
+../Core/Src/Free42/core_main.cc:4946:6:void fix_thousands_separators(char*, int*)	15
+../Core/Src/Free42/core_main.cc:4990:5:int find_menu_key(int)	1
+../Core/Src/Free42/core_main.cc:5002:6:void start_incomplete_command(int)	29
+../Core/Src/Free42/core_main.cc:4697:6:void do_interactive(int)	26
+../Core/Src/Free42/core_main.cc:5078:6:void finish_command_entry(bool)	18
+../Core/Src/Free42/core_main.cc:654:6:bool core_powercycle()	15
+../Core/Src/Free42/core_main.cc:5155:6:void finish_xeq()	10
+../Core/Src/Free42/core_main.cc:5208:6:void start_alpha_prgm_line()	4
+../Core/Src/Free42/core_main.cc:5222:6:void finish_alpha_prgm_line()	3
+../Core/Src/Free42/core_main.cc:5251:6:void set_old_pc(int)	1
+../Core/Src/Free42/core_main.cc:5367:13:const char* number_format()	9
+../Core/Src/Free42/core_main.cc:2606:7:char* core_copy()	27
+../Core/Src/Free42/core_main.cc:4334:6:void core_paste(const char*)	321

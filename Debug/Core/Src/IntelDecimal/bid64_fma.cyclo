@@ -1,13 +1,4 @@
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:809:1:unpack_BID64	6
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:851:1:get_BID64	45
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:1078:1:fast_get_BID64_check_OF	16
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:81:1:bid_get_add64	50
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:478:1:__bid_simple_round64_sticky	7
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:517:1:__bid_full_round64	33
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:649:1:__bid_full_round64_remainder	32
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:764:1:__truncate	4
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:789:1:__get_dec_digits64	7
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:821:1:bid_get_add128	95
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:1168:1:BID_normalize	16
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:1249:1:add_zero64	3
-../Core/Src/IntelDecimal/bid64_fma.c:63:1:__bid64_fma	89
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:649:1:__bid_full_round64_remainder.isra	68
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:517:1:__bid_full_round64.isra	76
+C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_inline_add.h:81:1:bid_get_add64.isra	231
+../Core/Src/IntelDecimal/bid64_fma.c:63:1:__bid64_fma	597

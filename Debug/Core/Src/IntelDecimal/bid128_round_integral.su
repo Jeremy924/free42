@@ -1,6 +1,6 @@
-../Core/Src/IntelDecimal/bid128_round_integral.c:38:1:__bid128_round_integral_exact	5120	static
-../Core/Src/IntelDecimal/bid128_round_integral.c:809:1:__bid128_round_integral_nearest_even	1352	static
-../Core/Src/IntelDecimal/bid128_round_integral.c:1034:1:__bid128_round_integral_negative	1296	static
-../Core/Src/IntelDecimal/bid128_round_integral.c:1283:1:__bid128_round_integral_positive	1296	static
-../Core/Src/IntelDecimal/bid128_round_integral.c:1532:1:__bid128_round_integral_zero	1232	static
-../Core/Src/IntelDecimal/bid128_round_integral.c:1714:1:__bid128_round_integral_nearest_away	1272	static
+../Core/Src/IntelDecimal/bid128_round_integral.c:38:1:__bid128_round_integral_exact	112	static
+../Core/Src/IntelDecimal/bid128_round_integral.c:809:1:__bid128_round_integral_nearest_even	104	static
+../Core/Src/IntelDecimal/bid128_round_integral.c:1034:1:__bid128_round_integral_negative	104	static
+../Core/Src/IntelDecimal/bid128_round_integral.c:1283:1:__bid128_round_integral_positive	104	static
+../Core/Src/IntelDecimal/bid128_round_integral.c:1532:1:__bid128_round_integral_zero	88	static
+../Core/Src/IntelDecimal/bid128_round_integral.c:1714:1:__bid128_round_integral_nearest_away	88	static

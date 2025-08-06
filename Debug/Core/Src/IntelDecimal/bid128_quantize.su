@@ -1,3 +1,1 @@
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:1846:1:unpack_BID128_value	152	static
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/IntelDecimal/bid_internal.h:2044:1:bid_get_BID128_very_fast	56	static
-../Core/Src/IntelDecimal/bid128_quantize.c:34:1:__bid128_quantize	1728	static
+../Core/Src/IntelDecimal/bid128_quantize.c:34:1:__bid128_quantize	144	static
