@@ -66,9 +66,53 @@
 const uint32_t Magic = 912559;
 /* USER CODE END PV */
 
+void (*timer_callbacks[10])(uint8_t);
+
+
 /* Private function prototypes -----------------------------------------------*/
 //void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+__ramFunc uint8_t register_timer(uint32_t millis, void (*func)(uint8_t)) {
+	uint8_t handle = RP_REGISTER_TIMER(millis, func, 0);
+	timer_callbacks[handle] = func;
+
+	return handle;
+}
+
+volatile uint8_t repeat_handle   = 255;
+volatile uint8_t timeout1_handle = 255;
+volatile uint8_t timeout2_handle = 255;
+
+__ramFunc void repeat_callback() {
+	int should_repeat = core_repeat();
+	if (should_repeat == 2) repeat_handle = register_timer(500, repeat_callback);
+	else if (should_repeat == 1) repeat_handle = register_timer(1000, repeat_callback);
+}
+
+__ramFunc void timeout1_callback() {
+	core_keytimeout1();
+	timeout1_handle = 255;
+}
+
+__ramFunc void timeout2_callback() {
+	core_keytimeout2();
+	timeout2_handle = 255;
+}
+
+__ramFunc void processEvent(uint8_t key) {
+	if (key == 0) return;
+
+	if (key >= 100 && key < 111) {
+		if (timer_callbacks[key - 100] != 0) timer_callbacks[key - 100](key - 100);
+		return;
+	}
+
+
+}
+
+__ramFunc void checkForEvents() {
+
+}
 
 /* USER CODE END PFP */
 
@@ -102,28 +146,77 @@ __ramFunc void main_loop() {
 	int repeat = 0;
 
 	  while (1) {
+          if (should_power_off) {
+        		//core_save_state(state_file);
+
+        		RP_POWER_OFF();
+        		should_power_off = false;
+          }
+
 		systemCallData.command = 0x0002;
 		__asm volatile("SVC #0");
 
 		char key = (char) systemCallData.result;
+
+		if (key < 111 && key >= 100) {
+			if (timer_callbacks[key - 100] != 0) timer_callbacks[key - 100](key - 100);
+			continue;
+		}
+
 		  if (key == 255) {
-		  } else {
-			  if (core_keydown(key, &enqueued, &repeat)) {
-				  while (core_keydown(0, &enqueued, &repeat)) continue;
+			  if (repeat_handle != 255) {
+				  RP_UNREGISTER_TIMER(repeat_handle);
+				  repeat_handle = 255;
 			  }
 
-			  while (program_running()) core_keydown(0, &enqueued, &repeat);
+			  if (timeout1_handle != 255) {
+				  RP_UNREGISTER_TIMER(timeout1_handle);
+				  timeout1_handle = 255;
+			  }
 
-			  core_keyup();
+			  if (timeout2_handle != 255) {
+				  RP_UNREGISTER_TIMER(timeout2_handle);
+			  }
 
-            if (should_power_off) {
-          		//core_save_state(state_file);
+			  bool should_recall;
+			  do {
+				  should_recall = core_keyup();
+			  } while (should_recall);
+		  } else {
+			  bool should_recall = core_keydown(key, &enqueued, &repeat);
 
-          		RP_POWER_OFF();
-          		should_power_off = false;
-            }
+			  if (!enqueued && repeat == 0) {
+				  timeout1_handle = register_timer(250, timeout1_callback);
+				  timeout2_handle = register_timer(2000, timeout2_callback);
+			  }
+
+			  if (repeat != 0) {
+				  repeat_handle = register_timer(repeat == 1 ? 1000 : 500, repeat_callback);
+			  }
+
+			  if (should_recall) {
+				  while (core_keydown(0, &enqueued, &repeat)) continue;
+			  }
 		  }
 	  }
+}
+
+
+uint8_t tick = 255;
+__ramFunc void callbackTick(uint8_t handle) {
+	uint8_t page = 3;
+	uint8_t col = 0;
+
+	char to_print[4];
+	to_print[0] = tick / 100 + '0';
+	to_print[1] = tick / 10 % 10 + '0';
+	to_print[2] = tick % 10 + '0';
+	to_print[3] = '\0';
+
+	RP_PRINT_TEXT(to_print, &page, &col);
+
+	if (--tick != 0)
+		timer_callbacks[RP_REGISTER_TIMER(1000, callbackTick, 0)] = callbackTick;
 }
 
 /* USER CODE END 0 */
@@ -136,7 +229,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -164,10 +256,12 @@ int main(void)
   // while interrupt handlers are being copied into RAM
   //__enable_irq();
 
- RP_FILE_SELECTOR("states", ".f42", state_file, sizeof(state_file));
+ //RP_FILE_SELECTOR("states", ".f42", state_file, sizeof(state_file));
 
- core_update_allow_big_stack();
-  core_init(1, 1, state_file, 0);
+  core_init(0, 1, "", 0);
+
+  core_update_allow_big_stack();
+
   update_lcd();
   //ROW0_GPIO_Port->BSRR = ROW0_Pin|ROW1_Pin|ROW2_Pin|ROW3_Pin|ROW4_Pin|ROW5_Pin|ROW6_Pin;
 

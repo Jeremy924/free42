@@ -23,7 +23,7 @@ C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/I
 ../Core/Src/Free42/core_main.cc:392:6:bool core_alpha_menu()	0	static
 ../Core/Src/Free42/core_main.cc:396:6:bool core_hex_menu()	8	static
 ../Core/Src/Free42/core_main.cc:402:5:int core_special_menu_key(int)	0	static
-../Core/Src/Free42/core_main.cc:428:5:int core_repeat()	8	static
+../Core/Src/Free42/core_main.cc:428:42:int core_repeat()	8	static
 ../Core/Src/Free42/core_main.cc:435:6:void core_keytimeout1()	16	static
 ../Core/Src/Free42/core_main.cc:465:6:void core_keytimeout2()	24	static
 ../Core/Src/Free42/core_main.cc:482:6:bool core_timeout3(bool)	8	static

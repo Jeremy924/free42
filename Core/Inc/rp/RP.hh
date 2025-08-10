@@ -30,7 +30,7 @@ void RP_NOP();
 
 // Key controls
 char RP_GET_KEY();
-extern inline char RP_WA_KEY();
+char RP_WA_KEY();
 void RP_PUSH_KEY(uint8_t key_code);
 void RP_RELEASE_KEY();
 void RP_CLEAR_KEY_QUEUE();
@@ -78,6 +78,11 @@ uint32_t RP_STAT(const char* path, struct stat* stat);
 uint32_t RP_FSTAT(RP_FILE handle, struct stat* stat);
 
 uint32_t RP_FILE_SELECTOR(const char* start_location, const char* file_type, char* result, unsigned int size_of_result);
+
+uint8_t RP_REGISTER_TIMER(uint32_t millis, void(*func)(uint8_t), uint8_t flags);
+void  RP_UNREGISTER_TIMER(uint8_t handle);
+
+void RP_PRINT_TEXT(char* text, uint8_t* page, uint8_t* col);
 
 #ifdef __cplusplus
 }

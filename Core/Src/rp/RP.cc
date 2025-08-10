@@ -49,6 +49,11 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 
 #define SELECT_FILE     0x1000
 
+#define REGISTER_TIMER   0x0300
+#define UNREGISTER_TIMER 0x0301
+
+#define PRINT_TEXT      0x0200
+
 #define PRINT_SUCCESS 0
 #define PRINT_FAIL 1
 #define PRINT_NOT_AVAILABLE 2
@@ -73,7 +78,7 @@ char RP_GET_KEY() {
 	return (char) systemCallData.result;
 }
 
-inline char RP_WA_KEY() {
+char RP_WA_KEY() {
 	systemCallData.command = WA_KEY;
 	__asm volatile("SVC #0");
 
@@ -388,6 +393,48 @@ uint32_t RP_RMDIR(const char* folder) {
 	return systemCallData.result;
 }
 
+struct TimerRegisterArgs {
+	uint32_t millis;
+	void (*function)(uint8_t);
+	uint8_t flags;
+};
+
+uint8_t RP_REGISTER_TIMER(uint32_t millis, void(*func)(uint8_t), uint8_t flags) {
+	struct TimerRegisterArgs args;
+	args.millis = millis;
+	args.function = func;
+	args.flags = flags;
+
+	systemCallData.args = (void*) &args;
+	systemCallData.command = REGISTER_TIMER;
+	__asm volatile("SVC #0");
+
+	return systemCallData.result;
+}
+
+void  RP_UNREGISTER_TIMER(uint8_t handle) {
+	systemCallData.args = (uint8_t*) &handle;
+	systemCallData.command = UNREGISTER_TIMER;
+
+	__asm volatile("SVC #0");
+}
+
+struct TextUIParams {
+	char* text;
+	uint8_t* page;
+	uint8_t* col;
+};
+void RP_PRINT_TEXT(char* text, uint8_t* page, uint8_t* col) {
+	struct TextUIParams args;
+	args.text = text;
+	args.page = page;
+	args.col = col;
+
+	systemCallData.args = (void*) &args;
+	systemCallData.command = PRINT_TEXT;
+
+	__asm volatile("SVC #0");
+}
 
 #ifdef __cplusplus
 }

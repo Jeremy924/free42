@@ -425,7 +425,7 @@ bool core_keydown_command(const char *name, bool is_text, bool *enqueued, int *r
 }
 
 
-int core_repeat() {
+__attribute__((section(".RamFunc"))) int core_repeat() {
     keydown(repeating_shift, repeating_key);
     int rpt = repeating;
     repeating = 0;

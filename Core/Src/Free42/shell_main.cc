@@ -106,7 +106,12 @@ void shell_beeper(int) {
 }
 
 uint8 shell_get_mem() {
-    return __get_PSP() - (uint32_t)sbrk(0);
+	uint32_t psp;
+	__asm volatile ("mov %0, sp" : "=r" (psp));
+
+	uint32_t heap = (uint32_t) sbrk(0);
+
+	return (uint8) psp - heap;
 }
 
 void shell_print(char const* content, int length, char const*, int, int, int, int, int) {

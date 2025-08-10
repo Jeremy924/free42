@@ -46,7 +46,7 @@ _Min_Stack_Size = 0x5000; /* required amount of stack */
 MEMORY
 {
   SYS_CALL_DATA (rw)   : ORIGIN = 0x20000000, LENGTH = 12
-  RAM    (xrw)    : ORIGIN = 0x20000000+30K,   LENGTH = 96K-30K
+  RAM    (xrw)    : ORIGIN = 0x20000000+30K,   LENGTH = 96K-35K
   RAM2    (xrw)    : ORIGIN = 0x10000000,   LENGTH = 32K
   FLASH    (rx)    : ORIGIN = 0x90000000,   LENGTH = 8M
 }
@@ -150,13 +150,20 @@ SECTIONS
     _sdata = .;        /* create a global symbol at data start */
     *(.data)           /* .data sections */
     *(.data*)          /* .data* sections */
-    *(.RamFunc)      /* .RamFunc sections */
-    *(.RamFunc*)      /* .RamFunc* sections */
+
 
     . = ALIGN(4);
     _edata = .;        /* define a global symbol at data end */
 
   } >RAM AT> FLASH
+  
+  .ramFunctions :
+  {
+  	. = ALIGN(4);
+    *(.RamFunc)      /* .RamFunc sections */
+    *(.RamFunc*)      /* .RamFunc* sections */
+    . = ALIGN(4);
+  } >RAM2 AT> FLASH
 
   /* Uninitialized data section into "RAM" Ram type memory */
   . = ALIGN(4);

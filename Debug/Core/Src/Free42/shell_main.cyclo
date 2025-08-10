@@ -10,12 +10,12 @@
 ../Core/Src/Free42/shell_main.cc:100:7:unsigned int shell_milliseconds()	1
 ../Core/Src/Free42/shell_main.cc:104:6:void shell_beeper(int)	1
 ../Core/Src/Free42/shell_main.cc:108:7:long long unsigned int shell_get_mem()	1
-../Core/Src/Free42/shell_main.cc:112:6:void shell_print(const char*, int, const char*, int, int, int, int, int)	1
-../Core/Src/Free42/shell_main.cc:125:13:const char* shell_platform()	1
-../Core/Src/Free42/shell_main.cc:129:5:int shell_date_format()	1
-../Core/Src/Free42/shell_main.cc:133:6:bool shell_clk24()	1
-../Core/Src/Free42/shell_main.cc:137:6:bool shell_low_battery()	1
-../Core/Src/Free42/shell_main.cc:141:5:int skin_getchar()	1
-../Core/Src/Free42/shell_main.cc:146:6:void skin_put_pixels(const unsigned char*)	1
-../Core/Src/Free42/shell_main.cc:150:6:void skin_finish_image()	1
-../Core/Src/Free42/shell_main.cc:156:6:void shell_annunciators(int, int, int, int, int, int)	1
+../Core/Src/Free42/shell_main.cc:117:6:void shell_print(const char*, int, const char*, int, int, int, int, int)	1
+../Core/Src/Free42/shell_main.cc:130:13:const char* shell_platform()	1
+../Core/Src/Free42/shell_main.cc:134:5:int shell_date_format()	1
+../Core/Src/Free42/shell_main.cc:138:6:bool shell_clk24()	1
+../Core/Src/Free42/shell_main.cc:142:6:bool shell_low_battery()	1
+../Core/Src/Free42/shell_main.cc:146:5:int skin_getchar()	1
+../Core/Src/Free42/shell_main.cc:151:6:void skin_put_pixels(const unsigned char*)	1
+../Core/Src/Free42/shell_main.cc:155:6:void skin_finish_image()	1
+../Core/Src/Free42/shell_main.cc:161:6:void shell_annunciators(int, int, int, int, int, int)	1

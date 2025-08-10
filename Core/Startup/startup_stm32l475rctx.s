@@ -45,6 +45,9 @@ defined in linker script */
 /* end address for the .bss section. defined in linker script */
 .word	_ebss
 
+.word _sramfunc
+.word _eramfunc
+
 .equ  BootRAM,        0xF1E0F85F
 /**
  * @brief  This is the code that gets called when the processor first
@@ -94,6 +97,9 @@ FillZerobss:
 LoopFillZerobss:
   cmp r2, r4
   bcc FillZerobss
+
+/* Load ram functions into ram2 */
+
 
 /* Call static constructors */
     bl __libc_init_array
