@@ -156,13 +156,23 @@ SECTIONS
     _edata = .;        /* define a global symbol at data end */
 
   } >RAM AT> FLASH
-  
+
+  _siramfunc = LOADADDR(.ramFunctions);
+
   .ramFunctions :
   {
   	. = ALIGN(4);
+  	_sramfunc = .;
     *(.RamFunc)      /* .RamFunc sections */
     *(.RamFunc*)      /* .RamFunc* sections */
+    
+    *libc_a-memcpy-stub.o(*)
+    *libc_a-mallocr.o(*)
+    *libc_a-memset.o(*)
+    *libc_a-freer.o(*)
+    
     . = ALIGN(4);
+    _eramfunc = .;
   } >RAM2 AT> FLASH
 
   /* Uninitialized data section into "RAM" Ram type memory */

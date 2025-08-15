@@ -63,7 +63,7 @@ int my_remove(const char *name);
 #endif
 
 
-static void set_shift(bool state) {
+__attribute__((section(".RamFunc"))) static void set_shift(bool state) {
     if (mode_shift != state) {
         mode_shift = state;
         shell_annunciators(-1, state, -1, -1, -1, -1);
@@ -432,7 +432,7 @@ __attribute__((section(".RamFunc"))) int core_repeat() {
     return rpt;
 }
 
-void core_keytimeout1() {
+__attribute__((section(".RamFunc"))) void core_keytimeout1() {
     if (pending_command == CMD_LINGER1 || pending_command == CMD_LINGER2)
         return;
     if (pending_command == CMD_RUN || pending_command == CMD_SST
@@ -462,7 +462,7 @@ void core_keytimeout1() {
     }
 }
 
-void core_keytimeout2() {
+__attribute__((section(".RamFunc"))) void core_keytimeout2() {
     if (pending_command == CMD_LINGER1 || pending_command == CMD_LINGER2)
         return;
     remove_program_catalog = 0;
@@ -4676,11 +4676,11 @@ void core_paste(const char *buf) {
     redisplay();
 }
 
-void set_alpha_entry(bool state) {
+__attribute__((section(".RamFunc"))) void set_alpha_entry(bool state) {
     mode_alpha_entry = state;
 }
 
-void set_running(bool state) {
+__attribute__((section(".RamFunc"))) void set_running(bool state) {
     if (mode_running != state) {
         mode_running = state;
         shell_annunciators(-1, -1, -1, state, -1, -1);
@@ -4785,7 +4785,7 @@ void do_interactive(int command) {
     }
 }
 
-static void continue_running() {
+__attribute__((section(".RamFunc"))) static void continue_running() {
     int error;
     do {
         int cmd;
@@ -4919,7 +4919,7 @@ int find_builtin(const char *name, int namelen) {
     return CMD_NONE;
 }
 
-void sst() {
+__attribute__((section(".RamFunc"))) void sst() {
     if (pc >= prgms[current_prgm].size - 2) {
         pc = -1;
         prgm_highlight_row = 0;
@@ -4932,7 +4932,7 @@ void sst() {
     }
 }
 
-void bst() {
+__attribute__((section(".RamFunc"))) void bst() {
     int4 line = pc2line(pc);
     if (line == 0) {
         pc = prgms[current_prgm].size - 2;

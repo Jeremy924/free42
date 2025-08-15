@@ -6,7 +6,7 @@
 ../Core/Src/Free42/shell_main.cc:55:6:void shell_delay(int)	1
 ../Core/Src/Free42/shell_main.cc:59:13:const char* shell_number_format()	1
 ../Core/Src/Free42/shell_main.cc:63:6:long long int shell_random_seed()	1
-../Core/Src/Free42/shell_main.cc:69:43:void shell_blitter(const char*, int, int, int, int, int)	11
+../Core/Src/Free42/shell_main.cc:69:43:void shell_blitter(const char*, int, int, int, int, int)	13
 ../Core/Src/Free42/shell_main.cc:100:7:unsigned int shell_milliseconds()	1
 ../Core/Src/Free42/shell_main.cc:104:6:void shell_beeper(int)	1
 ../Core/Src/Free42/shell_main.cc:108:7:long long unsigned int shell_get_mem()	1

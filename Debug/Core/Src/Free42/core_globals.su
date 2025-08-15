@@ -1,74 +1,68 @@
-../Core/Src/Free42/core_globals.cc:861:12:int array_list_search(void*)	8	static
-../Core/Src/Free42/core_globals.cc:2069:13:void update_label_table(int, int, int)	16	static
-../Core/Src/Free42/core_globals.cc:2623:12:int find_global_label_2(const arg_struct*, int*, int*, int*)	28	static
-../Core/Src/Free42/core_globals.cc:2408:13:bool ensure_prgm_space(int)	24	static
-../Core/Src/Free42/core_globals.cc:2931:13:bool ensure_list_capacity_4(vartype_list*)	8	static
-../Core/Src/Free42/core_globals.cc:849:13:bool array_list_grow()	8	static
-../Core/Src/Free42/core_globals.cc:3323:13:void get_saved_stack_mode(int*)	8	static
-../Core/Src/Free42/core_globals.cc:754:10:int rtn_stack_entry::get_prgm()	0	static
+../Core/Src/Free42/core_globals.cc:2079:13:void invalidate_lclbls(int, bool)	36	static
+../Core/Src/Free42/core_globals.cc:2508:12:int pc_line_convert(int, int)	16	static
+../Core/Src/Free42/core_globals.cc:2508:12:int pc_line_convert(int, int)	16	static
+../Core/Src/Free42/core_globals.cc:868:13:bool persist_vartype(vartype*)	56	static
+../Core/Src/Free42/core_globals.cc:1024:13:bool unpersist_vartype(vartype**)	72	static
 ../Core/Src/Free42/core_globals.cc:836:6:void vartype_string::trim1()	16	static
 ../Core/Src/Free42/core_globals.cc:1671:6:void clear_all_prgms()	16	static
-../Core/Src/Free42/core_globals.cc:1851:5:int get_command_length(int, int)	16	static
-../Core/Src/Free42/core_globals.cc:2079:13:void invalidate_lclbls(int, bool)	24	static
-../Core/Src/Free42/core_globals.cc:2508:12:int pc_line_convert(int, int)	24	static
+../Core/Src/Free42/core_globals.cc:1851:42:int get_command_length(int, int)	8	static
 ../Core/Src/Free42/core_globals.cc:2018:6:void rebuild_label_table()	48	static
-../Core/Src/Free42/core_globals.cc:2528:6:int pc2line(int)	0	static
-../Core/Src/Free42/core_globals.cc:2535:6:int line2pc(int)	0	static
-../Core/Src/Free42/core_globals.cc:2542:6:int global_pc2line(int, int)	16	static
-../Core/Src/Free42/core_globals.cc:2550:6:int global_line2pc(int, int)	16	static
-../Core/Src/Free42/core_globals.cc:2558:6:int find_local_label(const arg_struct*)	24	static
-../Core/Src/Free42/core_globals.cc:1897:6:void get_next_command(int*, int*, arg_struct*, int, const char**)	40	static
-../Core/Src/Free42/core_globals.cc:1835:5:int label_has_mvar(int)	64	static
-../Core/Src/Free42/core_globals.cc:1827:5:int mvar_prgms_exist()	16	static
-../Core/Src/Free42/core_globals.cc:2648:5:int find_global_label(const arg_struct*, int*, int*)	0	static
-../Core/Src/Free42/core_globals.cc:2652:5:int find_global_label_index(const arg_struct*, int*)	0	static
+../Core/Src/Free42/core_globals.cc:2528:6:int pc2line(int)	16	static
+../Core/Src/Free42/core_globals.cc:2535:6:int line2pc(int)	16	static
+../Core/Src/Free42/core_globals.cc:2542:6:int global_pc2line(int, int)	24	static
+../Core/Src/Free42/core_globals.cc:2550:6:int global_line2pc(int, int)	24	static
+../Core/Src/Free42/core_globals.cc:2558:6:int find_local_label(const arg_struct*)	32	static
+../Core/Src/Free42/core_globals.cc:1897:6:void get_next_command(int*, int*, arg_struct*, int, const char**)	32	static
+../Core/Src/Free42/core_globals.cc:1827:42:int mvar_prgms_exist()	40	static
+../Core/Src/Free42/core_globals.cc:1835:42:int label_has_mvar(int)	64	static
+../Core/Src/Free42/core_globals.cc:2648:5:int find_global_label(const arg_struct*, int*, int*)	28	static
+../Core/Src/Free42/core_globals.cc:2652:5:int find_global_label_index(const arg_struct*, int*)	20	static
 ../Core/Src/Free42/core_globals.cc:2656:5:int push_rtn_addr(int, int)	32	static
-../Core/Src/Free42/core_globals.cc:2677:5:int push_indexed_matrix()	32	static
-../Core/Src/Free42/core_globals.cc:2706:6:void maybe_pop_indexed_matrix(const char*, int)	24	static
+../Core/Src/Free42/core_globals.cc:2677:5:int push_indexed_matrix()	40	static
+../Core/Src/Free42/core_globals.cc:2706:6:void maybe_pop_indexed_matrix(const char*, int)	32	static
+../Core/Src/Free42/core_globals.cc:2749:5:int push_func_state(int)	48	static
 ../Core/Src/Free42/core_globals.cc:2833:5:int push_stack_state(bool)	40	static
-../Core/Src/Free42/core_globals.cc:2942:5:int pop_func_state(bool)	88	static
+../Core/Src/Free42/core_globals.cc:2942:5:int pop_func_state(bool)	96	static
 ../Core/Src/Free42/core_globals.cc:3157:6:void step_out()	0	static
 ../Core/Src/Free42/core_globals.cc:3162:6:void step_over()	0	static
 ../Core/Src/Free42/core_globals.cc:3167:6:bool should_i_stop_at_this_level()	0	static
 ../Core/Src/Free42/core_globals.cc:3273:6:void pop_rtn_addr(int*, int*, bool*)	56	static
 ../Core/Src/Free42/core_globals.cc:3219:5:int rtn(int)	72	static
-../Core/Src/Free42/core_globals.cc:3338:6:void clear_all_rtns()	56	static
-../Core/Src/Free42/core_globals.cc:1748:6:void clear_prgm_lines(int)	88	static
-../Core/Src/Free42/core_globals.cc:2105:6:void delete_command(int)	40	static
-../Core/Src/Free42/core_globals.cc:2159:6:void store_command(int, int, arg_struct*, const char*)	168	static
-../Core/Src/Free42/core_globals.cc:1791:6:void goto_dot_dot(bool)	80	static
+../Core/Src/Free42/core_globals.cc:3338:6:void clear_all_rtns()	88	static
+../Core/Src/Free42/core_globals.cc:1748:6:void clear_prgm_lines(int)	48	static
+../Core/Src/Free42/core_globals.cc:2105:6:void delete_command(int)	48	static
+../Core/Src/Free42/core_globals.cc:2159:6:void store_command(int, int, arg_struct*, const char*)	176	static
+../Core/Src/Free42/core_globals.cc:1791:6:void goto_dot_dot(bool)	88	static
 ../Core/Src/Free42/core_globals.cc:2400:6:void store_command_after(int*, int, arg_struct*, const char*)	24	static
-../Core/Src/Free42/core_globals.cc:2421:5:int x2line()	48	static
-../Core/Src/Free42/core_globals.cc:2467:5:int a2line(bool)	64	static
-../Core/Src/Free42/core_globals.cc:1712:5:int clear_prgm_by_index(int)	32	static
+../Core/Src/Free42/core_globals.cc:2467:5:int a2line(bool)	80	static
+../Core/Src/Free42/core_globals.cc:2421:5:int x2line()	80	static
+../Core/Src/Free42/core_globals.cc:1712:5:0(int)	32	static
+../Core/Src/Free42/core_globals.cc:1712:5:int clear_prgm_by_index(int)	0	static
 ../Core/Src/Free42/core_globals.cc:1689:5:int clear_prgm(const arg_struct*)	24	static
 ../Core/Src/Free42/core_globals.cc:3361:5:int get_rtn_level()	0	static
 ../Core/Src/Free42/core_globals.cc:3365:6:void save_csld()	0	static
 ../Core/Src/Free42/core_globals.cc:3372:6:bool is_csld()	0	static
-../Core/Src/Free42/core_globals.cc:2749:5:int push_func_state(int)	56	static
 ../Core/Src/Free42/core_globals.cc:3379:6:bool solve_active()	0	static
 ../Core/Src/Free42/core_globals.cc:3383:6:bool integ_active()	0	static
-../Core/Src/Free42/core_globals.cc:3387:6:bool unwind_stack_until_solve()	56	static
-../Core/Src/Free42/core_globals.cc:3252:5:int rtn_with_error(int)	24	static
+../Core/Src/Free42/core_globals.cc:3387:43:bool unwind_stack_until_solve()	72	static
+../Core/Src/Free42/core_globals.cc:3252:5:int rtn_with_error(int)	48	static
+../Core/Src/Free42/core_globals.cc:3405:6:bool read_bool(bool*)	8	static
 ../Core/Src/Free42/core_globals.cc:3409:6:bool write_bool(bool)	8	static
 ../Core/Src/Free42/core_globals.cc:3413:6:bool read_char(char*)	8	static
-../Core/Src/Free42/core_globals.cc:3405:6:bool read_bool(bool*)	0	static
 ../Core/Src/Free42/core_globals.cc:3419:6:bool write_char(char)	8	static
+../Core/Src/Free42/core_globals.cc:3423:6:bool read_int(int*)	16	static
+../Core/Src/Free42/core_globals.cc:3431:6:bool write_int(int)	16	static
 ../Core/Src/Free42/core_globals.cc:3435:6:bool read_int2(short int*)	8	static
 ../Core/Src/Free42/core_globals.cc:3449:6:bool write_int2(short int)	16	static
 ../Core/Src/Free42/core_globals.cc:3461:6:bool read_int4(int*)	8	static
-../Core/Src/Free42/core_globals.cc:3423:6:bool read_int(int*)	16	static
 ../Core/Src/Free42/core_globals.cc:3475:6:bool write_int4(int)	16	static
-../Core/Src/Free42/core_globals.cc:3431:6:bool write_int(int)	0	static
 ../Core/Src/Free42/core_globals.cc:3487:6:bool read_int8(long long int*)	8	static
 ../Core/Src/Free42/core_globals.cc:3501:6:bool write_int8(long long int)	16	static
 ../Core/Src/Free42/core_globals.cc:3513:6:bool read_phloat(double*)	24	static
-../Core/Src/Free42/core_globals.cc:1024:13:bool unpersist_vartype(vartype**)	72	static
 ../Core/Src/Free42/core_globals.cc:3577:6:bool write_phloat(double)	16	static
-../Core/Src/Free42/core_globals.cc:868:13:bool persist_vartype(vartype*)	32	static
-../Core/Src/Free42/core_globals.cc:3597:6:bool read_arg(arg_struct*)	16	static
-../Core/Src/Free42/core_globals.cc:3671:13:bool load_state2(bool*, bool*)	88	static
-../Core/Src/Free42/core_globals.cc:3633:6:bool write_arg(const arg_struct*)	16	static
+../Core/Src/Free42/core_globals.cc:3597:6:bool read_arg(arg_struct*)	32	static
+../Core/Src/Free42/core_globals.cc:3671:13:bool load_state2(bool*, bool*)	80	static
+../Core/Src/Free42/core_globals.cc:3633:6:bool write_arg(const arg_struct*)	24	static
 ../Core/Src/Free42/core_globals.cc:3912:6:bool load_state(int, bool*, bool*)	32	static
-../Core/Src/Free42/core_globals.cc:3929:6:void save_state(bool*)	40	static
-../Core/Src/Free42/core_globals.cc:4040:6:void hard_reset(int)	40	static
+../Core/Src/Free42/core_globals.cc:3929:6:void save_state(bool*)	56	static
+../Core/Src/Free42/core_globals.cc:4040:6:void hard_reset(int)	48	static

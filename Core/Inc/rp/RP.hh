@@ -82,7 +82,8 @@ uint32_t RP_FILE_SELECTOR(const char* start_location, const char* file_type, cha
 uint8_t RP_REGISTER_TIMER(uint32_t millis, void(*func)(uint8_t), uint8_t flags);
 void  RP_UNREGISTER_TIMER(uint8_t handle);
 
-void RP_PRINT_TEXT(char* text, uint8_t* page, uint8_t* col);
+void RP_PRINT_TEXT(const char* text, uint8_t* page, uint8_t* col);
+void RP_CLEAR_LCD();
 
 #ifdef __cplusplus
 }

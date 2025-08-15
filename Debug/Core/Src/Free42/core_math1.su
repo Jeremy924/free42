@@ -1,21 +1,18 @@
-../Core/Src/Free42/core_math1.cc:585:13:void track_f_gap()	32	static
-../Core/Src/Free42/core_math1.cc:315:12:int find_shadow(const char*, int)	24	static
-../Core/Src/Free42/core_math1.cc:295:13:void clean_stack(int)	24	static
 ../Core/Src/Free42/core_math1.cc:1153:12:int finish_integ()	72	static
-../Core/Src/Free42/core_math1.cc:471:12:int finish_solve(int)	168	static
-../Core/Src/Free42/core_math1.cc:368:12:int call_solve_fn(int, int)	56	static
+../Core/Src/Free42/core_math1.cc:368:12:0(int, int)	64	static
+../Core/Src/Free42/core_math1.cc:471:12:int finish_solve(int)	160	static
 ../Core/Src/Free42/core_math1.cc:105:6:bool persist_math()	32	static
 ../Core/Src/Free42/core_math1.cc:191:6:bool unpersist_math(int)	32	static
 ../Core/Src/Free42/core_math1.cc:290:6:void reset_math()	8	static
-../Core/Src/Free42/core_math1.cc:343:5:int get_shadow(const char*, int, double*)	8	static
+../Core/Src/Free42/core_math1.cc:324:6:void put_shadow(const char*, int, double)	48	static
+../Core/Src/Free42/core_math1.cc:343:5:int get_shadow(const char*, int, double*)	32	static
 ../Core/Src/Free42/core_math1.cc:351:6:void remove_shadow(const char*, int)	24	static
-../Core/Src/Free42/core_math1.cc:324:6:void put_shadow(const char*, int, double)	40	static
-../Core/Src/Free42/core_math1.cc:364:6:void set_solve_prgm(const char*, int)	0	static
-../Core/Src/Free42/core_math1.cc:409:5:int start_solve(const char*, int, double, double)	40	static
+../Core/Src/Free42/core_math1.cc:364:6:void set_solve_prgm(const char*, int)	4	static
+../Core/Src/Free42/core_math1.cc:409:5:int start_solve(const char*, int, double, double)	32	static
 ../Core/Src/Free42/core_math1.cc:600:5:int return_to_solve(int, bool)	128	static
-../Core/Src/Free42/core_math1.cc:1040:6:void set_integ_prgm(const char*, int)	0	static
+../Core/Src/Free42/core_math1.cc:1040:6:void set_integ_prgm(const char*, int)	4	static
 ../Core/Src/Free42/core_math1.cc:1044:6:void get_integ_prgm(char*, int*)	0	static
-../Core/Src/Free42/core_math1.cc:1048:6:void set_integ_var(const char*, int)	0	static
+../Core/Src/Free42/core_math1.cc:1048:6:void set_integ_var(const char*, int)	4	static
 ../Core/Src/Free42/core_math1.cc:1052:6:void get_integ_var(char*, int*)	0	static
-../Core/Src/Free42/core_math1.cc:1197:5:int return_to_integ(bool)	104	static
+../Core/Src/Free42/core_math1.cc:1197:5:int return_to_integ(bool)	136	static
 ../Core/Src/Free42/core_math1.cc:1093:5:int start_integ(const char*, int)	16	static

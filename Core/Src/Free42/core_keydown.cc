@@ -31,7 +31,7 @@
 #include "shell.h"
 
 
-static bool is_number_key(int shift, int key, bool *invalid) {
+__attribute__((section(".RamFunc"))) static bool is_number_key(int shift, int key, bool *invalid) {
     *invalid = false;
     if (get_front_menu() == MENU_BASE_A_THRU_F
             && (key == KEY_SIGMA || key == KEY_INV || key == KEY_SQRT
@@ -152,7 +152,7 @@ static cmd_getkey_mapping_struct cmd_getkey_mapping[] = {
     {  0, CMD_NONE }
 };
 
-void keydown(int shift, int key) {
+__attribute__((section(".RamFunc"))) void keydown(int shift, int key) {
     // Preserve state of Shift, to allow MENU handlers to implement
     // different behaviors for unshifted and shifted menu keys.
     flags.f.shift_state = shift;
@@ -404,7 +404,7 @@ void keydown(int shift, int key) {
         keydown_normal_mode(shift, key);
 }
 
-void keydown_number_entry(int shift, int key) {
+__attribute__((section(".RamFunc"))) void keydown_number_entry(int shift, int key) {
     phloat x;
     char buf[100];
     int bufptr;
@@ -2053,7 +2053,7 @@ void keydown_alpha_mode(int shift, int key) {
         do_interactive(command);
 }
 
-void keydown_normal_mode(int shift, int key) {
+__attribute__((section(".RamFunc"))) void keydown_normal_mode(int shift, int key) {
     int command;
 
     bool invalid;

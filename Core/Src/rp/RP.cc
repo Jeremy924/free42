@@ -21,6 +21,7 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 #define LCD_ON          0x0010
 #define LCD_OFF         0x0011
 #define DRAW_LCD        0x0012
+#define CLEAR_LCD       0x0013
 #define DRAW_PAGE0      0x0018
 #define DRAW_PAGE1      0x0019
 #define DRAW_PAGE2      0x001A
@@ -63,6 +64,11 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+void RP_CLEAR_LCD() {
+	systemCallData.command = CLEAR_LCD;
+	__asm volatile("SVC #0");
+}
 
 // miscelaneous
 void RP_NOP() {
@@ -420,11 +426,11 @@ void  RP_UNREGISTER_TIMER(uint8_t handle) {
 }
 
 struct TextUIParams {
-	char* text;
+	const char* text;
 	uint8_t* page;
 	uint8_t* col;
 };
-void RP_PRINT_TEXT(char* text, uint8_t* page, uint8_t* col) {
+void RP_PRINT_TEXT(const char* text, uint8_t* page, uint8_t* col) {
 	struct TextUIParams args;
 	args.text = text;
 	args.page = page;

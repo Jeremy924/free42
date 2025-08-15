@@ -1,4 +1,4 @@
 ../Core/Src/Free42/core_phloat.cc:823:6:void phloat_init()	1
-../Core/Src/Free42/core_phloat.cc:846:5:int string2phloat(const char*, int, double*)	25
-../Core/Src/Free42/core_phloat.cc:972:8:double decimal2double(void*, bool)	10
-../Core/Src/Free42/core_phloat.cc:995:5:int phloat2string(double, char*, int, int, int, int, int, int, const char*)	130
+../Core/Src/Free42/core_phloat.cc:846:42:int string2phloat(const char*, int, double*)	68
+../Core/Src/Free42/core_phloat.cc:972:45:double decimal2double(void*, bool)	6
+../Core/Src/Free42/core_phloat.cc:995:5:int phloat2string(double, char*, int, int, int, int, int, int, const char*)	518

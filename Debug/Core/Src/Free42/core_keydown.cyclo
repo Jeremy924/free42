@@ -1,10 +1,7 @@
-../Core/Src/Free42/core_keydown.cc:34:13:bool is_number_key(int, int, bool*)	11
 ../Core/Src/Free42/core_keydown.cc:68:13:void set_solve_integ(int)	6
-../Core/Src/Free42/core_keydown.cc:61:12:int basekeys()	2
 ../Core/Src/Free42/core_keydown.cc:91:13:void view(const char*, int)	3
-C:/Users/Jerem/OneDrive/Documents/career/my_projects/stm-workspace/Free42/Core/Inc/Free42/core_globals.h:350:17:bool prgm_struct::is_end(int)	2
-../Core/Src/Free42/core_keydown.cc:407:6:void keydown_number_entry(int, int)	79
-../Core/Src/Free42/core_keydown.cc:681:6:void keydown_command_entry(int, int)	362
-../Core/Src/Free42/core_keydown.cc:1791:6:void keydown_alpha_mode(int, int)	99
-../Core/Src/Free42/core_keydown.cc:2056:6:void keydown_normal_mode(int, int)	248
-../Core/Src/Free42/core_keydown.cc:155:6:void keydown(int, int)	92
+../Core/Src/Free42/core_keydown.cc:407:43:void keydown_number_entry(int, int)	128
+../Core/Src/Free42/core_keydown.cc:681:6:void keydown_command_entry(int, int)	590
+../Core/Src/Free42/core_keydown.cc:1791:6:void keydown_alpha_mode(int, int)	126
+../Core/Src/Free42/core_keydown.cc:2056:43:void keydown_normal_mode(int, int)	307
+../Core/Src/Free42/core_keydown.cc:155:43:void keydown(int, int)	161

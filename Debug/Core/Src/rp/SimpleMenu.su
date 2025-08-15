@@ -1,0 +1,2 @@
+../Core/Src/rp/SimpleMenu.cc:16:6:void _render_menu(const char**, unsigned int)	40	static
+../Core/Src/rp/SimpleMenu.cc:31:14:unsigned int show_simple_menu(const char* (*)(unsigned int), bool (*)(unsigned int), unsigned int)	88	static

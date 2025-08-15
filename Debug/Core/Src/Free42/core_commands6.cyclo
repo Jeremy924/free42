@@ -1,31 +1,31 @@
-../Core/Src/Free42/core_commands6.cc:584:12:int mappable_square_r(double, double*)	4
-../Core/Src/Free42/core_commands6.cc:597:12:int mappable_square_c(double, double, double*, double*)	9
-../Core/Src/Free42/core_commands6.cc:626:12:int mappable_inv_r(double, double*)	6
-../Core/Src/Free42/core_commands6.cc:41:12:int mappable_sin_c(double, double, double*, double*)	11
-../Core/Src/Free42/core_commands6.cc:93:12:int mappable_cos_c(double, double, double*, double*)	14
+../Core/Src/Free42/core_commands6.cc:584:12:int mappable_square_r(double, double*)	1
+../Core/Src/Free42/core_commands6.cc:597:12:int mappable_square_c(double, double, double*, double*)	1
+../Core/Src/Free42/core_commands6.cc:626:12:int mappable_inv_r(double, double*)	2
 ../Core/Src/Free42/core_commands6.cc:142:12:int mappable_tan_r(double, double*)	1
 ../Core/Src/Free42/core_commands6.cc:210:12:int mappable_asin_c(double, double, double*, double*)	1
 ../Core/Src/Free42/core_commands6.cc:262:12:int mappable_acos_c(double, double, double*, double*)	4
 ../Core/Src/Free42/core_commands6.cc:322:12:int mappable_atan_c(double, double, double*, double*)	1
-../Core/Src/Free42/core_commands6.cc:305:12:int mappable_atan_r(double, double*)	9
+../Core/Src/Free42/core_commands6.cc:338:12:int mappable_log_r(double, double*)	2
 ../Core/Src/Free42/core_commands6.cc:347:12:int mappable_log_c(double, double, double*, double*)	6
-../Core/Src/Free42/core_commands6.cc:422:12:int mappable_10_pow_x_c(double, double, double*, double*)	11
-../Core/Src/Free42/core_commands6.cc:516:12:int mappable_e_pow_x_c(double, double, double*, double*)	8
-../Core/Src/Free42/core_commands6.cc:506:12:int mappable_e_pow_x_r(double, double*)	4
+../Core/Src/Free42/core_commands6.cc:422:12:int mappable_10_pow_x_c(double, double, double*, double*)	1
+../Core/Src/Free42/core_commands6.cc:412:12:int mappable_10_pow_x_r(double, double*)	1
+../Core/Src/Free42/core_commands6.cc:462:12:int mappable_ln_r(double, double*)	2
+../Core/Src/Free42/core_commands6.cc:516:12:int mappable_e_pow_x_c(double, double, double*, double*)	1
+../Core/Src/Free42/core_commands6.cc:506:12:int mappable_e_pow_x_r(double, double*)	1
+../Core/Src/Free42/core_commands6.cc:551:12:int mappable_sqrt_r(double, double*)	2
 ../Core/Src/Free42/core_commands6.cc:31:12:int mappable_sin_r(double, double*)	3
 ../Core/Src/Free42/core_commands6.cc:83:12:int mappable_cos_r(double, double*)	3
+../Core/Src/Free42/core_commands6.cc:41:12:int mappable_sin_c(double, double, double*, double*)	3
+../Core/Src/Free42/core_commands6.cc:93:12:int mappable_cos_c(double, double, double*, double*)	3
+../Core/Src/Free42/core_commands6.cc:305:12:int mappable_atan_r(double, double*)	6
+../Core/Src/Free42/core_commands6.cc:146:12:int mappable_tan_c(double, double, double*, double*)	5
 ../Core/Src/Free42/core_commands6.cc:194:12:int mappable_asin_r(double, double*)	8
 ../Core/Src/Free42/core_commands6.cc:247:12:int mappable_acos_r(double, double*)	8
-../Core/Src/Free42/core_commands6.cc:338:12:int mappable_log_r(double, double*)	2
-../Core/Src/Free42/core_commands6.cc:462:12:int mappable_ln_r(double, double*)	2
-../Core/Src/Free42/core_commands6.cc:551:12:int mappable_sqrt_r(double, double*)	2
-../Core/Src/Free42/core_commands6.cc:146:12:int mappable_tan_c(double, double, double*, double*)	9
-../Core/Src/Free42/core_commands6.cc:412:12:int mappable_10_pow_x_r(double, double*)	4
 ../Core/Src/Free42/core_commands6.cc:75:5:int docmd_sin(arg_struct*)	2
 ../Core/Src/Free42/core_commands6.cc:134:5:int docmd_cos(arg_struct*)	2
 ../Core/Src/Free42/core_commands6.cc:186:5:int docmd_tan(arg_struct*)	2
-../Core/Src/Free42/core_commands6.cc:218:5:int docmd_asin(arg_struct*)	9
-../Core/Src/Free42/core_commands6.cc:275:5:int docmd_acos(arg_struct*)	9
+../Core/Src/Free42/core_commands6.cc:218:5:int docmd_asin(arg_struct*)	14
+../Core/Src/Free42/core_commands6.cc:275:5:int docmd_acos(arg_struct*)	14
 ../Core/Src/Free42/core_commands6.cc:330:5:int docmd_atan(arg_struct*)	2
 ../Core/Src/Free42/core_commands6.cc:377:5:int docmd_log(arg_struct*)	8
 ../Core/Src/Free42/core_commands6.cc:453:5:int docmd_10_pow_x(arg_struct*)	2
@@ -34,8 +34,8 @@
 ../Core/Src/Free42/core_commands6.cc:560:5:int docmd_sqrt(arg_struct*)	6
 ../Core/Src/Free42/core_commands6.cc:618:5:int docmd_square(arg_struct*)	2
 ../Core/Src/Free42/core_commands6.cc:639:5:int docmd_inv(arg_struct*)	2
-../Core/Src/Free42/core_commands6.cc:647:5:int docmd_y_pow_x(arg_struct*)	70
+../Core/Src/Free42/core_commands6.cc:647:5:int docmd_y_pow_x(arg_struct*)	33
 ../Core/Src/Free42/core_commands6.cc:849:5:int docmd_anum(arg_struct*)	3
-../Core/Src/Free42/core_commands6.cc:860:5:int docmd_x_swap_f(arg_struct*)	5
+../Core/Src/Free42/core_commands6.cc:860:5:int docmd_x_swap_f(arg_struct*)	2
 ../Core/Src/Free42/core_commands6.cc:878:5:int docmd_rclflag(arg_struct*)	7
-../Core/Src/Free42/core_commands6.cc:907:5:int docmd_stoflag(arg_struct*)	26
+../Core/Src/Free42/core_commands6.cc:907:5:int docmd_stoflag(arg_struct*)	23

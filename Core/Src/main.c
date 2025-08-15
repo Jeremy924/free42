@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include <rp/RP.hh>
+#include <rp/SimpleMenu.hh>
 #include "main.h"
 #include "spi.h"
 #include "gpio.h"
@@ -69,6 +70,104 @@ const uint32_t Magic = 912559;
 void (*timer_callbacks[10])(uint8_t);
 
 
+const char* start_menu_items[] = {
+		"Free42 Main Menu",
+		"1. Load State File",
+		"2. Save State File",
+		"3. Settings",
+		"4. Help",
+		"5. License",
+		"6. Exit",
+};
+
+void show_license() {
+	uint8_t page = 0;
+	uint8_t col = 0;
+
+	RP_CLEAR_LCD();
+
+	RP_PRINT_TEXT("          Free42", &page, &col);
+
+	page = 1;
+	col = 0;
+	RP_PRINT_TEXT("   GNU Public License", &page, &col);
+
+	page = 3;
+	col = 0;
+	RP_PRINT_TEXT("www.gnu.org/licenses/gpl", &page, &col);
+
+	RP_CLEAR_KEY_QUEUE();
+	while (RP_WA_KEY() == 255);
+}
+
+void settings() {
+	RP_CLEAR_LCD();
+
+	uint8_t page = 0;
+	uint8_t col = 0;
+
+	RP_PRINT_TEXT("Settings", &page, &col);
+	page = 1;
+	col = 0;
+	RP_PRINT_TEXT("   No Settings available", &page, &col);
+
+	while (RP_WA_KEY() == 255);
+}
+
+void help() {
+	RP_CLEAR_LCD();
+
+	uint8_t page = 0;
+	uint8_t col = 0;
+
+	RP_PRINT_TEXT("See website for help", &page, &col);
+	page = 2;
+	col = 0;
+	RP_PRINT_TEXT("Jeremy924.github.io/help", &page, &col);
+
+	while (RP_WA_KEY() == 255);
+}
+
+const char* start_menu_provider(unsigned int index) {
+	if (index >= sizeof(start_menu_items)) return 0;
+	return start_menu_items[index];
+}
+
+bool start_menu_item_selected(unsigned int index) {
+	if (index == 2) {
+		char* result_buffer = (char*) malloc(256);
+		RP_FILE_SELECTOR("states", ".f42", result_buffer, 256);
+
+		if (result_buffer[0] != '\0')
+			core_save_state(result_buffer);
+
+		free(result_buffer);
+	} else if (index == 6)
+		return true;
+	else if (index == 5) show_license();
+	else if (index == 3) settings();
+	else if (index == 4) help();
+	else if (index == 1) {
+		char* result_buffer = (char*) malloc(256);
+		RP_FILE_SELECTOR("states", ".f42", result_buffer, 256);
+
+		if (result_buffer[0] == '\0') {
+			free(result_buffer);
+			return false;
+		}
+
+		core_cleanup();
+		core_init(1, 1, result_buffer, 0);
+
+		free(result_buffer);
+
+		return true;
+	}
+
+	return false;
+}
+
+
 /* Private function prototypes -----------------------------------------------*/
 //void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
@@ -111,7 +210,17 @@ __ramFunc void processEvent(uint8_t key) {
 }
 
 __ramFunc void checkForEvents() {
+	uint8_t key_queue[5];
 
+	key_queue[0] = RP_WA_KEY();
+
+	char next_key;
+	do {
+		next_key = RP_GET_KEY();
+
+		if (next_key == 254) break;
+
+	} while (next_key != 254);
 }
 
 /* USER CODE END PFP */
@@ -141,9 +250,104 @@ __ramFunc void update_lcd() {
 #define __ramFunc __attribute__((section(".RamFunc")))
 char state_file[64];
 
-__ramFunc void main_loop() {
+__ramFunc void alt_main_loop() {
+	  /*bool* enqueued = (bool*) malloc(sizeof(bool));
+	  int* repeat = (int*) malloc(sizeof(int));
+
+	while (1) {
+		  char key = RP_WA_KEY();
+		  // read all keys before redrawing
+
+		  if (key == 255) {
+			//if (!*enqueued) core_keyup();
+
+		  } else {
+			  if (core_keydown(key, enqueued, repeat)) {
+				  while (core_keydown(0, enqueued, repeat)) continue;
+			  }
+
+			  while (program_running()) core_keydown(0, enqueued, repeat);
+
+			  core_keyup();
+		  }
+	}*/
+
 	bool enqueued = false;
 	int repeat = 0;
+
+	bool dummy_enqueued = false;
+	int dummy_repeat = 0;
+
+	uint8_t exit_timer = 50;
+	bool last_was_repeated = false;
+	bool last_was_down = false;
+
+	uint8_t off_timer = RP_REGISTER_TIMER(30000, 0, 0);
+
+	while (1) {
+		if (should_power_off) {
+			RP_POWER_OFF();
+			should_power_off = false;
+			continue;
+		}
+
+		systemCallData.command = 0x0002;
+		__asm volatile("SVC #0");
+
+		char key = (char) systemCallData.result;
+
+		if (key == (exit_timer + 100)) {
+			show_simple_menu(start_menu_provider, start_menu_item_selected, 6);
+			exit_timer = 0;
+			core_repaint_display();
+		}
+		if (key == (off_timer + 100)) {
+			RP_POWER_OFF();
+			continue;
+		}
+
+		if (key == 255) {
+			while (core_keyup()) core_keydown(0, &dummy_enqueued, &dummy_repeat);
+			last_was_down = false;
+
+			off_timer = RP_REGISTER_TIMER(60000, 0, 0);
+
+			if (exit_timer != 50) {
+				RP_UNREGISTER_TIMER(exit_timer);
+				exit_timer = 50;
+			}
+
+			continue;
+		} else if (key != 0 && key < 38) {
+			if (off_timer != 50) {
+				RP_UNREGISTER_TIMER(off_timer);
+				off_timer = 50;
+			}
+			if (last_was_down) {
+				core_keyup();
+			}
+
+			last_was_down = true;
+
+			bool should_repeat = core_keydown(key, &enqueued, &repeat);
+
+			last_was_repeated = should_repeat;
+
+			while (should_repeat) should_repeat = core_keydown(0, &dummy_enqueued, &dummy_repeat);
+
+			if (key == 33) {
+				exit_timer = RP_REGISTER_TIMER(3000, 0, 0);
+			}
+		}
+	}
+}
+
+void main_loop() {
+	//__asm volatile("BKPT #0");
+	bool enqueued = false;
+	int repeat = 0;
+
+	bool last_was_keyup = false;
 
 	  while (1) {
           if (should_power_off) {
@@ -164,6 +368,7 @@ __ramFunc void main_loop() {
 		}
 
 		  if (key == 255) {
+			  last_was_keyup = true;
 			  if (repeat_handle != 255) {
 				  RP_UNREGISTER_TIMER(repeat_handle);
 				  repeat_handle = 255;
@@ -183,7 +388,14 @@ __ramFunc void main_loop() {
 				  should_recall = core_keyup();
 			  } while (should_recall);
 		  } else {
-			  bool should_recall = core_keydown(key, &enqueued, &repeat);
+			  bool should_recall;
+			  if (!last_was_keyup) {
+				  do {
+					  should_recall = core_keyup();
+				  } while (should_recall);
+			  } else last_was_keyup = false;
+
+			  should_recall = core_keydown(key, &enqueued, &repeat);
 
 			  if (!enqueued && repeat == 0) {
 				  timeout1_handle = register_timer(250, timeout1_callback);
@@ -221,13 +433,13 @@ __ramFunc void callbackTick(uint8_t handle) {
 
 /* USER CODE END 0 */
 
+
 /**
   * @brief  The application entry point.
   * @retval int
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
   /* USER CODE END 1 */
 
@@ -258,6 +470,8 @@ int main(void)
 
  //RP_FILE_SELECTOR("states", ".f42", state_file, sizeof(state_file));
 
+  //show_simple_menu(start_menu_provider, start_menu_item_selected, 6);
+
   core_init(0, 1, "", 0);
 
   core_update_allow_big_stack();
@@ -284,7 +498,7 @@ int main(void)
 
 	  if (key == 254) key = key_queue[kqri++];*/
 	  //uint8_t key = (uint8_t) sys_func(0x0002, 0);
-	  main_loop();
+	  alt_main_loop();
 
 	  //frame_ready = true;
 	  //update_lcd();

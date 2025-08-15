@@ -1,61 +1,62 @@
-../Core/Src/Free42/core_display.cc:819:50:void mark_dirty(int, int, int, int)	6
 ../Core/Src/Free42/core_display.cc:1430:12:int set_appmenu(int, bool)	8
-../Core/Src/Free42/core_display.cc:886:13:void draw_key(int, int, int, const char*, int)	27
-../Core/Src/Free42/core_display.cc:1879:12:int procrustean_phloat2string(double, char*, int)	14
-../Core/Src/Free42/core_display.cc:2660:12:int get_cat_index()	5
+../Core/Src/Free42/core_display.cc:875:50:void fill_rect(int, int, int, int, int)	8
+../Core/Src/Free42/core_display.cc:886:50:void draw_key(int, int, int, const char*, int)	36
+../Core/Src/Free42/core_display.cc:886:50:void draw_key(int, int, int, const char*, int)	51
+../Core/Src/Free42/core_display.cc:838:43:void draw_char(int, int, char)	14
+../Core/Src/Free42/core_display.cc:838:43:void draw_char(int, int, char)	14
+../Core/Src/Free42/core_display.cc:1640:13:void draw_catalog()	88
 ../Core/Src/Free42/core_display.cc:614:6:bool persist_display()	20
 ../Core/Src/Free42/core_display.cc:645:6:bool unpersist_display(int)	24
-../Core/Src/Free42/core_display.cc:687:43:void clear_display()	1
+../Core/Src/Free42/core_display.cc:687:43:void clear_display()	6
 ../Core/Src/Free42/core_display.cc:695:43:void flush_display()	2
 ../Core/Src/Free42/core_display.cc:703:6:void repaint_display()	1
-../Core/Src/Free42/core_display.cc:707:43:void draw_pixel(int, int)	1
-../Core/Src/Free42/core_display.cc:712:43:void draw_pattern(double, double, const char*, int)	25
+../Core/Src/Free42/core_display.cc:707:43:void draw_pixel(int, int)	6
+../Core/Src/Free42/core_display.cc:712:6:void draw_pattern(double, double, const char*, int)	90
+../Core/Src/Free42/core_display.cc:783:6:void fly_goose()	5
 ../Core/Src/Free42/core_display.cc:808:6:void squeak()	2
 ../Core/Src/Free42/core_display.cc:813:6:void tone(int)	2
-../Core/Src/Free42/core_display.cc:838:43:void draw_char(int, int, char)	7
+../Core/Src/Free42/core_display.cc:838:43:void draw_char(int, int, char)	15
 ../Core/Src/Free42/core_display.cc:861:13:const char* get_char(char)	2
-../Core/Src/Free42/core_display.cc:868:6:void draw_string(int, int, const char*, int)	3
-../Core/Src/Free42/core_display.cc:978:5:int special_menu_key(int)	3
-../Core/Src/Free42/core_display.cc:985:6:void clear_row(int)	3
-../Core/Src/Free42/core_display.cc:783:6:void fly_goose()	4
-../Core/Src/Free42/core_display.cc:1073:6:void tb_write(textbuf*, const char*, size_t)	5
-../Core/Src/Free42/core_display.cc:1096:6:void tb_indent(textbuf*, int)	2
-../Core/Src/Free42/core_display.cc:1101:6:void tb_write_null(textbuf*)	1
-../Core/Src/Free42/core_display.cc:1196:6:void xlabel2buf(char*, int, int*)	8
-../Core/Src/Free42/core_display.cc:1225:6:void display_x(int)	3
-../Core/Src/Free42/core_display.cc:1237:6:void display_y(int)	5
-../Core/Src/Free42/core_display.cc:1256:6:void display_incomplete_command(int)	13
-../Core/Src/Free42/core_display.cc:1321:6:void display_error(int, bool)	5
-../Core/Src/Free42/core_display.cc:1458:6:void draw_varmenu()	13
-../Core/Src/Free42/core_display.cc:1867:6:void display_mem()	1
+../Core/Src/Free42/core_display.cc:868:43:void draw_string(int, int, const char*, int)	5
+../Core/Src/Free42/core_display.cc:978:5:int special_menu_key(int)	6
+../Core/Src/Free42/core_display.cc:985:6:void clear_row(int)	8
+../Core/Src/Free42/core_display.cc:1073:43:void tb_write(textbuf*, const char*, size_t)	6
+../Core/Src/Free42/core_display.cc:1096:43:void tb_indent(textbuf*, int)	8
+../Core/Src/Free42/core_display.cc:1101:6:void tb_write_null(textbuf*)	6
+../Core/Src/Free42/core_display.cc:1196:6:void xlabel2buf(char*, int, int*)	9
+../Core/Src/Free42/core_display.cc:1225:43:void display_x(int)	6
+../Core/Src/Free42/core_display.cc:1237:43:void display_y(int)	9
+../Core/Src/Free42/core_display.cc:1256:6:void display_incomplete_command(int)	20
+../Core/Src/Free42/core_display.cc:1321:6:void display_error(int, bool)	15
+../Core/Src/Free42/core_display.cc:1340:6:void display_command(int)	37
+../Core/Src/Free42/core_display.cc:1458:43:void draw_varmenu()	15
+../Core/Src/Free42/core_display.cc:1867:6:void display_mem()	14
 ../Core/Src/Free42/core_display.cc:2363:6:void print_display()	1
-../Core/Src/Free42/core_display.cc:2548:5:int command2buf(char*, int, int, const arg_struct*)	29
+../Core/Src/Free42/core_display.cc:2548:5:int command2buf(char*, int, int, const arg_struct*)	44
 ../Core/Src/Free42/core_display.cc:989:12:int prgmline2buf(char*, int, int, int, int, arg_struct*, const char*, bool, bool, char**)	25
-../Core/Src/Free42/core_display.cc:1106:6:void tb_print_current_program(textbuf*)	5
-../Core/Src/Free42/core_display.cc:1141:6:void display_prgm_line(int, int)	8
-../Core/Src/Free42/core_display.cc:1936:6:void show()	21
-../Core/Src/Free42/core_display.cc:2428:12:int print_program_worker(bool)	33
-../Core/Src/Free42/core_display.cc:2386:5:int print_program(int, int, int, bool)	5
+../Core/Src/Free42/core_display.cc:1106:6:void tb_print_current_program(textbuf*)	11
+../Core/Src/Free42/core_display.cc:1141:43:void display_prgm_line(int, int)	17
+../Core/Src/Free42/core_display.cc:1936:6:void show()	89
+../Core/Src/Free42/core_display.cc:2054:6:void redisplay()	118
+../Core/Src/Free42/core_display.cc:2428:49:int print_program_worker(bool)	49
+../Core/Src/Free42/core_display.cc:2386:42:int print_program(int, int, int, bool)	4
 ../Core/Src/Free42/core_display.cc:2544:6:void print_program_line(int, int)	1
+../Core/Src/Free42/core_display.cc:2675:6:void set_menu(int, int)	31
+../Core/Src/Free42/core_display.cc:2683:5:int set_menu_return_err(int, int, bool)	30
 ../Core/Src/Free42/core_display.cc:2742:6:void set_appmenu_exitcallback(int)	1
-../Core/Src/Free42/core_display.cc:2863:5:int get_front_menu()	5
-../Core/Src/Free42/core_display.cc:2683:5:int set_menu_return_err(int, int, bool)	12
-../Core/Src/Free42/core_display.cc:2675:6:void set_menu(int, int)	2
-../Core/Src/Free42/core_display.cc:2875:6:void set_cat_section(int)	2
-../Core/Src/Free42/core_display.cc:2881:5:int get_cat_section()	2
-../Core/Src/Free42/core_display.cc:1340:6:void display_command(int)	24
-../Core/Src/Free42/core_display.cc:1640:13:void draw_catalog()	67
-../Core/Src/Free42/core_display.cc:2054:6:void redisplay()	114
-../Core/Src/Free42/core_display.cc:2746:6:void set_plainmenu(int)	13
-../Core/Src/Free42/core_display.cc:2889:6:void move_cat_row(int)	6
+../Core/Src/Free42/core_display.cc:2746:6:void set_plainmenu(int)	14
 ../Core/Src/Free42/core_display.cc:2804:6:void set_catalog_menu(int)	15
-../Core/Src/Free42/core_display.cc:2906:6:void set_cat_row(int)	2
-../Core/Src/Free42/core_display.cc:2913:5:int get_cat_row()	2
-../Core/Src/Free42/core_display.cc:2921:5:int get_cat_item(int)	2
-../Core/Src/Free42/core_display.cc:2929:6:void update_catalog()	28
-../Core/Src/Free42/core_display.cc:3028:6:void clear_custom_menu()	2
-../Core/Src/Free42/core_display.cc:3035:6:void assign_custom_key(int, const char*, int)	2
+../Core/Src/Free42/core_display.cc:2863:5:int get_front_menu()	5
+../Core/Src/Free42/core_display.cc:2875:6:void set_cat_section(int)	6
+../Core/Src/Free42/core_display.cc:2881:5:int get_cat_section()	6
+../Core/Src/Free42/core_display.cc:2889:6:void move_cat_row(int)	10
+../Core/Src/Free42/core_display.cc:2906:6:void set_cat_row(int)	6
+../Core/Src/Free42/core_display.cc:2913:5:int get_cat_row()	6
+../Core/Src/Free42/core_display.cc:2921:5:int get_cat_item(int)	6
+../Core/Src/Free42/core_display.cc:2929:6:void update_catalog()	51
+../Core/Src/Free42/core_display.cc:3028:6:void clear_custom_menu()	1
+../Core/Src/Free42/core_display.cc:3035:43:void assign_custom_key(int, const char*, int)	12
 ../Core/Src/Free42/core_display.cc:3044:6:void get_custom_key(int, char*, int*)	1
-../Core/Src/Free42/core_display.cc:3051:6:void clear_prgm_menu()	2
+../Core/Src/Free42/core_display.cc:3051:43:void clear_prgm_menu()	1
 ../Core/Src/Free42/core_display.cc:3059:6:void assign_prgm_key(int, bool, const arg_struct*)	3
-../Core/Src/Free42/core_display.cc:3074:6:void do_prgm_menu_key(int)	10
+../Core/Src/Free42/core_display.cc:3074:43:void do_prgm_menu_key(int)	16

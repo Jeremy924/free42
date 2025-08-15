@@ -1,36 +1,35 @@
 ../Core/Src/Free42/core_commands3.cc:46:12:int mappable_acosh_c(double, double, double*, double*)	1
+../Core/Src/Free42/core_commands3.cc:38:12:int mappable_acosh_r(double, double*)	2
 ../Core/Src/Free42/core_commands3.cc:605:13:void det_completion(int, vartype*)	2
 ../Core/Src/Free42/core_commands3.cc:138:12:int mappable_asinh_c(double, double, double*, double*)	1
 ../Core/Src/Free42/core_commands3.cc:133:12:int mappable_asinh_r(double, double*)	1
-../Core/Src/Free42/core_commands3.cc:209:12:int mappable_cosh_r(double, double*)	4
-../Core/Src/Free42/core_commands3.cc:1023:12:int mappable_e_pow_x_1_r(double, double*)	4
-../Core/Src/Free42/core_commands3.cc:1034:12:int mappable_e_pow_x_1_c(double, double, double*, double*)	11
-../Core/Src/Free42/core_commands3.cc:1072:12:int fnrm(vartype*, double*)	8
-../Core/Src/Free42/core_commands3.cc:1212:12:int hms_add_or_sub(bool)	15
-../Core/Src/Free42/core_commands3.cc:38:12:int mappable_acosh_r(double, double*)	2
+../Core/Src/Free42/core_commands3.cc:209:12:int mappable_cosh_r(double, double*)	1
+../Core/Src/Free42/core_commands3.cc:1023:12:int mappable_e_pow_x_1_r(double, double*)	1
+../Core/Src/Free42/core_commands3.cc:1034:12:int mappable_e_pow_x_1_c(double, double, double*, double*)	2
+../Core/Src/Free42/core_commands3.cc:1072:12:int fnrm(vartype*, double*)	6
+../Core/Src/Free42/core_commands3.cc:1212:12:int hms_add_or_sub(bool)	19
 ../Core/Src/Free42/core_commands3.cc:150:12:int mappable_atanh_r(double, double*)	3
-../Core/Src/Free42/core_commands3.cc:860:12:int finish_edit()	2
-../Core/Src/Free42/core_commands3.cc:221:12:int mappable_cosh_c(double, double, double*, double*)	11
+../Core/Src/Free42/core_commands3.cc:221:12:int mappable_cosh_c(double, double, double*, double*)	3
 ../Core/Src/Free42/core_commands3.cc:50:5:int docmd_acosh(arg_struct*)	7
 ../Core/Src/Free42/core_commands3.cc:77:5:int docmd_aleng(arg_struct*)	2
 ../Core/Src/Free42/core_commands3.cc:84:5:int docmd_aoff(arg_struct*)	1
 ../Core/Src/Free42/core_commands3.cc:89:5:int docmd_aon(arg_struct*)	1
 ../Core/Src/Free42/core_commands3.cc:95:5:int docmd_arot(arg_struct*)	9
-../Core/Src/Free42/core_commands3.cc:121:5:int docmd_ashf(arg_struct*)	4
+../Core/Src/Free42/core_commands3.cc:121:5:int docmd_ashf(arg_struct*)	5
 ../Core/Src/Free42/core_commands3.cc:142:5:int docmd_asinh(arg_struct*)	2
 ../Core/Src/Free42/core_commands3.cc:162:5:int docmd_atanh(arg_struct*)	10
 ../Core/Src/Free42/core_commands3.cc:193:5:int docmd_atox(arg_struct*)	7
 ../Core/Src/Free42/core_commands3.cc:254:5:int docmd_cosh(arg_struct*)	2
-../Core/Src/Free42/core_commands3.cc:262:5:int docmd_cross(arg_struct*)	37
+../Core/Src/Free42/core_commands3.cc:262:5:int docmd_cross(arg_struct*)	45
 ../Core/Src/Free42/core_commands3.cc:342:5:int docmd_custom(arg_struct*)	2
-../Core/Src/Free42/core_commands3.cc:350:5:int docmd_delr(arg_struct*)	60
+../Core/Src/Free42/core_commands3.cc:350:5:int docmd_delr(arg_struct*)	81
 ../Core/Src/Free42/core_commands3.cc:610:5:int docmd_det(arg_struct*)	1
-../Core/Src/Free42/core_commands3.cc:614:5:int docmd_dim(arg_struct*)	10
-../Core/Src/Free42/core_commands3.cc:644:5:int docmd_dot(arg_struct*)	45
+../Core/Src/Free42/core_commands3.cc:614:5:int docmd_dim(arg_struct*)	8
+../Core/Src/Free42/core_commands3.cc:644:5:int docmd_dot(arg_struct*)	24
 ../Core/Src/Free42/core_commands3.cc:764:5:int matedit_get_dim(int*, int*, vartype**)	5
-../Core/Src/Free42/core_commands3.cc:792:5:int appmenu_exitcallback_1(int, bool)	9
-../Core/Src/Free42/core_commands3.cc:872:5:int docmd_edit(arg_struct*)	9
-../Core/Src/Free42/core_commands3.cc:927:5:int docmd_editn(arg_struct*)	16
+../Core/Src/Free42/core_commands3.cc:792:5:int appmenu_exitcallback_1(int, bool)	10
+../Core/Src/Free42/core_commands3.cc:872:5:int docmd_edit(arg_struct*)	10
+../Core/Src/Free42/core_commands3.cc:927:5:int docmd_editn(arg_struct*)	17
 ../Core/Src/Free42/core_commands3.cc:1019:5:int docmd_exitall(arg_struct*)	1
 ../Core/Src/Free42/core_commands3.cc:1056:5:int docmd_e_pow_x_1(arg_struct*)	2
 ../Core/Src/Free42/core_commands3.cc:1064:5:int docmd_c_e_pow_x_1(arg_struct*)	2
@@ -39,8 +38,8 @@
 ../Core/Src/Free42/core_commands3.cc:1207:5:int docmd_grow(arg_struct*)	1
 ../Core/Src/Free42/core_commands3.cc:1352:5:int docmd_hmsadd(arg_struct*)	1
 ../Core/Src/Free42/core_commands3.cc:1356:5:int docmd_hmssub(arg_struct*)	1
-../Core/Src/Free42/core_commands3.cc:1360:5:int docmd_i_add(arg_struct*)	5
-../Core/Src/Free42/core_commands3.cc:1383:5:int docmd_i_sub(arg_struct*)	5
-../Core/Src/Free42/core_commands3.cc:1406:6:void matedit_goto(int, int)	9
+../Core/Src/Free42/core_commands3.cc:1360:5:int docmd_i_add(arg_struct*)	6
+../Core/Src/Free42/core_commands3.cc:1383:5:int docmd_i_sub(arg_struct*)	6
+../Core/Src/Free42/core_commands3.cc:1406:6:void matedit_goto(int, int)	10
 ../Core/Src/Free42/core_commands3.cc:1430:5:int docmd_index(arg_struct*)	10
-../Core/Src/Free42/core_commands3.cc:1494:5:int docmd_uvec(arg_struct*)	8
+../Core/Src/Free42/core_commands3.cc:1494:5:int docmd_uvec(arg_struct*)	9

@@ -1,32 +1,30 @@
 ../Core/Src/Free42/core_commands4.cc:254:13:void invrt_completion(int, vartype*)	0	static
 ../Core/Src/Free42/core_commands4.cc:362:12:int mappable_ln_1_x_r(double, double*)	24	static
 ../Core/Src/Free42/core_commands4.cc:369:12:int mappable_ln_1_x_c(double, double, double*, double*)	80	static
-../Core/Src/Free42/core_commands4.cc:1696:12:int max_min_helper(int)	56	static
-../Core/Src/Free42/core_commands4.cc:786:12:int mappable_sinh_r(double, double*)	24	static
-../Core/Src/Free42/core_commands4.cc:798:12:int mappable_sinh_c(double, double, double*, double*)	72	static
+../Core/Src/Free42/core_commands4.cc:786:12:int mappable_sinh_r(double, double*)	8	static
 ../Core/Src/Free42/core_commands4.cc:944:12:int mappable_tanh_r(double, double*)	8	static
-../Core/Src/Free42/core_commands4.cc:1226:12:int matedit_move(int)	72	static
-../Core/Src/Free42/core_commands4.cc:1492:12:int matabx(int)	32	static
+../Core/Src/Free42/core_commands4.cc:1226:12:int matedit_move(int)	80	static
 ../Core/Src/Free42/core_commands4.cc:1450:12:int matx_completion(int, vartype*)	24	static
-../Core/Src/Free42/core_commands4.cc:949:12:int mappable_tanh_c(double, double, double*, double*)	72	static
+../Core/Src/Free42/core_commands4.cc:798:12:int mappable_sinh_c(double, double, double*, double*)	56	static
+../Core/Src/Free42/core_commands4.cc:949:12:int mappable_tanh_c(double, double, double*, double*)	64	static
 ../Core/Src/Free42/core_commands4.cc:259:5:int docmd_invrt(arg_struct*)	0	static
 ../Core/Src/Free42/core_commands4.cc:263:5:int docmd_j_add(arg_struct*)	48	static
 ../Core/Src/Free42/core_commands4.cc:331:5:int docmd_j_sub(arg_struct*)	32	static
 ../Core/Src/Free42/core_commands4.cc:403:5:int docmd_ln_1_x(arg_struct*)	16	static
 ../Core/Src/Free42/core_commands4.cc:411:5:int docmd_c_ln_1_x(arg_struct*)	24	static
 ../Core/Src/Free42/core_commands4.cc:436:5:int docmd_posa(arg_struct*)	8	static
-../Core/Src/Free42/core_commands4.cc:447:5:int docmd_putm(arg_struct*)	56	static
+../Core/Src/Free42/core_commands4.cc:447:5:int docmd_putm(arg_struct*)	48	static
 ../Core/Src/Free42/core_commands4.cc:535:5:int docmd_rclel(arg_struct*)	32	static
 ../Core/Src/Free42/core_commands4.cc:567:5:int docmd_rclij(arg_struct*)	16	static
-../Core/Src/Free42/core_commands4.cc:581:5:int docmd_rnrm(arg_struct*)	64	static
-../Core/Src/Free42/core_commands4.cc:641:5:int docmd_rsum(arg_struct*)	80	static
-../Core/Src/Free42/core_commands4.cc:708:5:int docmd_swap_r(arg_struct*)	48	static
+../Core/Src/Free42/core_commands4.cc:581:5:int docmd_rnrm(arg_struct*)	80	static
+../Core/Src/Free42/core_commands4.cc:641:5:int docmd_rsum(arg_struct*)	64	static
+../Core/Src/Free42/core_commands4.cc:708:5:int docmd_swap_r(arg_struct*)	40	static
 ../Core/Src/Free42/core_commands4.cc:831:5:int docmd_sinh(arg_struct*)	16	static
 ../Core/Src/Free42/core_commands4.cc:839:5:int docmd_stoel(arg_struct*)	40	static
-../Core/Src/Free42/core_commands4.cc:36:5:int docmd_insr(arg_struct*)	72	static
+../Core/Src/Free42/core_commands4.cc:36:5:int docmd_insr(arg_struct*)	88	static
 ../Core/Src/Free42/core_commands4.cc:893:5:int docmd_stoij(arg_struct*)	40	static
 ../Core/Src/Free42/core_commands4.cc:989:5:int docmd_tanh(arg_struct*)	16	static
-../Core/Src/Free42/core_commands4.cc:997:5:int docmd_trans(arg_struct*)	48	static
+../Core/Src/Free42/core_commands4.cc:997:5:int docmd_trans(arg_struct*)	56	static
 ../Core/Src/Free42/core_commands4.cc:1047:5:int docmd_wrap(arg_struct*)	0	static
 ../Core/Src/Free42/core_commands4.cc:1052:5:int docmd_x_swap(arg_struct*)	24	static
 ../Core/Src/Free42/core_commands4.cc:1409:5:int docmd_left(arg_struct*)	0	static
@@ -34,11 +32,11 @@
 ../Core/Src/Free42/core_commands4.cc:1417:5:int docmd_down(arg_struct*)	0	static
 ../Core/Src/Free42/core_commands4.cc:1421:5:int docmd_right(arg_struct*)	0	static
 ../Core/Src/Free42/core_commands4.cc:1425:5:int docmd_percent_ch(arg_struct*)	24	static
-../Core/Src/Free42/core_commands4.cc:1584:5:int docmd_mata(arg_struct*)	0	static
-../Core/Src/Free42/core_commands4.cc:1588:5:int docmd_matb(arg_struct*)	0	static
-../Core/Src/Free42/core_commands4.cc:1592:5:int docmd_matx(arg_struct*)	0	static
+../Core/Src/Free42/core_commands4.cc:1584:5:int docmd_mata(arg_struct*)	24	static
+../Core/Src/Free42/core_commands4.cc:1588:5:int docmd_matb(arg_struct*)	24	static
+../Core/Src/Free42/core_commands4.cc:1592:5:int docmd_matx(arg_struct*)	16	static
 ../Core/Src/Free42/core_commands4.cc:1596:5:int docmd_simq(arg_struct*)	24	static
-../Core/Src/Free42/core_commands4.cc:1732:5:int docmd_max(arg_struct*)	0	static
-../Core/Src/Free42/core_commands4.cc:1736:5:int docmd_min(arg_struct*)	0	static
+../Core/Src/Free42/core_commands4.cc:1732:5:int docmd_max(arg_struct*)	64	static
+../Core/Src/Free42/core_commands4.cc:1736:5:int docmd_min(arg_struct*)	64	static
 ../Core/Src/Free42/core_commands4.cc:1740:5:int docmd_find(arg_struct*)	72	static
 ../Core/Src/Free42/core_commands4.cc:1805:5:int docmd_xrom(arg_struct*)	0	static

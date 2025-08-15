@@ -1,8 +1,8 @@
-../Core/Src/Free42/core_math2.cc:21:8:double math_random()	32	static
-../Core/Src/Free42/core_math2.cc:71:5:int math_tan(double, double*, bool)	32	static
-../Core/Src/Free42/core_math2.cc:257:5:int math_ln(double, double, double*, double*)	64	static
+../Core/Src/Free42/core_math2.cc:21:8:double math_random()	48	static
+../Core/Src/Free42/core_math2.cc:71:5:int math_tan(double, double*, bool)	40	static
+../Core/Src/Free42/core_math2.cc:202:5:int math_atanh(double, double, double*, double*)	72	static
+../Core/Src/Free42/core_math2.cc:257:5:int math_ln(double, double, double*, double*)	72	static
 ../Core/Src/Free42/core_math2.cc:310:5:int math_sqrt(double, double, double*, double*)	48	static
-../Core/Src/Free42/core_math2.cc:129:5:int math_asinh(double, double, double*, double*)	104	static
-../Core/Src/Free42/core_math2.cc:164:5:int math_acosh(double, double, double*, double*)	80	static
-../Core/Src/Free42/core_math2.cc:366:5:int math_inv(double, double, double*, double*)	56	static
-../Core/Src/Free42/core_math2.cc:202:5:int math_atanh(double, double, double*, double*)	88	static
+../Core/Src/Free42/core_math2.cc:129:5:int math_asinh(double, double, double*, double*)	120	static
+../Core/Src/Free42/core_math2.cc:164:5:int math_acosh(double, double, double*, double*)	72	static
+../Core/Src/Free42/core_math2.cc:366:5:int math_inv(double, double, double*, double*)	64	static

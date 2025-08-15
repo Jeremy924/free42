@@ -47,6 +47,7 @@ defined in linker script */
 
 .word _sramfunc
 .word _eramfunc
+.word _siramfunc
 
 .equ  BootRAM,        0xF1E0F85F
 /**
@@ -99,7 +100,19 @@ LoopFillZerobss:
   bcc FillZerobss
 
 /* Load ram functions into ram2 */
+ldr r0, =_sramfunc
+ldr r1, =_eramfunc
+ldr r2, =_siramfunc
+movs r3, #0
 
+LoopLoadRamFunctionInit:
+	ldr r4, [r2, r3]
+	str r4, [r0, r3]
+	adds r3, r3, #4
+
+	adds r4, r0, r3
+	cmp r4, r1
+	bcc LoopLoadRamFunctionInit
 
 /* Call static constructors */
     bl __libc_init_array

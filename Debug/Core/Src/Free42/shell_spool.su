@@ -1,7 +1,7 @@
-../Core/Src/Free42/shell_spool.cc:27:5:int hp2ascii(char*, const char*, int)	36	static
+../Core/Src/Free42/shell_spool.cc:27:5:int hp2ascii(char*, const char*, int)	32	static
 ../Core/Src/Free42/shell_spool.cc:91:6:void shell_spool_txt(const char*, int, file_writer, file_newliner)	1016	static
-../Core/Src/Free42/shell_spool.cc:99:6:void shell_spool_bitmap_to_txt(const char*, int, int, int, int, int, file_writer, file_newliner)	56	static
+../Core/Src/Free42/shell_spool.cc:99:6:void shell_spool_bitmap_to_txt(const char*, int, int, int, int, int, file_writer, file_newliner)	64	static
 ../Core/Src/Free42/shell_spool.cc:168:5:int shell_start_gif(file_writer, int, int)	72	static
-../Core/Src/Free42/shell_spool.cc:266:6:void shell_spool_gif(const char*, int, int, int, int, int, file_writer)	64	static
-../Core/Src/Free42/shell_spool.cc:397:6:void shell_finish_gif(file_seeker, file_writer)	40	static
+../Core/Src/Free42/shell_spool.cc:266:6:void shell_spool_gif(const char*, int, int, int, int, int, file_writer)	88	static
+../Core/Src/Free42/shell_spool.cc:397:6:void shell_finish_gif(file_seeker, file_writer)	48	static
 ../Core/Src/Free42/shell_spool.cc:435:6:void shell_spool_exit()	8	static

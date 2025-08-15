@@ -858,7 +858,7 @@ static bool array_list_grow() {
     return true;
 }
 
-static int array_list_search(void *array) {
+__attribute__((section(".RamFunc"))) static int array_list_search(void *array) {
     for (int i = 0; i < array_count; i++)
         if (array_list[i] == array)
             return i;
@@ -1824,7 +1824,7 @@ void goto_dot_dot(bool force_new) {
     pc = -1;
 }
 
-int mvar_prgms_exist() {
+__attribute__((section(".RamFunc"))) int mvar_prgms_exist() {
     int i;
     for (i = 0; i < labels_count; i++)
         if (label_has_mvar(i))
@@ -1832,7 +1832,7 @@ int mvar_prgms_exist() {
     return 0;
 }
 
-int label_has_mvar(int lblindex) {
+__attribute__((section(".RamFunc"))) int label_has_mvar(int lblindex) {
     int saved_prgm;
     int4 pc;
     int command;
@@ -1848,7 +1848,7 @@ int label_has_mvar(int lblindex) {
     return command == CMD_MVAR;
 }
 
-int get_command_length(int prgm_index, int4 pc) {
+__attribute__((section(".RamFunc"))) int get_command_length(int prgm_index, int4 pc) {
     prgm_struct *prgm = prgms + prgm_index;
     int4 pc2 = pc;
     int command = prgm->text[pc2++];
@@ -2620,7 +2620,7 @@ int4 find_local_label(const arg_struct *arg) {
     return -2;
 }
 
-static int find_global_label_2(const arg_struct *arg, int *prgm, int4 *pc, int *idx) {
+__attribute__((section(".RamFunc"))) static int find_global_label_2(const arg_struct *arg, int *prgm, int4 *pc, int *idx) {
     int i;
     const char *name = arg->val.text;
     int namelen = arg->length;
@@ -3384,7 +3384,7 @@ bool integ_active() {
     return rtn_integ_active;
 }
 
-bool unwind_stack_until_solve() {
+__attribute__((section(".RamFunc"))) bool unwind_stack_until_solve() {
     int prgm;
     int4 pc;
     bool stop;

@@ -1,8 +1,8 @@
 ../Core/Src/Free42/core_linalg2.cc:484:12:int lu_backsubst_rr_worker(bool)	80	static
-../Core/Src/Free42/core_linalg2.cc:599:12:int lu_backsubst_rc_worker(bool)	112	static
-../Core/Src/Free42/core_linalg2.cc:735:12:int lu_backsubst_cc_worker(bool)	144	static
-../Core/Src/Free42/core_linalg2.cc:262:12:int lu_decomp_c_worker(bool)	184	static
+../Core/Src/Free42/core_linalg2.cc:599:12:int lu_backsubst_rc_worker(bool)	104	static
 ../Core/Src/Free42/core_linalg2.cc:78:12:int lu_decomp_r_worker(bool)	112	static
+../Core/Src/Free42/core_linalg2.cc:735:12:int lu_backsubst_cc_worker(bool)	152	static
+../Core/Src/Free42/core_linalg2.cc:262:12:int lu_decomp_c_worker(bool)	192	static
 ../Core/Src/Free42/core_linalg2.cc:52:5:int lu_decomp_r(vartype_realmatrix*, int*, int (*)(int, vartype_realmatrix*, int*, double))	24	static
 ../Core/Src/Free42/core_linalg2.cc:235:5:int lu_decomp_c(vartype_complexmatrix*, int*, int (*)(int, vartype_complexmatrix*, int*, double, double))	24	static
 ../Core/Src/Free42/core_linalg2.cc:462:5:int lu_backsubst_rr(vartype_realmatrix*, int*, vartype_realmatrix*, int (*)(int, vartype_realmatrix*, int*, vartype_realmatrix*))	24	static
