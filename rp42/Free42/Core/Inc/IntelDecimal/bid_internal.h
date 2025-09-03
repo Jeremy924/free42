@@ -802,7 +802,7 @@ BID_EXTERN_C BID_UINT128 bid_round_const_table_128[][36];
 //////////////////////////////////////////////
 //  Status Flag Handling
 /////////////////////////////////////////////
-#define __set_status_flags(fpsc, status)  *(fpsc) |= status
+#define __set_status_flags(fpsc, status) // *(fpsc) |= status
 #define is_inexact(fpsc)  ((*(fpsc))&BID_INEXACT_EXCEPTION)
 
 __BID_INLINE__ BID_UINT64

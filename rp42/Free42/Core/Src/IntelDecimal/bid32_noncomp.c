@@ -967,7 +967,7 @@ BID_UINT32 bid32_nan (const char *tagp) {
  
   BID_UINT32 res, x;
 
-#if !DECIMAL_GLOBAL_ROUNDING
+#if DECIMAL_GLOBAL_ROUNDING
   unsigned int rnd_mode = BID_ROUNDING_TO_NEAREST;
 #endif
 #if !DECIMAL_GLOBAL_EXCEPTION_FLAGS

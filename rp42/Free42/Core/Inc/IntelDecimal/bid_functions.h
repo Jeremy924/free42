@@ -243,9 +243,9 @@ BID_EXTERN_C _IDEC_round _IDEC_glbround; // initialized to BID_ROUNDING_TO_NEARE
 
 /* exception flags */
 // typedef unsigned int _IDEC_flags;  // could be a struct with diagnostic info
-/*#if DECIMAL_GLOBAL_EXCEPTION_FLAGS
+#if DECIMAL_GLOBAL_EXCEPTION_FLAGS
      BID_EXTERN_C _IDEC_flags _IDEC_glbflags; // initialized to BID_EXACT_STATUS
-#endif*/
+#endif
 
 /* exception masks */
      typedef unsigned int _IDEC_exceptionmasks;

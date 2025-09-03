@@ -464,12 +464,10 @@ uint8 to_uint8(Phloat p) {
     return res;
 }
 
-extern "C" {
 double to_double(Phloat p) {
     double res;
     bid128_to_binary64(&res, &p.val);
     return res;
-}
 }
 
 Phloat sin(Phloat p) {
@@ -843,7 +841,7 @@ void phloat_init() {
     NAN_PHLOAT = nan("");
 }
 
-int string2phloat(const char *buf, int buflen, phloat *d) {
+__attribute__((section(".RamFunc"))) int string2phloat(const char *buf, int buflen, phloat *d) {
 	setlocale(LC_NUMERIC, "C");
     /* Convert string to phloat.
      * Return values:
@@ -969,7 +967,7 @@ int string2phloat(const char *buf, int buflen, phloat *d) {
     return 0;
 }
 
-double decimal2double(void *data, bool pin_magnitude /* = false */) {
+__attribute__((section(".RamFunc"))) double decimal2double(void *data, bool pin_magnitude /* = false */) {
     double res;
     BID_UINT128 *b, b2;
     if ((((size_t) data) & 15) != 0) {

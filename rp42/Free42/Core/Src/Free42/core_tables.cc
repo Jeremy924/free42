@@ -502,6 +502,7 @@ const command_spec cmd_array[] =
     /* For Plus42 Compatibility */
     { /* WIDTH */       docmd_width,       "WIDTH",               0x00, 0x00, 0xa2, 0x72,  5, ARG_NONE,   0, NA_T },
     { /* HEIGHT */      docmd_height,      "HEIGHT",              0x00, 0x00, 0xa2, 0x73,  6, ARG_NONE,   0, NA_T },
+	{ /* COPY */        docmd_copy,        "COPY",                0x00, 0x00, 0xa2, 0x74,  4, ARG_NONE,   0, NA_T }
 };
 
 /*

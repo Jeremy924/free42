@@ -25,6 +25,7 @@
 extern bool allow_paint;
 extern bool frame_ready;
 extern char frame[];
+extern bool should_power_off;
 
 #define SHELL_VERSION 11
 

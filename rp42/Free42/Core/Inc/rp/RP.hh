@@ -32,8 +32,10 @@ void RP_NOP();
 char RP_GET_KEY();
 char RP_WA_KEY();
 void RP_PUSH_KEY(uint8_t key_code);
+char RP_POLL_KEY();
 void RP_RELEASE_KEY();
 void RP_CLEAR_KEY_QUEUE();
+void RP_SET_DEBOUNCE_MS(uint32_t debounce_ms);
 
 // Display controls
 void RP_DISPLAY_ON();
@@ -46,6 +48,7 @@ void RP_DRAW_PAGE3(uint8_t* buf);
 
 // power controls
 void RP_POWER_OFF();
+void RP_SWITCH_TO_INSTALLER();
 
 // error controls
 uint32_t RP_GET_ERROR();
@@ -59,6 +62,7 @@ uint32_t RP_MILLIS();
 // clipboard controls
 uint8_t RP_PASTE(char* buf);
 uint8_t RP_PASTE_IMM(char* buf);
+uint8_t RP_COPY(char* buf, uint32_t length);
 
 // process controls
 void RP_EXIT(uint32_t code);
@@ -76,6 +80,14 @@ uint32_t RP_RENAME(const char* old_path, const char* new_path);
 uint32_t RP_RMDIR(const char* folder);
 uint32_t RP_STAT(const char* path, struct stat* stat);
 uint32_t RP_FSTAT(RP_FILE handle, struct stat* stat);
+
+uint32_t RP_FILE_SELECTOR(const char* start_location, const char* file_type, char* result, unsigned int size_of_result);
+
+uint8_t RP_REGISTER_TIMER(uint32_t millis, void(*func)(uint8_t), uint8_t flags);
+void  RP_UNREGISTER_TIMER(uint8_t handle);
+
+void RP_PRINT_TEXT(const char* text, uint8_t* page, uint8_t* col);
+void RP_CLEAR_LCD();
 
 #ifdef __cplusplus
 }

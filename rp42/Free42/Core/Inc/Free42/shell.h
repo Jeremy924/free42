@@ -163,6 +163,11 @@ uint4 shell_milliseconds();
  */
 const char *shell_number_format();
 
+/*
+ * Checks if the user is copying content from the PC to RP42
+ */
+void shell_check_for_copy();
+
 /* shell_date_format()
  *
  * Returns 0 if the host's locale uses MDY date format;

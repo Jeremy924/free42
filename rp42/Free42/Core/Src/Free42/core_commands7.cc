@@ -1033,6 +1033,12 @@ int docmd_csld_t(arg_struct *arg) {
     return is_csld() ? ERR_YES : ERR_NO;
 }
 
+int docmd_copy(arg_struct *arg) {
+	shell_check_for_copy();
+
+	return ERR_NONE;
+}
+
 /////////////////////
 ///// Big Stack /////
 /////////////////////

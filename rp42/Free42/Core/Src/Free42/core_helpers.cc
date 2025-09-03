@@ -150,7 +150,7 @@ int arg_to_num(arg_struct *arg, int4 *num) {
         return ERR_INVALID_TYPE;
 }
 
-int recall_result_silently(vartype *v) {
+__attribute__((section(".RamFunc"))) int recall_result_silently(vartype *v) {
     if (flags.f.stack_lift_disable) {
         if (sp == -1)
             sp = 0;
@@ -361,7 +361,7 @@ void append_alpha_char(char c) {
         reg_alpha[reg_alpha_length++] = c;
 }
 
-void append_alpha_string(const char *buf, int buflen, int reverse) {
+__attribute__((section(".RamFunc"))) void append_alpha_string(const char *buf, int buflen, int reverse) {
     int needed, i;
     if (buflen > 44) {
         if (!reverse)
@@ -382,14 +382,14 @@ void append_alpha_string(const char *buf, int buflen, int reverse) {
             reg_alpha[reg_alpha_length++] = buf[i];
 }
 
-void string_copy(char *dst, int *dstlen, const char *src, int srclen) {
+__attribute__((section(".RamFunc"))) void string_copy(char *dst, int *dstlen, const char *src, int srclen) {
     int i;
     *dstlen = srclen;
     for (i = 0; i < srclen; i++)
         dst[i] = src[i];
 }
 
-bool string_equals(const char *s1, int s1len, const char *s2, int s2len) {
+__attribute__((section(".RamFunc"))) bool string_equals(const char *s1, int s1len, const char *s2, int s2len) {
     int i;
     if (s1len != s2len)
         return false;
@@ -399,7 +399,7 @@ bool string_equals(const char *s1, int s1len, const char *s2, int s2len) {
     return true;
 }
 
-int string_pos(const char *ntext, int nlen, const vartype *hs, int startpos) {
+__attribute__((section(".RamFunc"))) int string_pos(const char *ntext, int nlen, const vartype *hs, int startpos) {
     int pos = -1;
     if (hs->type == TYPE_REAL) {
         phloat x = ((const vartype_real *) hs)->x;
@@ -433,7 +433,7 @@ int string_pos(const char *ntext, int nlen, const vartype *hs, int startpos) {
     return pos;
 }
 
-bool vartype_equals(const vartype *v1, const vartype *v2) {
+__attribute__((section(".RamFunc"))) bool vartype_equals(const vartype *v1, const vartype *v2) {
     if (v1->type != v2->type)
         return false;
     switch (v1->type) {
@@ -515,7 +515,7 @@ bool vartype_equals(const vartype *v1, const vartype *v2) {
     }
 }
 
-int anum(const char *text, int len, phloat *res) {
+__attribute__((section(".RamFunc"))) int anum(const char *text, int len, phloat *res) {
     char buf[50];
     int src_pos = 0;
     retry:
@@ -903,7 +903,7 @@ bool phloat2base(phloat p, int8 *res) {
     return true;
 }
 
-void print_text(const char *text, int length, bool left_justified) {
+__attribute__((section(".RamFunc"))) void print_text(const char *text, int length, bool left_justified) {
     /* TODO: check preferences so we don't waste any time generating
      * print-outs that aren't going to be accepted by the shell anyway
      */
@@ -1581,20 +1581,20 @@ phloat fix_hms(phloat x) {
     return neg ? -x : x;
 }
 
-void char2buf(char *buf, int buflen, int *bufptr, char c) {
+__attribute__((section(".RamFunc"))) void char2buf(char *buf, int buflen, int *bufptr, char c) {
     if (*bufptr < buflen)
         buf[(*bufptr)++] = c;
     else
         buf[buflen - 1] = 26;
 }
 
-void string2buf(char *buf, int buflen, int *bufptr, const char *s, int slen) {
+__attribute__((section(".RamFunc"))) void string2buf(char *buf, int buflen, int *bufptr, const char *s, int slen) {
     int i;
     for (i = 0; i < slen; i++)
         char2buf(buf, buflen, bufptr, s[i]);
 }
 
-int uint2string(uint4 n, char *buf, int buflen) {
+__attribute__((section(".RamFunc"))) int uint2string(uint4 n, char *buf, int buflen) {
     uint4 pt = 1;
     int count = 0;
     while (n / pt >= 10)
@@ -1606,7 +1606,7 @@ int uint2string(uint4 n, char *buf, int buflen) {
     return count;
 }
 
-int int2string(int4 n, char *buf, int buflen) {
+__attribute__((section(".RamFunc"))) int int2string(int4 n, char *buf, int buflen) {
     uint4 u;
     int count = 0;
     if (n < 0) {
@@ -1617,7 +1617,7 @@ int int2string(int4 n, char *buf, int buflen) {
     return count + uint2string(u, buf + count, buflen - count);
 }
 
-int ulong2string(uint8 n, char *buf, int buflen) {
+__attribute__((section(".RamFunc"))) int ulong2string(uint8 n, char *buf, int buflen) {
     uint8 pt = 1;
     int count = 0;
     while (n / pt >= 10)
@@ -1629,7 +1629,7 @@ int ulong2string(uint8 n, char *buf, int buflen) {
     return count;
 }
 
-int vartype2string(const vartype *v, char *buf, int buflen, int max_mant_digits) {
+__attribute__((section(".RamFunc"))) int vartype2string(const vartype *v, char *buf, int buflen, int max_mant_digits) {
     int dispmode;
     int digits = 0;
 

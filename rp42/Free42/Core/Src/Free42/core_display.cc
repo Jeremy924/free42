@@ -684,7 +684,7 @@ bool unpersist_display(int version) {
     return true;
 }
 
-void clear_display() {
+__attribute__((section(".RamFunc"))) void clear_display() {
     int i;
     for (i = 0; i < 272; i++)
         display[i] = 0;
@@ -692,7 +692,7 @@ void clear_display() {
     memset(special_key, 0, 6);
 }
 
-void flush_display() {
+__attribute__((section(".RamFunc"))) void flush_display() {
     if (!is_dirty)
         return;
     shell_blitter(display, 17, dirty_left, dirty_top,
@@ -704,7 +704,7 @@ void repaint_display() {
     shell_blitter(display, 17, 0, 0, 131, 16);
 }
 
-void draw_pixel(int x, int y) {
+__attribute__((section(".RamFunc"))) void draw_pixel(int x, int y) {
     display[y * 17 + (x >> 3)] |= 1 << (x & 7);
     mark_dirty(y, x, y + 1, x + 1);
 }
@@ -816,7 +816,7 @@ void tone(int n) {
 }
 
 
-static void mark_dirty(int top, int left, int bottom, int right) {
+__attribute__((section(".RamFunc"))) static void mark_dirty(int top, int left, int bottom, int right) {
     if (is_dirty) {
         if (top < dirty_top)
             dirty_top = top;
@@ -835,7 +835,7 @@ static void mark_dirty(int top, int left, int bottom, int right) {
     }
 }
 
-void draw_char(int x, int y, char c) {
+__attribute__((section(".RamFunc"))) void draw_char(int x, int y, char c) {
     int X, Y, h, v;
     unsigned char uc = (unsigned char) c;
     if (x < 0 || x >= 22 || y < 0 || y >= 2)
@@ -865,14 +865,14 @@ const char *get_char(char c) {
     return bigchars[uc];
 }
 
-void draw_string(int x, int y, const char *s, int length) {
+__attribute__((section(".RamFunc"))) void draw_string(int x, int y, const char *s, int length) {
     while (length != 0 && x < 22) {
         draw_char(x++, y, *s++);
         length--;
     }
 }
 
-static void fill_rect(int x, int y, int width, int height, int color) {
+__attribute__((section(".RamFunc"))) static void fill_rect(int x, int y, int width, int height, int color) {
     int h, v;
     for (v = y; v < y + height; v++)
         for (h = x; h < x + width; h++)
@@ -883,7 +883,7 @@ static void fill_rect(int x, int y, int width, int height, int color) {
     mark_dirty(y, x, y + height, x + width);
 }
 
-static void draw_key(int n, int highlight, int hide_meta,
+__attribute__((section(".RamFunc"))) static void draw_key(int n, int highlight, int hide_meta,
                      const char *s, int length) {
     int swidth = 0;
     int len = 0;
@@ -1070,7 +1070,7 @@ static int prgmline2buf(char *buf, int len, int4 line, int highlight,
     return bufptr;
 }
 
-void tb_write(textbuf *tb, const char *data, size_t size) {
+__attribute__((section(".RamFunc"))) void tb_write(textbuf *tb, const char *data, size_t size) {
     if (tb->size + size > tb->capacity) {
         size_t newcapacity = tb->capacity == 0 ? 1024 : (tb->capacity << 1);
         while (newcapacity < tb->size + size)
@@ -1093,7 +1093,7 @@ void tb_write(textbuf *tb, const char *data, size_t size) {
     }
 }
 
-void tb_indent(textbuf *tb, int indent) {
+__attribute__((section(".RamFunc"))) void tb_indent(textbuf *tb, int indent) {
     for (int i = 0; i < indent; i++)
         tb_write(tb, " ", 1);
 }
@@ -1138,7 +1138,7 @@ void tb_print_current_program(textbuf *tb) {
     } while (!end);
 }
 
-void display_prgm_line(int row, int line_offset) {
+__attribute__((section(".RamFunc"))) void display_prgm_line(int row, int line_offset) {
     int4 tmppc = pc;
     int4 tmpline = pc2line(pc);
     int cmd;
@@ -1222,7 +1222,7 @@ void xlabel2buf(char *buf, int buflen, int *bufptr) {
     }
 }
 
-void display_x(int row) {
+__attribute__((section(".RamFunc"))) void display_x(int row) {
     char buf[22];
     int bufptr = 0;
 
@@ -1234,7 +1234,7 @@ void display_x(int row) {
     draw_string(0, row, buf, bufptr);
 }
 
-void display_y(int row) {
+__attribute__((section(".RamFunc"))) void display_y(int row) {
     char buf[20];
     int len;
     clear_row(row);
@@ -1455,7 +1455,7 @@ static int set_appmenu(int menuid, bool exitall) {
     }
 }
 
-void draw_varmenu() {
+__attribute__((section(".RamFunc"))) void draw_varmenu() {
     arg_struct arg;
     int saved_prgm, prgm;
     int4 pc, pc2;
@@ -1600,7 +1600,7 @@ static int ext_stk_cat[] = {
 static int ext_misc_cat[] = {
     CMD_A2LINE, CMD_A2PLINE, CMD_CAPS,    CMD_C_LN_1_X, CMD_C_E_POW_X_1, CMD_FMA,
     CMD_HEIGHT, CMD_MIXED,   CMD_PCOMPLX, CMD_PRREG,    CMD_RCOMPLX,     CMD_STRACE,
-    CMD_WIDTH,  CMD_X2LINE,  CMD_ACCEL,   CMD_LOCAT,    CMD_HEADING,     CMD_FPTEST
+    CMD_WIDTH,  CMD_X2LINE,  CMD_ACCEL,   CMD_LOCAT,    CMD_HEADING,     CMD_FPTEST,
 };
 #define MISC_CAT_ROWS 3
 #else
@@ -1623,7 +1623,7 @@ static int ext_misc_cat[] = {
 static int ext_misc_cat[] = {
         CMD_A2LINE, CMD_A2PLINE, CMD_CAPS,    CMD_C_LN_1_X, CMD_C_E_POW_X_1, CMD_FMA,
         CMD_HEIGHT, CMD_MIXED,   CMD_PCOMPLX, CMD_PRREG,    CMD_RCOMPLX,     CMD_STRACE,
-        CMD_WIDTH,  CMD_X2LINE,  CMD_NULL,    CMD_NULL,     CMD_NULL,        CMD_NULL
+        CMD_WIDTH,  CMD_X2LINE,  CMD_COPY,    CMD_NULL,     CMD_NULL,        CMD_NULL
 };
 #define MISC_CAT_ROWS 3
 #endif
@@ -2383,7 +2383,7 @@ struct prp_data_struct {
 static prp_data_struct *prp_data;
 static int print_program_worker(bool interrupted);
 
-int print_program(int prgm_index, int4 pc, int4 lines, bool normal) {
+__attribute__((section(".RamFunc"))) int print_program(int prgm_index, int4 pc, int4 lines, bool normal) {
     prp_data_struct *dat = (prp_data_struct *) malloc(sizeof(prp_data_struct));
     if (dat == NULL)
         return ERR_INSUFFICIENT_MEMORY;
@@ -2425,7 +2425,7 @@ int print_program(int prgm_index, int4 pc, int4 lines, bool normal) {
     }
 }
 
-static int print_program_worker(bool interrupted) {
+__attribute__((section(".RamFunc"))) static int print_program_worker(bool interrupted) {
     prp_data_struct *dat = prp_data;
     int printed = 0;
 
@@ -3071,7 +3071,7 @@ void assign_prgm_key(int keynum, bool is_gto, const arg_struct *arg) {
     }
 }
 
-void do_prgm_menu_key(int keynum) {
+__attribute__((section(".RamFunc"))) void do_prgm_menu_key(int keynum) {
     int err, oldprgm;
     int4 oldpc;
     keynum--;

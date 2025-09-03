@@ -28,16 +28,14 @@ int main(int argc, char* argv[]) {
 const int frame_size = 132 * 4;
 char frame[132 * 4];
 bool frame_ready = false;
-
+bool should_power_off = false;
 
 void shell_get_time_date(unsigned int*, unsigned int*, int*) {
 
 }
 
 void shell_powerdown() {
-	core_save_state("0:/Free42/free42.dat");
-    systemCallData.command = 0x0020; // 0x0012 = POWER_DOWN
-    __asm__("SVC #0");
+	should_power_off = true;
 }
 
 
@@ -68,7 +66,7 @@ int8 shell_random_seed() {
 //0x20017ee0 0x900485fa
 
 int out_of_bounds_counter = 0;
-void shell_blitter(char const* bits, int bytesperline, int x, int y, int width, int height) {
+__attribute__((section(".RamFunc"))) void shell_blitter(char const* bits, int bytesperline, int x, int y, int width, int height) {
 	for (int yi = y; yi < y + height; yi++) {
 		for (int xi = x; xi < x + width; xi++) {
 			unsigned int index1 = xi+(yi*2)/8*132;
@@ -108,7 +106,12 @@ void shell_beeper(int) {
 }
 
 uint8 shell_get_mem() {
-    return __get_PSP() - (uint32_t)sbrk(0);
+	uint32_t psp;
+	__asm volatile ("mov %0, sp" : "=r" (psp));
+
+	uint32_t heap = (uint32_t) sbrk(0);
+
+	return (uint8) psp - heap;
 }
 
 void shell_print(char const* content, int length, char const*, int, int, int, int, int) {
@@ -118,9 +121,21 @@ void shell_print(char const* content, int length, char const*, int, int, int, in
 	memcpy(copy, content, length);
 	copy[length] = '\0';
 
-	RP_PASTE(copy);
+	RP_PASTE_IMM(copy);
 
     delete[] copy;
+}
+
+void shell_check_for_copy() {
+	char* buf = (char*) malloc(256);
+
+	if (buf == 0) return;
+
+	uint8_t result = RP_COPY(buf, 256);
+
+	if (result == 0) core_paste(buf);
+
+	free(buf);
 }
 
 const char* PLATFORM = "RP42 0.0.5b";

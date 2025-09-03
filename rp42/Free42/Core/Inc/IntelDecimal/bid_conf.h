@@ -837,7 +837,7 @@
 
 #ifndef BID_THREAD
 #if defined (HAVE_CC_TLS) && defined (USE_TLS)
-#define BID_THREAD __thread
+#define BID_THREAD
 #endif
 #endif
 
@@ -862,7 +862,7 @@
 #define BID_THREAD __declspec(thread)
 #else
 #if !defined(__APPLE__) //Linux, FreeBSD
-#define BID_THREAD __thread
+#define BID_THREAD
 #else //Mac OSX, TBD
 #define BID_THREAD
 #endif //Linux or Mac

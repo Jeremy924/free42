@@ -44,6 +44,14 @@
 #include "bid_functions.h"
 #endif
 
+
+/******
+ * #define __set_status_flags(fpsc, status) // *(fpsc) |= status
+ * commented out to get it to work
+ *
+ */
+extern _IDEC_round __bid_IDEC_glbround;
+
 #ifdef WINDOWS
 FILE *my_fopen(const char *name, const char *mode);
 int my_rename(const char *oldname, const char *newname);
@@ -55,7 +63,7 @@ int my_remove(const char *name);
 #endif
 
 
-static void set_shift(bool state) {
+__attribute__((section(".RamFunc"))) static void set_shift(bool state) {
     if (mode_shift != state) {
         mode_shift = state;
         shell_annunciators(-1, state, -1, -1, -1, -1);
@@ -75,7 +83,7 @@ static int4 oldpc;
 core_settings_struct core_settings;
 
 extern "C" {
-bool program_running() {
+__attribute__((section(".RamFunc"))) bool program_running() {
     return mode_running;
 }
 
@@ -87,6 +95,7 @@ void core_init(int read_saved_state, int4 version, const char *state_file_name, 
      * 2: state file present but not OK (State File Corrupt)
      */
 
+	__bid_IDEC_glbround = BID_ROUNDING_TO_NEAREST;
     phloat_init();
 
     char *state_file_name_crash = NULL;
@@ -149,7 +158,8 @@ void core_init(int read_saved_state, int4 version, const char *state_file_name, 
                        !flags.f.rad && flags.f.grad,
                        flags.f.rad || flags.f.grad);
 }
-bool core_keydown(int key, bool *enqueued, int *repeat) {
+
+__attribute__((section(".RamFunc"))) bool core_keydown(int key, bool *enqueued, int *repeat) {
     *enqueued = 0;
     *repeat = 0;
 
@@ -415,14 +425,14 @@ bool core_keydown_command(const char *name, bool is_text, bool *enqueued, int *r
 }
 
 
-int core_repeat() {
+__attribute__((section(".RamFunc"))) int core_repeat() {
     keydown(repeating_shift, repeating_key);
     int rpt = repeating;
     repeating = 0;
     return rpt;
 }
 
-void core_keytimeout1() {
+__attribute__((section(".RamFunc"))) void core_keytimeout1() {
     if (pending_command == CMD_LINGER1 || pending_command == CMD_LINGER2)
         return;
     if (pending_command == CMD_RUN || pending_command == CMD_SST
@@ -452,7 +462,7 @@ void core_keytimeout1() {
     }
 }
 
-void core_keytimeout2() {
+__attribute__((section(".RamFunc"))) void core_keytimeout2() {
     if (pending_command == CMD_LINGER1 || pending_command == CMD_LINGER2)
         return;
     remove_program_catalog = 0;
@@ -492,7 +502,7 @@ bool core_timeout3(bool repaint) {
     return false;
 }
 
-bool core_keyup() {
+__attribute__((section(".RamFunc"))) bool core_keyup() {
     if (mode_pause) {
         /* The only way this can happen is if they key in question was Shift */
         return false;
@@ -4666,11 +4676,11 @@ void core_paste(const char *buf) {
     redisplay();
 }
 
-void set_alpha_entry(bool state) {
+__attribute__((section(".RamFunc"))) void set_alpha_entry(bool state) {
     mode_alpha_entry = state;
 }
 
-void set_running(bool state) {
+__attribute__((section(".RamFunc"))) void set_running(bool state) {
     if (mode_running != state) {
         mode_running = state;
         shell_annunciators(-1, -1, -1, state, -1, -1);
@@ -4775,7 +4785,7 @@ void do_interactive(int command) {
     }
 }
 
-static void continue_running() {
+__attribute__((section(".RamFunc"))) static void continue_running() {
     int error;
     do {
         int cmd;
@@ -4909,7 +4919,7 @@ int find_builtin(const char *name, int namelen) {
     return CMD_NONE;
 }
 
-void sst() {
+__attribute__((section(".RamFunc"))) void sst() {
     if (pc >= prgms[current_prgm].size - 2) {
         pc = -1;
         prgm_highlight_row = 0;
@@ -4922,7 +4932,7 @@ void sst() {
     }
 }
 
-void bst() {
+__attribute__((section(".RamFunc"))) void bst() {
     int4 line = pc2line(pc);
     if (line == 0) {
         pc = prgms[current_prgm].size - 2;

@@ -18,21 +18,25 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 #define PUSH_KEY        0x0003
 #define RELEASE_KEY     0x0004
 #define CLEAR_KEY_QUEUE 0x0005
+#define POLL_KEY        0x0007
 #define LCD_ON          0x0010
 #define LCD_OFF         0x0011
 #define DRAW_LCD        0x0012
+#define CLEAR_LCD       0x0013
 #define DRAW_PAGE0      0x0018
 #define DRAW_PAGE1      0x0019
 #define DRAW_PAGE2      0x001A
 #define DRAW_PAGE3      0x001B
 #define CLEAR_LCD       0x0013
 #define POWER_DOWN      0x0020
+#define SWITCH_TO_INSTALLER 0x0021
 #define GET_ERROR       0x0030
 #define CLEAR_ERROR     0x0031
 #define DELAY           0x0040
 #define DELAY_UNTIL     0x0041
 #define MILLIS          0x0042
 #define PASTE           0x0050
+#define COPY            0x0051
 
 #define FOPEN           0x0100
 #define FCLOSE          0x0101
@@ -47,6 +51,13 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 #define MKDIR           0x0123
 #define RMDIR           0x0124
 
+#define SELECT_FILE     0x1000
+
+#define REGISTER_TIMER   0x0300
+#define UNREGISTER_TIMER 0x0301
+
+#define PRINT_TEXT      0x0200
+
 #define PRINT_SUCCESS 0
 #define PRINT_FAIL 1
 #define PRINT_NOT_AVAILABLE 2
@@ -56,6 +67,23 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+void RP_CLEAR_LCD() {
+	systemCallData.command = CLEAR_LCD;
+	__asm volatile("SVC #0");
+}
+
+char RP_POLL_KEY() {
+	systemCallData.command = POLL_KEY;
+	__asm volatile("SVC #0");
+
+	return (char) systemCallData.result;
+}
+
+void RP_SWITCH_TO_INSTALLER() {
+	systemCallData.command = SWITCH_TO_INSTALLER;
+	__asm volatile("SVC #0");
+}
 
 // miscelaneous
 void RP_NOP() {
@@ -93,6 +121,13 @@ void RP_RELEASE_KEY() {
 
 void RP_CLEAR_KEY_QUEUE() {
 	systemCallData.command = CLEAR_KEY_QUEUE;
+
+	__asm volatile("SVC #0");
+}
+
+void RP_SET_DEBOUNCE_MS(uint32_t millis) {
+	systemCallData.command = 0x0006;
+	systemCallData.args = (void*) millis;
 
 	__asm volatile("SVC #0");
 }
@@ -188,6 +223,7 @@ uint32_t RP_MILLIS() {
 uint8_t RP_PASTE(char* buf) {
 	return PRINT_NOT_AVAILABLE;
 }
+
 uint8_t RP_PASTE_IMM(char* buf) {
 	systemCallData.command = PASTE;
 	systemCallData.args = buf;
@@ -195,6 +231,23 @@ uint8_t RP_PASTE_IMM(char* buf) {
 	__asm volatile("SVC #0");
 
 	return PRINT_SUCCESS;
+}
+
+uint8_t RP_COPY(char* buf, uint32_t length) {
+	struct {
+		char* buf;
+		uint32_t length;
+	} copy_args;
+
+	copy_args.buf = buf;
+	copy_args.length = length;
+
+	systemCallData.command = COPY;
+	systemCallData.args = (void*) (&copy_args);
+
+	__asm volatile("SVC #0");
+
+	return (uint8_t) systemCallData.result;
 }
 
 //process controls
@@ -227,6 +280,27 @@ uint32_t RP_FCLOSE(RP_FILE handle) {
 	systemCallData.args = (void*) handle;
 
 	__asm volatile ("SVC #0");
+
+	return systemCallData.result;
+}
+
+
+uint32_t RP_FILE_SELECTOR(const char* start_location, const char* file_type, char* result, unsigned int size_of_result) {
+	struct {
+		char* result;
+		const char* starting_location;
+		const char* file_type;
+		unsigned int size_of_result;
+	} params;
+
+	params.result = (char*)result;
+	params.starting_location = start_location;
+	params.file_type = file_type;
+	params.size_of_result = size_of_result;
+
+	systemCallData.command = SELECT_FILE;
+	systemCallData.args = (void*) &params;
+	__asm volatile("SVC #0");
 
 	return systemCallData.result;
 }
@@ -365,6 +439,48 @@ uint32_t RP_RMDIR(const char* folder) {
 	return systemCallData.result;
 }
 
+struct TimerRegisterArgs {
+	uint32_t millis;
+	void (*function)(uint8_t);
+	uint8_t flags;
+};
+
+uint8_t RP_REGISTER_TIMER(uint32_t millis, void(*func)(uint8_t), uint8_t flags) {
+	struct TimerRegisterArgs args;
+	args.millis = millis;
+	args.function = func;
+	args.flags = flags;
+
+	systemCallData.args = (void*) &args;
+	systemCallData.command = REGISTER_TIMER;
+	__asm volatile("SVC #0");
+
+	return systemCallData.result;
+}
+
+void  RP_UNREGISTER_TIMER(uint8_t handle) {
+	systemCallData.args = (uint8_t*) &handle;
+	systemCallData.command = UNREGISTER_TIMER;
+
+	__asm volatile("SVC #0");
+}
+
+struct TextUIParams {
+	const char* text;
+	uint8_t* page;
+	uint8_t* col;
+};
+void RP_PRINT_TEXT(const char* text, uint8_t* page, uint8_t* col) {
+	struct TextUIParams args;
+	args.text = text;
+	args.page = page;
+	args.col = col;
+
+	systemCallData.args = (void*) &args;
+	systemCallData.command = PRINT_TEXT;
+
+	__asm volatile("SVC #0");
+}
 
 #ifdef __cplusplus
 }
