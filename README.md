@@ -1,17 +1,9 @@
 # Free42 for RP-42
-Free42 for RP-42 is in development. Lastest
-version of Free42 is **0.0.1**. [Free42 0.0.1](https://jeremy924.github.io/rp42/software.html#free42)
-
-Information about RP-42 can be found [here](https://jeremy924.github.io/rp42/index.html).
-
-### Free42 for RP42 versions
-[Version 0.0.1](https://jeremy924.github.io/rp42/software.html#free42)
+Free42 for RP-42 is in development.
 
 ### Installing on RP42
-To install on Free42, run the installer script.
-You must have pyserial installed to run it. This script is just for uploading during 
-development purposes. The script can be found 
-[here](https://github.com/Jeremy924/free42/blob/master/upload/FlashUploader0_0_1.py). 
+Use the command ```RP42CLI install Free42``` to install the latest Free42 on RP-42. 
+To check what version is the latest version of Free42, use the command ```RP42CLI updatable```. More information can be found on the [RP-42 website](https://Jeremy924.github.io/rp42). 
 
 ## Free42
 Free42 is a software clone of the Hewlett-Packard 42S calculator. If you know
