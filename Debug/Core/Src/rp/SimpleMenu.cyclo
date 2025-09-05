@@ -1,2 +1,4 @@
-../Core/Src/rp/SimpleMenu.cc:16:6:void _render_menu(const char**, unsigned int)	4
-../Core/Src/rp/SimpleMenu.cc:31:14:unsigned int show_simple_menu(const char* (*)(unsigned int), bool (*)(unsigned int), unsigned int)	18
+../Core/Src/rp/SimpleMenu.cc:17:6:void _render_menu(const char**, unsigned int)	4
+../Core/Src/rp/SimpleMenu.cc:32:14:unsigned int show_simple_menu(const char* (*)(unsigned int), bool (*)(unsigned int), unsigned int)	25
+../Core/Src/rp/SimpleMenu.cc:98:6:void _render_number_selector(const char*, int)	1
+../Core/Src/rp/SimpleMenu.cc:119:5:int number_selector(const char*, int, int, int)	10

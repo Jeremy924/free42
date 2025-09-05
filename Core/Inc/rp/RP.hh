@@ -32,8 +32,10 @@ void RP_NOP();
 char RP_GET_KEY();
 char RP_WA_KEY();
 void RP_PUSH_KEY(uint8_t key_code);
+char RP_POLL_KEY();
 void RP_RELEASE_KEY();
 void RP_CLEAR_KEY_QUEUE();
+void RP_SET_DEBOUNCE_MS(uint32_t debounce_ms);
 
 // Display controls
 void RP_DISPLAY_ON();
@@ -46,6 +48,7 @@ void RP_DRAW_PAGE3(uint8_t* buf);
 
 // power controls
 void RP_POWER_OFF();
+void RP_SWITCH_TO_INSTALLER();
 
 // error controls
 uint32_t RP_GET_ERROR();
@@ -59,6 +62,7 @@ uint32_t RP_MILLIS();
 // clipboard controls
 uint8_t RP_PASTE(char* buf);
 uint8_t RP_PASTE_IMM(char* buf);
+uint8_t RP_COPY(char* buf, uint32_t length);
 
 // process controls
 void RP_EXIT(uint32_t code);

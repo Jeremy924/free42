@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include <rp/RP.hh>
 #include <rp/SimpleMenu.hh>
+#include <rp/NumberEntry.hh>
 #include "main.h"
 #include "spi.h"
 #include "gpio.h"
@@ -27,9 +28,12 @@
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "core_main.h"
 #include "shell_main.h"
+
+#include "Free42/version.h"
 
 #define __ramFunc __attribute__((section(".RamFunc")))
 
@@ -71,13 +75,13 @@ void (*timer_callbacks[10])(uint8_t);
 
 
 const char* start_menu_items[] = {
-		"Free42 Main Menu",
+		"Free42 v " VERSION_MAJOR "." VERSION_MINOR,
 		"1. Load State File",
 		"2. Save State File",
 		"3. Settings",
 		"4. Help",
 		"5. License",
-		"6. Exit",
+		"6. Switch to install mode",
 };
 
 void show_license() {
@@ -100,18 +104,40 @@ void show_license() {
 	while (RP_WA_KEY() == 255);
 }
 
+const char* settings_menu_items[] = {
+		"Free42 Settings",
+		"1. Debounce time",
+		"2. Auto off time",
+		"3. Exit"
+};
+
+bool settings_menu_item_selected(unsigned int index) {
+	if (index == 3) return true;
+	if (index == 2) { // auto off time
+		int auto_off_time = number_selector("Auto Off seconds", 30, 300, 60);
+	} else if (index == 1) { // debounce time
+		int debounce_time = number_selector("Debounce milliseconds", 1, 100, 5);
+
+		RP_SET_DEBOUNCE_MS(debounce_time);
+	}
+
+	return false;
+}
+
+const char* settings_provider(unsigned int index) {
+	if (index >= sizeof(settings_menu_items) / sizeof(const char*)) return 0;
+	return settings_menu_items[index];
+}
+
+
+
 void settings() {
 	RP_CLEAR_LCD();
 
 	uint8_t page = 0;
 	uint8_t col = 0;
 
-	RP_PRINT_TEXT("Settings", &page, &col);
-	page = 1;
-	col = 0;
-	RP_PRINT_TEXT("   No Settings available", &page, &col);
-
-	while (RP_WA_KEY() == 255);
+	show_simple_menu(settings_provider, settings_menu_item_selected, 3);
 }
 
 void help() {
@@ -129,7 +155,7 @@ void help() {
 }
 
 const char* start_menu_provider(unsigned int index) {
-	if (index >= sizeof(start_menu_items)) return 0;
+	if (index >= sizeof(start_menu_items) / sizeof(const char*)) return 0;
 	return start_menu_items[index];
 }
 
@@ -142,8 +168,10 @@ bool start_menu_item_selected(unsigned int index) {
 			core_save_state(result_buffer);
 
 		free(result_buffer);
-	} else if (index == 6)
-		return true;
+	}
+	else if (index == 6) {
+		RP_SWITCH_TO_INSTALLER();
+	}
 	else if (index == 5) show_license();
 	else if (index == 3) settings();
 	else if (index == 4) help();
@@ -230,6 +258,13 @@ __ramFunc void checkForEvents() {
 bool enqueued = false;
 int repeat = 0;
 
+uint32_t power_off_time = 30000;
+uint32_t timeout1_time  = 250;
+uint32_t timeout2_time  = 2000;
+uint32_t menu_open_time = 2000;
+uint32_t repeat_slow    = 300;
+uint32_t repeat_fast    = 200;
+
 __ramFunc void update_lcd() {
 	RP_DISPLAY_DRAW(frame);
 	//__asm__("SVC #0"); // perform the sys call
@@ -251,27 +286,6 @@ __ramFunc void update_lcd() {
 char state_file[64];
 
 __ramFunc void alt_main_loop() {
-	  /*bool* enqueued = (bool*) malloc(sizeof(bool));
-	  int* repeat = (int*) malloc(sizeof(int));
-
-	while (1) {
-		  char key = RP_WA_KEY();
-		  // read all keys before redrawing
-
-		  if (key == 255) {
-			//if (!*enqueued) core_keyup();
-
-		  } else {
-			  if (core_keydown(key, enqueued, repeat)) {
-				  while (core_keydown(0, enqueued, repeat)) continue;
-			  }
-
-			  while (program_running()) core_keydown(0, enqueued, repeat);
-
-			  core_keyup();
-		  }
-	}*/
-
 	bool enqueued = false;
 	int repeat = 0;
 
@@ -282,11 +296,15 @@ __ramFunc void alt_main_loop() {
 	bool last_was_repeated = false;
 	bool last_was_down = false;
 
-	uint8_t off_timer = RP_REGISTER_TIMER(30000, 0, 0);
+	uint8_t off_timer = 50;//RP_REGISTER_TIMER(power_off_time, 0, 0);
+	uint8_t timeout1     = 50;
+	uint8_t timeout2     = 50;
+	uint8_t repeat_timer = 50;
 
 	while (1) {
 		if (should_power_off) {
 			RP_POWER_OFF();
+			core_repaint_display();
 			should_power_off = false;
 			continue;
 		}
@@ -296,47 +314,112 @@ __ramFunc void alt_main_loop() {
 
 		char key = (char) systemCallData.result;
 
+		/*
+#ifndef RELEASE
+		if (key == 255)
+			printf("Received key up\n");
+		else if (key < 100)
+			printf("Received key %d\n", (int) key);
+		else
+			printf("Received event %d\n", (int) key);
+#endif
+*/
 		if (key == (exit_timer + 100)) {
+			if (RP_POLL_KEY() != 33) continue;
+
 			show_simple_menu(start_menu_provider, start_menu_item_selected, 6);
+
 			exit_timer = 0;
 			core_repaint_display();
+
+			continue;
 		}
 		if (key == (off_timer + 100)) {
-			RP_POWER_OFF();
+			should_power_off = true;
+			continue;
+		}
+
+		if (key == (timeout1 + 100)) {
+			core_keytimeout1();
+			timeout1 = 50;
+			continue;
+		}
+
+		if (key == (timeout2 + 100)) {
+			core_keytimeout2();
+			timeout2 = 50;
+			continue;
+		}
+
+		if (key == (repeat_timer + 100)) {
+			repeat = core_repeat();
+
+			if (repeat == 1) repeat_timer = RP_REGISTER_TIMER(repeat_slow, 0, 0);
+			else if (repeat == 2) repeat_timer = RP_REGISTER_TIMER(repeat_fast, 0, 0);
+			else repeat_timer = 50;
+
 			continue;
 		}
 
 		if (key == 255) {
-			while (core_keyup()) core_keydown(0, &dummy_enqueued, &dummy_repeat);
+			bool should_repeat = core_keyup();
+
 			last_was_down = false;
 
-			off_timer = RP_REGISTER_TIMER(60000, 0, 0);
+			//if (off_timer != 50) {
+			//	RP_UNREGISTER_TIMER(off_timer);
+			//}
+
+			//off_timer = RP_REGISTER_TIMER(power_off_time, 0, 0);
 
 			if (exit_timer != 50) {
 				RP_UNREGISTER_TIMER(exit_timer);
 				exit_timer = 50;
 			}
 
-			continue;
-		} else if (key != 0 && key < 38) {
-			if (off_timer != 50) {
-				RP_UNREGISTER_TIMER(off_timer);
-				off_timer = 50;
-			}
-			if (last_was_down) {
-				core_keyup();
+			if (timeout1 != 50) {
+				RP_UNREGISTER_TIMER(timeout1);
+				timeout1 = 50;
 			}
 
-			last_was_down = true;
+			if (timeout2 != 50) {
+				RP_UNREGISTER_TIMER(timeout2);
+				timeout2 = 50;
+			}
+
+			if (repeat_timer != 50) {
+				RP_UNREGISTER_TIMER(repeat_timer);
+				repeat_timer = 50;
+			}
+
+			while (should_repeat) {
+				should_repeat = core_keydown(0, &dummy_enqueued, &dummy_repeat);
+			}
+
+			continue;
+		} else if (key != 0 && key < 38) {
+			//if (off_timer != 50) {
+			//	RP_UNREGISTER_TIMER(off_timer);
+			//	off_timer = 50;
+			//}
 
 			bool should_repeat = core_keydown(key, &enqueued, &repeat);
 
 			last_was_repeated = should_repeat;
 
-			while (should_repeat) should_repeat = core_keydown(0, &dummy_enqueued, &dummy_repeat);
+			while (should_repeat) {
+				should_repeat = core_keydown(0, &dummy_enqueued, &dummy_repeat);
+			}
+
+			if (repeat == 0 && !enqueued) {
+				timeout1 = RP_REGISTER_TIMER(timeout1_time, 0, 0);
+				timeout2 = RP_REGISTER_TIMER(timeout2_time, 0, 0);
+			} else if (repeat != 0) {
+				repeat_timer = RP_REGISTER_TIMER(repeat == 1 ? repeat_slow : repeat_fast, 0, 0);
+			}
 
 			if (key == 33) {
-				exit_timer = RP_REGISTER_TIMER(3000, 0, 0);
+				exit_timer = RP_REGISTER_TIMER(menu_open_time, 0, 0);
 			}
 		}
 	}
@@ -355,6 +438,7 @@ void main_loop() {
 
         		RP_POWER_OFF();
         		should_power_off = false;
+        		core_repaint_display();
           }
 
 		systemCallData.command = 0x0002;
@@ -415,7 +499,7 @@ void main_loop() {
 
 
 uint8_t tick = 255;
-__ramFunc void callbackTick(uint8_t handle) {
+void callbackTick(uint8_t handle) {
 	uint8_t page = 3;
 	uint8_t col = 0;
 
@@ -432,7 +516,6 @@ __ramFunc void callbackTick(uint8_t handle) {
 }
 
 /* USER CODE END 0 */
-
 
 /**
   * @brief  The application entry point.
@@ -472,9 +555,13 @@ int main(void)
 
   //show_simple_menu(start_menu_provider, start_menu_item_selected, 6);
 
+	//printf("Free42 v " VERSION_MAJOR "." VERSION_MINOR "\n");
+
   core_init(0, 1, "", 0);
 
+  core_settings.allow_big_stack = true;
   core_update_allow_big_stack();
+
 
   update_lcd();
   //ROW0_GPIO_Port->BSRR = ROW0_Pin|ROW1_Pin|ROW2_Pin|ROW3_Pin|ROW4_Pin|ROW5_Pin|ROW6_Pin;

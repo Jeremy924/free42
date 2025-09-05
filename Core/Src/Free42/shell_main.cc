@@ -6,24 +6,8 @@
 #include <memory.h>
 #include <rp/RP.hh>
 #include <unistd.h>
+#include <stdio.h>
 
-//#include <iostream>
-
-/*
-int main(int argc, char* argv[]) {
-    core_init(0, 1, "", 0);
-
-    while (true) {
-        int input;
-        std::cin >> input;
-        bool* enqued = new bool;
-        int* repeat = new int;
-        core_keydown(input, enqued, repeat);
-    }
-
-    return 0;
-}
-*/
 
 const int frame_size = 132 * 4;
 char frame[132 * 4];
@@ -115,15 +99,19 @@ uint8 shell_get_mem() {
 }
 
 void shell_print(char const* content, int length, char const*, int, int, int, int, int) {
-	char* copy = new char[length + 1];
-	if (copy == nullptr) return;
+	write(STDOUT_FILENO, content, length);
+}
 
-	memcpy(copy, content, length);
-	copy[length] = '\0';
+void shell_check_for_copy() {
+	char* buf = (char*) malloc(256);
 
-	RP_PASTE(copy);
+	if (buf == 0) return;
 
-    delete[] copy;
+	uint8_t result = RP_COPY(buf, 256);
+
+	if (result == 0) core_paste(buf);
+
+	free(buf);
 }
 
 const char* PLATFORM = "RP42 0.0.5b";

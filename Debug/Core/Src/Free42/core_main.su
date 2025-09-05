@@ -34,7 +34,7 @@
 ../Core/Src/Free42/core_main.cc:1953:6:void core_import_programs(int, const char*)	1128	static
 ../Core/Src/Free42/core_main.cc:4679:43:void set_alpha_entry(bool)	0	static
 ../Core/Src/Free42/core_main.cc:4683:43:void set_running(bool)	16	static
-../Core/Src/Free42/core_main.cc:4885:5:int find_builtin(const char*, int)	20	static
+../Core/Src/Free42/core_main.cc:4885:5:int find_builtin(const char*, int)	16	static
 ../Core/Src/Free42/core_main.cc:406:6:bool core_keydown_command(const char*, bool, bool*, int*)	96	static
 ../Core/Src/Free42/core_main.cc:4922:43:void sst()	8	static
 ../Core/Src/Free42/core_main.cc:4935:43:void bst()	8	static

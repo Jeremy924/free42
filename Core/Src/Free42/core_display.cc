@@ -1600,7 +1600,7 @@ static int ext_stk_cat[] = {
 static int ext_misc_cat[] = {
     CMD_A2LINE, CMD_A2PLINE, CMD_CAPS,    CMD_C_LN_1_X, CMD_C_E_POW_X_1, CMD_FMA,
     CMD_HEIGHT, CMD_MIXED,   CMD_PCOMPLX, CMD_PRREG,    CMD_RCOMPLX,     CMD_STRACE,
-    CMD_WIDTH,  CMD_X2LINE,  CMD_ACCEL,   CMD_LOCAT,    CMD_HEADING,     CMD_FPTEST
+    CMD_WIDTH,  CMD_X2LINE,  CMD_ACCEL,   CMD_LOCAT,    CMD_HEADING,     CMD_FPTEST,
 };
 #define MISC_CAT_ROWS 3
 #else
@@ -1623,7 +1623,7 @@ static int ext_misc_cat[] = {
 static int ext_misc_cat[] = {
         CMD_A2LINE, CMD_A2PLINE, CMD_CAPS,    CMD_C_LN_1_X, CMD_C_E_POW_X_1, CMD_FMA,
         CMD_HEIGHT, CMD_MIXED,   CMD_PCOMPLX, CMD_PRREG,    CMD_RCOMPLX,     CMD_STRACE,
-        CMD_WIDTH,  CMD_X2LINE,  CMD_NULL,    CMD_NULL,     CMD_NULL,        CMD_NULL
+        CMD_WIDTH,  CMD_X2LINE,  CMD_COPY,    CMD_NULL,     CMD_NULL,        CMD_NULL
 };
 #define MISC_CAT_ROWS 3
 #endif
@@ -3032,7 +3032,7 @@ void clear_custom_menu() {
             custommenu_length[row][key] = 0;
 }
 
-__attribute__((section(".RamFunc"))) void assign_custom_key(int keynum, const char *name, int length) {
+void assign_custom_key(int keynum, const char *name, int length) {
     int row = (keynum - 1) / 6;
     int key = (keynum - 1) % 6;
     int i;
@@ -3048,7 +3048,7 @@ void get_custom_key(int keynum, char *name, int *length) {
                 custommenu_length[row][key]);
 }
 
-__attribute__((section(".RamFunc"))) void clear_prgm_menu() {
+void clear_prgm_menu() {
     int i;
     for (i = 0; i < 9; i++)
         progmenu_arg[i].type = ARGTYPE_NONE;

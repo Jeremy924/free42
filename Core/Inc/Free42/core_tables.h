@@ -470,7 +470,10 @@
 #define CMD_WIDTH       421
 #define CMD_HEIGHT      422
 
-#define CMD_SENTINEL    423
+#define CMD_COPY        423
+
+#define CMD_SENTINEL    424
+
 
 
 /* command_spec.argtype */

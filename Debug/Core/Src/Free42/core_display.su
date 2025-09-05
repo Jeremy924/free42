@@ -55,8 +55,8 @@
 ../Core/Src/Free42/core_display.cc:2921:5:int get_cat_item(int)	0	static
 ../Core/Src/Free42/core_display.cc:2929:6:void update_catalog()	24	static
 ../Core/Src/Free42/core_display.cc:3028:6:void clear_custom_menu()	0	static
-../Core/Src/Free42/core_display.cc:3035:43:void assign_custom_key(int, const char*, int)	16	static
+../Core/Src/Free42/core_display.cc:3035:6:void assign_custom_key(int, const char*, int)	16	static
 ../Core/Src/Free42/core_display.cc:3044:6:void get_custom_key(int, char*, int*)	8	static
-../Core/Src/Free42/core_display.cc:3051:43:void clear_prgm_menu()	0	static
+../Core/Src/Free42/core_display.cc:3051:6:void clear_prgm_menu()	0	static
 ../Core/Src/Free42/core_display.cc:3059:6:void assign_prgm_key(int, bool, const arg_struct*)	16	static
 ../Core/Src/Free42/core_display.cc:3074:43:void do_prgm_menu_key(int)	48	static

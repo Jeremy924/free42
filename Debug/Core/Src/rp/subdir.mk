@@ -5,14 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CC_SRCS += \
+../Core/Src/rp/NumberEntry.cc \
 ../Core/Src/rp/RP.cc \
 ../Core/Src/rp/SimpleMenu.cc 
 
 CC_DEPS += \
+./Core/Src/rp/NumberEntry.d \
 ./Core/Src/rp/RP.d \
 ./Core/Src/rp/SimpleMenu.d 
 
 OBJS += \
+./Core/Src/rp/NumberEntry.o \
 ./Core/Src/rp/RP.o \
 ./Core/Src/rp/SimpleMenu.o 
 
@@ -24,7 +27,7 @@ Core/Src/rp/%.o Core/Src/rp/%.su Core/Src/rp/%.cyclo: ../Core/Src/rp/%.cc Core/S
 clean: clean-Core-2f-Src-2f-rp
 
 clean-Core-2f-Src-2f-rp:
-	-$(RM) ./Core/Src/rp/RP.cyclo ./Core/Src/rp/RP.d ./Core/Src/rp/RP.o ./Core/Src/rp/RP.su ./Core/Src/rp/SimpleMenu.cyclo ./Core/Src/rp/SimpleMenu.d ./Core/Src/rp/SimpleMenu.o ./Core/Src/rp/SimpleMenu.su
+	-$(RM) ./Core/Src/rp/NumberEntry.cyclo ./Core/Src/rp/NumberEntry.d ./Core/Src/rp/NumberEntry.o ./Core/Src/rp/NumberEntry.su ./Core/Src/rp/RP.cyclo ./Core/Src/rp/RP.d ./Core/Src/rp/RP.o ./Core/Src/rp/RP.su ./Core/Src/rp/SimpleMenu.cyclo ./Core/Src/rp/SimpleMenu.d ./Core/Src/rp/SimpleMenu.o ./Core/Src/rp/SimpleMenu.su
 
 .PHONY: clean-Core-2f-Src-2f-rp
 

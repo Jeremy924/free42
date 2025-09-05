@@ -46,7 +46,7 @@ _Min_Stack_Size = 0x5000; /* required amount of stack */
 MEMORY
 {
   SYS_CALL_DATA (rw)   : ORIGIN = 0x20000000, LENGTH = 12
-  RAM    (xrw)    : ORIGIN = 0x20000000+30K,   LENGTH = 96K-35K
+  RAM    (xrw)    : ORIGIN = 0x20000000+35K,   LENGTH = 96K-35K
   RAM2    (xrw)    : ORIGIN = 0x10000000,   LENGTH = 32K
   FLASH    (rx)    : ORIGIN = 0x90000000,   LENGTH = 8M
 }

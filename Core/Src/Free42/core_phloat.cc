@@ -464,12 +464,10 @@ uint8 to_uint8(Phloat p) {
     return res;
 }
 
-extern "C" {
 double to_double(Phloat p) {
     double res;
     bid128_to_binary64(&res, &p.val);
     return res;
-}
 }
 
 Phloat sin(Phloat p) {

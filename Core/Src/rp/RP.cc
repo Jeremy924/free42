@@ -18,6 +18,7 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 #define PUSH_KEY        0x0003
 #define RELEASE_KEY     0x0004
 #define CLEAR_KEY_QUEUE 0x0005
+#define POLL_KEY        0x0007
 #define LCD_ON          0x0010
 #define LCD_OFF         0x0011
 #define DRAW_LCD        0x0012
@@ -28,12 +29,14 @@ SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
 #define DRAW_PAGE3      0x001B
 #define CLEAR_LCD       0x0013
 #define POWER_DOWN      0x0020
+#define SWITCH_TO_INSTALLER 0x0021
 #define GET_ERROR       0x0030
 #define CLEAR_ERROR     0x0031
 #define DELAY           0x0040
 #define DELAY_UNTIL     0x0041
 #define MILLIS          0x0042
 #define PASTE           0x0050
+#define COPY            0x0051
 
 #define FOPEN           0x0100
 #define FCLOSE          0x0101
@@ -67,6 +70,18 @@ extern "C" {
 
 void RP_CLEAR_LCD() {
 	systemCallData.command = CLEAR_LCD;
+	__asm volatile("SVC #0");
+}
+
+char RP_POLL_KEY() {
+	systemCallData.command = POLL_KEY;
+	__asm volatile("SVC #0");
+
+	return (char) systemCallData.result;
+}
+
+void RP_SWITCH_TO_INSTALLER() {
+	systemCallData.command = SWITCH_TO_INSTALLER;
 	__asm volatile("SVC #0");
 }
 
@@ -106,6 +121,13 @@ void RP_RELEASE_KEY() {
 
 void RP_CLEAR_KEY_QUEUE() {
 	systemCallData.command = CLEAR_KEY_QUEUE;
+
+	__asm volatile("SVC #0");
+}
+
+void RP_SET_DEBOUNCE_MS(uint32_t millis) {
+	systemCallData.command = 0x0006;
+	systemCallData.args = (void*) millis;
 
 	__asm volatile("SVC #0");
 }
@@ -201,6 +223,7 @@ uint32_t RP_MILLIS() {
 uint8_t RP_PASTE(char* buf) {
 	return PRINT_NOT_AVAILABLE;
 }
+
 uint8_t RP_PASTE_IMM(char* buf) {
 	systemCallData.command = PASTE;
 	systemCallData.args = buf;
@@ -208,6 +231,23 @@ uint8_t RP_PASTE_IMM(char* buf) {
 	__asm volatile("SVC #0");
 
 	return PRINT_SUCCESS;
+}
+
+uint8_t RP_COPY(char* buf, uint32_t length) {
+	struct {
+		char* buf;
+		uint32_t length;
+	} copy_args;
+
+	copy_args.buf = buf;
+	copy_args.length = length;
+
+	systemCallData.command = COPY;
+	systemCallData.args = (void*) (&copy_args);
+
+	__asm volatile("SVC #0");
+
+	return (uint8_t) systemCallData.result;
 }
 
 //process controls
