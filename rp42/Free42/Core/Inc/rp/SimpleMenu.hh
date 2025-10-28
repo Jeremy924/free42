@@ -16,7 +16,7 @@ extern "C" {
 
 unsigned int show_simple_menu(const char* (*get_item)(unsigned int), bool (*item_selected)(unsigned int), unsigned int total_items);
 
-int number_selector(const char* name, int min, int max, int default_val);
+int number_selector(const char* name, int min, int max, int default_val, int increment);
 
 
 #ifdef __cplusplus

@@ -6,29 +6,17 @@
 #include <memory.h>
 #include <rp/RP.hh>
 #include <unistd.h>
+#include <stdio.h>
+#include <string>
 
-//#include <iostream>
-
-/*
-int main(int argc, char* argv[]) {
-    core_init(0, 1, "", 0);
-
-    while (true) {
-        int input;
-        std::cin >> input;
-        bool* enqued = new bool;
-        int* repeat = new int;
-        core_keydown(input, enqued, repeat);
-    }
-
-    return 0;
-}
-*/
 
 const int frame_size = 132 * 4;
 char frame[132 * 4];
 bool frame_ready = false;
 bool should_power_off = false;
+
+int ann_shift = 0;
+int ann_run = 0;
 
 void shell_get_time_date(unsigned int*, unsigned int*, int*) {
 
@@ -65,8 +53,12 @@ int8 shell_random_seed() {
 }
 //0x20017ee0 0x900485fa
 
+char shf_pixels_copy = 0;
+bool was_shifted = false;
+
 int out_of_bounds_counter = 0;
 __attribute__((section(".RamFunc"))) void shell_blitter(char const* bits, int bytesperline, int x, int y, int width, int height) {
+
 	for (int yi = y; yi < y + height; yi++) {
 		for (int xi = x; xi < x + width; xi++) {
 			unsigned int index1 = xi+(yi*2)/8*132;
@@ -83,7 +75,6 @@ __attribute__((section(".RamFunc"))) void shell_blitter(char const* bits, int by
                 frame[index1] &= 0xff ^ (1 << ((yi*2) % 8));
                 frame[index2] &= 0xff ^ (1 << ((yi*2+1) % 8));
             } else {
-
                 frame[index1] |= (1 << ((yi*2+1) % 8));
                 frame[index2] |= (1 << (yi*2 % 8));
             }
@@ -93,6 +84,14 @@ __attribute__((section(".RamFunc"))) void shell_blitter(char const* bits, int by
 		}
         //std::cout << std::endl;
 	}
+
+	int shift_index = 132 * 1 - 1;//132 * 4 - 1;
+	int run_index = 132 * 2 - 1;
+
+	if (ann_shift == 1) frame[shift_index] = 0xff;
+	else frame[shift_index] = 0x00;
+	if (ann_run == 1) frame[run_index] = 0xff;
+	else frame[run_index] = 0x00;
 
 	RP_DISPLAY_DRAW((char*)frame);
 }
@@ -115,15 +114,7 @@ uint8 shell_get_mem() {
 }
 
 void shell_print(char const* content, int length, char const*, int, int, int, int, int) {
-	char* copy = new char[length + 1];
-	if (copy == nullptr) return;
-
-	memcpy(copy, content, length);
-	copy[length] = '\0';
-
-	RP_PASTE_IMM(copy);
-
-    delete[] copy;
+	write(STDOUT_FILENO, content, length);
 }
 
 void shell_check_for_copy() {
@@ -138,7 +129,7 @@ void shell_check_for_copy() {
 	free(buf);
 }
 
-const char* PLATFORM = "RP42 0.0.5b";
+const char* PLATFORM = "RP-42";
 const char* shell_platform() {
     return PLATFORM;
 }
@@ -171,6 +162,8 @@ void skin_finish_image() {
 
 
 void shell_annunciators(int updn, int shf, int prt, int run, int g, int rad) {
-	if (shf) frame[131] = 0xff; else frame[131] = 0x00;
-	RP_DISPLAY_DRAW((char*) frame);
+	ann_shift = shf;
+	ann_run = run;
+
+	core_repaint_display();
 }

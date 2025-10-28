@@ -13,6 +13,7 @@ extern "C" {
 #include <stdint.h>
 #include <cstdio>
 #include "rp/RP.hh"
+#include <cstring>
 
 void _render_menu(const char* items[4], unsigned int selected_item) {
 	RP_CLEAR_LCD();
@@ -23,9 +24,24 @@ void _render_menu(const char* items[4], unsigned int selected_item) {
 		if (items[i] == 0) continue;
 		page = i;
 		col = 0;
+
 		if (selected_item == i) RP_PRINT_TEXT(">", &page, &col);
 
-		RP_PRINT_TEXT(items[i], &page, &col);
+		unsigned int max_length = 23;
+		unsigned int len = strlen(items[i]);
+
+		if (len > max_length) {
+			char shortened[24];
+			for (int cp = 0; cp < 20; cp++) shortened[cp] = items[i][cp];
+			shortened[20] = '.';
+			shortened[21] = '.';
+			shortened[22] = '.';
+			shortened[23] = '\0';
+
+			RP_PRINT_TEXT(shortened, &page, &col);
+		} else {
+			RP_PRINT_TEXT(items[i], &page, &col);
+		}
 	}
 }
 
@@ -54,8 +70,9 @@ unsigned int show_simple_menu(const char* (*get_item)(unsigned int), bool (*item
 
 		if (key == 33) {
 			while (RP_WA_KEY() == 33);
+			_render_menu(selected_items, selected_item - menu_window);
 
-			return selected_item;
+			return -1;
 		}
 		else if (key == 18) {
 			if (selected_item > 1) {
@@ -89,6 +106,16 @@ unsigned int show_simple_menu(const char* (*get_item)(unsigned int), bool (*item
 			if (item_selected(selected_item)) return selected_item;
 
 			_render_menu(selected_items, selected_item - menu_window);
+		} else if (key == 19 || key == 20 || key == 21 || key == 24 || key == 25 || key == 26 || key == 29 || key == 30 || key == 31) {
+			while (RP_WA_KEY() == key);
+
+			unsigned int selected_item;
+			if (key >= 29) selected_item = key - 28;
+			else if (key >= 24) selected_item = key - 23 + 3;
+			else selected_item = key - 18 + 6;
+
+			if (item_selected(selected_item)) return 1;
+			_render_menu(selected_items, selected_item - menu_window);
 		}
 
 		key = RP_WA_KEY();
@@ -116,7 +143,7 @@ void _render_number_selector(const char* name, int value) {
 	RP_PRINT_TEXT("Use arrow keys", &page, &col);
 }
 
-int number_selector(const char* name, int min, int max, int default_val) {
+int number_selector(const char* name, int min, int max, int default_val, int increment) {
 	int value = default_val;
 
 	_render_number_selector(name, value);
@@ -140,13 +167,13 @@ int number_selector(const char* name, int min, int max, int default_val) {
 		} else if (key == 33) return default_val;
 
 		if (key == 18) { // increase by 1
-			if (value + 1 <= max) {
-				value++;
+			if (value + increment <= max) {
+				value += increment;
 				_render_number_selector(name, value);
 			}
 		} else if (key == 23) { // decrease by 1
-			if (value - 1 >= min) {
-				value--;
+			if (value - increment >= min) {
+				value -= increment;
 				_render_number_selector(name, value);
 			}
 		}

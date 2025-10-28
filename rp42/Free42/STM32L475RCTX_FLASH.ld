@@ -46,7 +46,7 @@ _Min_Stack_Size = 0x5000; /* required amount of stack */
 MEMORY
 {
   SYS_CALL_DATA (rw)   : ORIGIN = 0x20000000, LENGTH = 12
-  RAM    (xrw)    : ORIGIN = 0x20000000+20K,   LENGTH = 96K-20K
+  RAM    (xrw)    : ORIGIN = 0x20000000+35K,   LENGTH = 96K-35K
   RAM2    (xrw)    : ORIGIN = 0x10000000,   LENGTH = 32K
   FLASH    (rx)    : ORIGIN = 0x90000000,   LENGTH = 8M
 }
@@ -150,13 +150,30 @@ SECTIONS
     _sdata = .;        /* create a global symbol at data start */
     *(.data)           /* .data sections */
     *(.data*)          /* .data* sections */
-    *(.RamFunc)      /* .RamFunc sections */
-    *(.RamFunc*)      /* .RamFunc* sections */
+
 
     . = ALIGN(4);
     _edata = .;        /* define a global symbol at data end */
 
   } >RAM AT> FLASH
+
+  _siramfunc = LOADADDR(.ramFunctions);
+
+  .ramFunctions :
+  {
+  	. = ALIGN(4);
+  	_sramfunc = .;
+    *(.RamFunc)      /* .RamFunc sections */
+    *(.RamFunc*)      /* .RamFunc* sections */
+    
+    *libc_a-memcpy-stub.o(*)
+    *libc_a-mallocr.o(*)
+    *libc_a-memset.o(*)
+    *libc_a-freer.o(*)
+    
+    . = ALIGN(4);
+    _eramfunc = .;
+  } >RAM2 AT> FLASH
 
   /* Uninitialized data section into "RAM" Ram type memory */
   . = ALIGN(4);

@@ -51,7 +51,7 @@ endif ()
 
 include_directories(Core/Inc Drivers/STM32L4xx_HAL_Driver/Inc Drivers/STM32L4xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32L4xx/Include Drivers/CMSIS/Include "C:\Users\Jerem\OneDrive\Documents\career\my_projects\stm-workspace\Free42\Core\Inc\IntelDecimal" "C:\Users\Jerem\OneDrive\Documents\career\my_projects\stm-workspace\Free42\Core\Inc\Free42")
 
-add_definitions(-DDEBUG -DUSE_HAL_DRIVER -DSTM32L475xx)
+add_definitions(-DDEBUG -DDECIMAL_GLOBAL_ROUNDING=1 -DUSE_HAL_DRIVER -DSTM32L475xx)
 
 file(GLOB_RECURSE SOURCES "Core/*.*" "Drivers/*.*")
 
