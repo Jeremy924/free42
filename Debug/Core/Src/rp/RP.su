@@ -8,36 +8,39 @@
 ../Core/Src/rp/RP.cc:116:6:void RP_RELEASE_KEY()	0	static,ignoring_inline_asm
 ../Core/Src/rp/RP.cc:122:6:void RP_CLEAR_KEY_QUEUE()	0	static,ignoring_inline_asm
 ../Core/Src/rp/RP.cc:128:6:void RP_SET_DEBOUNCE_MS(uint32_t)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:136:6:void RP_DISPLAY_ON()	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:141:6:void RP_DISPLAY_OFF()	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:146:6:void RP_DISPLAY_DRAW(char*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:152:6:void RP_DRAW_PAGE0(uint8_t*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:158:6:void RP_DRAW_PAGE1(uint8_t*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:164:6:void RP_DRAW_PAGE2(uint8_t*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:170:6:void RP_DRAW_PAGE3(uint8_t*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:178:6:void RP_POWER_OFF()	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:185:10:uint32_t RP_GET_ERROR()	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:192:10:uint32_t RP_CLEAR_ERROR(uint32_t)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:202:6:void RP_DELAY(uint32_t)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:208:6:void RP_DELAY_UNTIL(uint32_t)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:214:10:uint32_t RP_MILLIS()	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:223:9:uint8_t RP_PASTE(char*)	0	static
-../Core/Src/rp/RP.cc:227:9:uint8_t RP_PASTE_IMM(char*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:236:9:uint8_t RP_COPY(char*, uint32_t)	8	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:254:6:void RP_EXIT(uint32_t)	0	static
-../Core/Src/rp/RP.cc:259:10:uint32_t RP_FOPEN(RP_FILE*, const char*, unsigned char)	24	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:278:10:uint32_t RP_FCLOSE(RP_FILE)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:288:10:uint32_t RP_FILE_SELECTOR(const char*, const char*, char*, unsigned int)	24	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:308:10:uint32_t RP_FREAD(RP_FILE, char*, uint32_t, uint32_t*)	24	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:329:10:uint32_t RP_FWRITE(RP_FILE, const char*, uint32_t, uint32_t*)	24	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:349:10:uint32_t RP_FSEEK(RP_FILE, uint32_t, uint32_t)	16	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:368:10:uint32_t RP_STAT(const char*, stat*)	8	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:385:10:uint32_t RP_FSTAT(RP_FILE, stat*)	8	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:402:10:uint32_t RP_FLIST(const char*, char**)	0	static
-../Core/Src/rp/RP.cc:405:10:uint32_t RP_MKDIR(const char*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:413:10:uint32_t RP_UNLINK(const char*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:421:10:uint32_t RP_RENAME(const char*, const char*)	8	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:434:10:uint32_t RP_RMDIR(const char*)	0	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:448:9:uint8_t RP_REGISTER_TIMER(uint32_t, void (*)(uint8_t), uint8_t)	24	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:461:7:void RP_UNREGISTER_TIMER(uint8_t)	8	static,ignoring_inline_asm
-../Core/Src/rp/RP.cc:473:6:void RP_PRINT_TEXT(const char*, uint8_t*, uint8_t*)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:135:10:uint32_t RP_GET_DEBOUNCE_MS()	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:144:6:void RP_SET_AUTO_OFF(uint32_t)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:151:10:uint32_t RP_GET_AUTO_OFF()	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:161:6:void RP_DISPLAY_ON()	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:166:6:void RP_DISPLAY_OFF()	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:171:6:void RP_DISPLAY_DRAW(char*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:177:6:void RP_DRAW_PAGE0(uint8_t*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:183:6:void RP_DRAW_PAGE1(uint8_t*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:189:6:void RP_DRAW_PAGE2(uint8_t*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:195:6:void RP_DRAW_PAGE3(uint8_t*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:203:6:void RP_POWER_OFF()	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:210:10:uint32_t RP_GET_ERROR()	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:217:10:uint32_t RP_CLEAR_ERROR(uint32_t)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:227:6:void RP_DELAY(uint32_t)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:233:6:void RP_DELAY_UNTIL(uint32_t)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:239:10:uint32_t RP_MILLIS()	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:248:9:uint8_t RP_PASTE(char*)	0	static
+../Core/Src/rp/RP.cc:252:9:uint8_t RP_PASTE_IMM(char*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:261:9:uint8_t RP_COPY(char*, uint32_t)	8	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:279:6:void RP_EXIT(uint32_t)	0	static
+../Core/Src/rp/RP.cc:284:10:uint32_t RP_FOPEN(RP_FILE*, const char*, unsigned char)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:303:10:uint32_t RP_FCLOSE(RP_FILE)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:313:10:uint32_t RP_FILE_SELECTOR(const char*, const char*, char*, unsigned int)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:333:10:uint32_t RP_FREAD(RP_FILE, char*, uint32_t, uint32_t*)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:354:10:uint32_t RP_FWRITE(RP_FILE, const char*, uint32_t, uint32_t*)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:374:10:uint32_t RP_FSEEK(RP_FILE, uint32_t, uint32_t)	16	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:393:10:uint32_t RP_STAT(const char*, stat*)	8	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:410:10:uint32_t RP_FSTAT(RP_FILE, stat*)	8	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:427:10:uint32_t RP_FLIST(const char*, char**)	0	static
+../Core/Src/rp/RP.cc:430:10:uint32_t RP_MKDIR(const char*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:438:10:uint32_t RP_UNLINK(const char*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:446:10:uint32_t RP_RENAME(const char*, const char*)	8	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:459:10:uint32_t RP_RMDIR(const char*)	0	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:473:9:uint8_t RP_REGISTER_TIMER(uint32_t, void (*)(uint8_t), uint8_t)	24	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:486:7:void RP_UNREGISTER_TIMER(uint8_t)	8	static,ignoring_inline_asm
+../Core/Src/rp/RP.cc:498:6:void RP_PRINT_TEXT(const char*, uint8_t*, uint8_t*)	24	static,ignoring_inline_asm

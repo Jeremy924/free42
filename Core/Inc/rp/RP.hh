@@ -36,6 +36,9 @@ char RP_POLL_KEY();
 void RP_RELEASE_KEY();
 void RP_CLEAR_KEY_QUEUE();
 void RP_SET_DEBOUNCE_MS(uint32_t debounce_ms);
+void RP_SET_AUTO_OFF(uint32_t seconds);
+uint32_t RP_GET_DEBOUNCE_MS();
+uint32_t RP_GET_AUTO_OFF();
 
 // Display controls
 void RP_DISPLAY_ON();

@@ -21,6 +21,8 @@
 #include <stdarg.h>
 #include <errno.h>
 
+#include <iostream>
+
 #include "core_phloat.h"
 #include "core_main.h"
 #include "core_commands2.h"
@@ -83,7 +85,13 @@ static int4 oldpc;
 core_settings_struct core_settings;
 
 extern "C" {
-__attribute__((section(".RamFunc"))) bool program_running() {
+bool program_running() {
+	if (RP_POLL_KEY() == 33) {
+		bool enqueued = false;
+		int repeat = 0;
+		core_keydown(33, &enqueued, &repeat);
+	}
+
     return mode_running;
 }
 
@@ -1939,9 +1947,23 @@ static phloat parse_number_line(char *buf) {
 #ifdef BCD_MATH
     res = Phloat(buf);
 #else
-    BID_UINT128 d;
+    /*BID_UINT128 d;
+
     bid128_from_string(&d, buf);
+
+	char output[50];
+	bid128_to_string(output, &d);
+
+	std::cout << output << std::endl;
+
     bid128_to_binary64(&res, &d);
+
+	for (int i = 0; buf[i]; i++) {
+	    printf("%02X ", (unsigned char)buf[i]);
+	}
+	printf(" : \"%s\"\n", buf);
+*/
+    sscanf(buf, "%le", &res);
 #endif
     if (p_isinf(res) != 0)
         res = NAN_1_PHLOAT;

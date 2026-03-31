@@ -82,6 +82,7 @@ bool program_running();
  */
 bool core_keydown(int key, bool *enqueued, int *repeat);
 
+
 /* core_save_state()
  *
  * This function is called by the mobile apps when they are placed in

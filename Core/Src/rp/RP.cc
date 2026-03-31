@@ -132,6 +132,31 @@ void RP_SET_DEBOUNCE_MS(uint32_t millis) {
 	__asm volatile("SVC #0");
 }
 
+uint32_t RP_GET_DEBOUNCE_MS() {
+	systemCallData.command = 0x0006;
+	systemCallData.args = 0;
+
+	__asm volatile("SVC #0");
+
+	return systemCallData.result;
+}
+
+void RP_SET_AUTO_OFF(uint32_t seconds) {
+	systemCallData.command = 0x0008;
+	systemCallData.args = (void*) seconds;
+
+	__asm volatile("SVC #0");
+}
+
+uint32_t RP_GET_AUTO_OFF() {
+	systemCallData.command = 0x0008;
+	systemCallData.args = 0;
+
+	__asm volatile("SVC #0");
+
+	return systemCallData.result;
+}
+
 // Display controls
 void RP_DISPLAY_ON() {
 	systemCallData.command = LCD_ON;

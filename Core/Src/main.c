@@ -80,8 +80,11 @@ const char* start_menu_items[] = {
 		"2. Save State File",
 		"3. Settings",
 		"4. Help",
-		"5. License",
-		"6. Switch to install mode",
+		"5. Load Program",
+		"6. Save Program",
+		"7. License",
+		"8. Switch to install mode",
+		"9. Exit"
 };
 
 void show_license() {
@@ -114,9 +117,11 @@ const char* settings_menu_items[] = {
 bool settings_menu_item_selected(unsigned int index) {
 	if (index == 3) return true;
 	if (index == 2) { // auto off time
-		int auto_off_time = number_selector("Auto Off seconds", 30, 300, 60);
+		int auto_off_time = number_selector("Auto Off seconds", 30, 6000, RP_GET_AUTO_OFF(), 30);
+
+		RP_SET_AUTO_OFF(auto_off_time);
 	} else if (index == 1) { // debounce time
-		int debounce_time = number_selector("Debounce milliseconds", 1, 100, 5);
+		int debounce_time = number_selector("Debounce milliseconds", 1, 100, RP_GET_DEBOUNCE_MS(), 1);
 
 		RP_SET_DEBOUNCE_MS(debounce_time);
 	}
@@ -159,36 +164,196 @@ const char* start_menu_provider(unsigned int index) {
 	return start_menu_items[index];
 }
 
+uint32_t program_count = 0;
+char* program_list_buffer = 0;
+
+const char* program_list_provider(unsigned int index) {
+	if (index == 0) return "SELECT PROGRAM";
+	if (index - 1 >= program_count || program_list_buffer == 0) return 0;
+
+	unsigned int buffer_index = 0;
+
+	char* program_buffer_ptr = program_list_buffer + 4;
+
+	while (buffer_index < index - 1) {
+		while (*program_buffer_ptr != '\0') {
+			program_buffer_ptr++;
+		}
+
+		program_buffer_ptr++;
+		buffer_index++;
+	}
+
+	//unsigned int length = strlen(program_buffer_ptr);
+	//if (length > 0)
+	//	*(program_buffer_ptr + length - 1) = '\0';
+
+	unsigned int length = strlen(program_buffer_ptr);
+
+	for (unsigned int i = 0; i < length; i++)
+		if (program_buffer_ptr[i] == '"')
+			program_buffer_ptr[i] = ':';
+
+	return (const char*) program_buffer_ptr;
+}
+
+bool program_list_item_selected(unsigned int index) {
+	return true;
+}
+
+void load_program_selected() {
+	char* file = malloc(256);
+
+	if (file == 0) return;
+
+	RP_FILE_SELECTOR("", ".raw", file, 256);
+
+	if (file[0] == '\0') {
+		free(file);
+		return;
+	}
+
+	RP_CLEAR_LCD();
+	uint8_t page = 0;
+	uint8_t col = 0;
+	RP_PRINT_TEXT("LOADING PROGRAM", &page, &col);
+	core_import_programs(0, file);
+
+	free(file);
+}
+
+void save_program_selected() {
+	/*RP_CLEAR_LCD();
+	uint8_t page = 0;
+	uint8_t col = 0;
+	RP_PRINT_TEXT("SAVING PROGRAMS IS NOT", &page, &col);
+	page = 1;
+	col = 0;
+	RP_PRINT_TEXT("AVAILABLE YET", &page, &col);
+	while (RP_POLL_KEY() == 255) continue;
+	while (RP_POLL_KEY() != 255) continue;
+	return;*/
+
+	if (program_list_buffer != 0) { // it should always be 0 at this point so this should not be necessary
+		free(program_list_buffer);
+		program_list_buffer = 0;
+	}
+
+	program_list_buffer = core_list_programs(); // get the programs from the core
+
+	if (program_list_buffer == 0) { // if it failed to allocate the memory for the list, then just return
+		return;
+	}
+
+	// read the size of the list in this big-endian encoding
+	program_count = (program_list_buffer[0] << 24) | (program_list_buffer[1] << 16) | (program_list_buffer[2] << 8) | (program_list_buffer[3]);
+
+	// show the menu to select the program
+	unsigned int selected_program = show_simple_menu(program_list_provider, program_list_item_selected, program_count);
+
+	if (selected_program == -1) return;
+
+	// create a buffer to store the filename from the OS
+	char* file = malloc(256);
+
+	// if it does not have 256 bytes of memory left, then give up
+	if (file == 0) {
+		free(program_list_buffer);
+		program_list_buffer = 0;
+
+		return;
+	}
+
+	// use the builtin file selector to pick a .raw file
+	RP_FILE_SELECTOR("", ".raw", file, 256);
+
+	// if they picked a file, then export the program to that file
+	if (file[0] != '\0') {
+		selected_program--;
+		/*uint8_t page = 0;
+		uint8_t col = 0;
+		RP_PRINT_TEXT(file, &page, &col);
+
+		char buf[10];
+		sprintf(buf, "%d", selected_program);
+		page = 1;
+		col = 0;
+		RP_PRINT_TEXT(buf, &page, &col);
+
+		while (1);*/
+
+		core_export_programs(1, &selected_program, file);
+	}
+
+	free(file); // delete the file buffer
+
+
+	free(program_list_buffer); // delete the program buffer
+	program_list_buffer = 0;
+}
+
 bool start_menu_item_selected(unsigned int index) {
-	if (index == 2) {
-		char* result_buffer = (char*) malloc(256);
-		RP_FILE_SELECTOR("states", ".f42", result_buffer, 256);
+	switch (index) {
+	case 1: // load state
+		char* load_result_buffer = (char*) malloc(256);
+		RP_FILE_SELECTOR("states", ".f42", load_result_buffer, 256);
 
-		if (result_buffer[0] != '\0')
-			core_save_state(result_buffer);
-
-		free(result_buffer);
-	}
-	else if (index == 6) {
-		RP_SWITCH_TO_INSTALLER();
-	}
-	else if (index == 5) show_license();
-	else if (index == 3) settings();
-	else if (index == 4) help();
-	else if (index == 1) {
-		char* result_buffer = (char*) malloc(256);
-		RP_FILE_SELECTOR("states", ".f42", result_buffer, 256);
-
-		if (result_buffer[0] == '\0') {
-			free(result_buffer);
+		if (load_result_buffer[0] == '\0') {
+			free(load_result_buffer);
 			return false;
 		}
 
+		RP_CLEAR_LCD();
+		uint8_t page = 0;
+		uint8_t col = 0;
+		RP_PRINT_TEXT("LOADING STATE", &page, &col);
+
 		core_cleanup();
-		core_init(1, 1, result_buffer, 0);
+		core_init(1, 1, load_result_buffer, 0);
 
-		free(result_buffer);
+		free(load_result_buffer);
 
+		return true;
+	case 2: // save state
+		char* save_result_buffer = (char*) malloc(256);
+		RP_FILE_SELECTOR("states", ".f42", save_result_buffer, 256);
+
+		if (save_result_buffer[0] != '\0') {
+			RP_CLEAR_LCD();
+			uint8_t page = 0;
+			uint8_t col = 0;
+			RP_PRINT_TEXT("SAVING STATE", &page, &col);
+			core_save_state(save_result_buffer);
+		}
+
+		free(save_result_buffer);
+
+		break;
+	case 3: // settings
+		settings();
+		break;
+
+	case 4: // help
+		help();
+		break;
+
+	case 5: // load program
+		load_program_selected();
+		break;
+
+	case 6: // save program
+		save_program_selected();
+		break;
+
+	case 7: // license
+		show_license();
+		break;
+
+	case 8: // switch to installer
+		RP_SWITCH_TO_INSTALLER();
+		break;
+
+	case 9: // exit
 		return true;
 	}
 
@@ -210,23 +375,23 @@ volatile uint8_t repeat_handle   = 255;
 volatile uint8_t timeout1_handle = 255;
 volatile uint8_t timeout2_handle = 255;
 
-__ramFunc void repeat_callback() {
+void repeat_callback() {
 	int should_repeat = core_repeat();
 	if (should_repeat == 2) repeat_handle = register_timer(500, repeat_callback);
 	else if (should_repeat == 1) repeat_handle = register_timer(1000, repeat_callback);
 }
 
-__ramFunc void timeout1_callback() {
+void timeout1_callback() {
 	core_keytimeout1();
 	timeout1_handle = 255;
 }
 
-__ramFunc void timeout2_callback() {
+void timeout2_callback() {
 	core_keytimeout2();
 	timeout2_handle = 255;
 }
 
-__ramFunc void processEvent(uint8_t key) {
+void processEvent(uint8_t key) {
 	if (key == 0) return;
 
 	if (key >= 100 && key < 111) {
@@ -235,6 +400,27 @@ __ramFunc void processEvent(uint8_t key) {
 	}
 
 
+}
+
+
+void check_for_copy() {
+	unsigned int bytesWritten;
+	RP_FWRITE(1, "copy", 4, &bytesWritten);
+
+	for (volatile int i = 0; i < 100000; i++) ;
+
+	char* buf = (char*) malloc(256);
+
+	if (buf == 0) return;
+
+	unsigned int bytesRead;
+	RP_FREAD(0, buf, 255, &bytesRead);
+	buf[bytesRead] = 0;
+
+	if (bytesRead != 0)
+		core_paste(buf);
+
+	free(buf);
 }
 
 __ramFunc void checkForEvents() {
@@ -261,9 +447,9 @@ int repeat = 0;
 uint32_t power_off_time = 30000;
 uint32_t timeout1_time  = 250;
 uint32_t timeout2_time  = 2000;
-uint32_t menu_open_time = 2000;
-uint32_t repeat_slow    = 300;
-uint32_t repeat_fast    = 200;
+uint32_t menu_open_time = 1500;
+uint32_t repeat_slow    = 200;
+uint32_t repeat_fast    = 150;
 
 __ramFunc void update_lcd() {
 	RP_DISPLAY_DRAW(frame);
@@ -301,6 +487,8 @@ __ramFunc void alt_main_loop() {
 	uint8_t timeout2     = 50;
 	uint8_t repeat_timer = 50;
 
+	uint8_t last_key_down = 255;
+
 	while (1) {
 		if (should_power_off) {
 			RP_POWER_OFF();
@@ -313,6 +501,11 @@ __ramFunc void alt_main_loop() {
 		__asm volatile("SVC #0");
 
 		char key = (char) systemCallData.result;
+
+		if (key == 253) {
+			should_power_off = true;
+			continue;
+		}
 
 		/*
 #ifndef RELEASE
@@ -327,7 +520,7 @@ __ramFunc void alt_main_loop() {
 		if (key == (exit_timer + 100)) {
 			if (RP_POLL_KEY() != 33) continue;
 
-			show_simple_menu(start_menu_provider, start_menu_item_selected, 6);
+			show_simple_menu(start_menu_provider, start_menu_item_selected, sizeof(start_menu_items) / sizeof(char*) - 1);
 
 			exit_timer = 0;
 			core_repaint_display();
@@ -340,13 +533,36 @@ __ramFunc void alt_main_loop() {
 		}
 
 		if (key == (timeout1 + 100)) {
-			core_keytimeout1();
+			//__asm volatile("BKPT #0");
+			if (last_key_down == 1) { // copy instead
+				check_for_copy();
+				core_keytimeout2();
+			}
+			else if (last_key_down == 2) { // paste
+				char* copied_data = core_copy();
+				unsigned int dont_care;
+				if (copied_data != 0) {
+					RP_FWRITE(1, copied_data, strlen(copied_data), &dont_care);
+					//printf(copied_data);
+					free(copied_data);
+					core_keytimeout2(); // null it
+				}
+			}
+			else if (last_key_down == 3) { // show printout
+				core_keytimeout2(); // null it
+				shell_history_draw(0, 0);
+			}
+			else core_keytimeout1();
 			timeout1 = 50;
 			continue;
 		}
 
 		if (key == (timeout2 + 100)) {
-			core_keytimeout2();
+			if (last_key_down == 3) { // make it stay up
+				core_keyup();
+				shell_history_draw(0, 1);
+			}
+
 			timeout2 = 50;
 			continue;
 		}
@@ -394,10 +610,18 @@ __ramFunc void alt_main_loop() {
 
 			while (should_repeat) {
 				should_repeat = core_keydown(0, &dummy_enqueued, &dummy_repeat);
+
+				if (RP_POLL_KEY() == 33) {
+					uint8_t key = RP_WA_KEY();
+
+					core_keydown(33, &dummy_enqueued, &dummy_repeat);
+					break;
+				}
 			}
 
 			continue;
 		} else if (key != 0 && key < 38) {
+			last_key_down = key;
 			//if (off_timer != 50) {
 			//	RP_UNREGISTER_TIMER(off_timer);
 			//	off_timer = 50;
@@ -412,7 +636,10 @@ __ramFunc void alt_main_loop() {
 			}
 
 			if (repeat == 0 && !enqueued) {
-				timeout1 = RP_REGISTER_TIMER(timeout1_time, 0, 0);
+				if (key == 1 || key == 2)
+					timeout1 = RP_REGISTER_TIMER(750, 0, 0);
+				else
+					timeout1 = RP_REGISTER_TIMER(timeout1_time, 0, 0);
 				timeout2 = RP_REGISTER_TIMER(timeout2_time, 0, 0);
 			} else if (repeat != 0) {
 				repeat_timer = RP_REGISTER_TIMER(repeat == 1 ? repeat_slow : repeat_fast, 0, 0);
@@ -585,6 +812,7 @@ int main(void)
 
 	  if (key == 254) key = key_queue[kqri++];*/
 	  //uint8_t key = (uint8_t) sys_func(0x0002, 0);
+
 	  alt_main_loop();
 
 	  //frame_ready = true;

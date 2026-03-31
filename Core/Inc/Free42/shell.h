@@ -33,6 +33,19 @@
  */
 const char *shell_platform();
 
+
+/**
+ * Shows the buffered printout to the screen starting at the given index and go back in history. Newest index
+ * should be displayed at the bottom of the screen and the oldest content will be displayed at the top. Indices
+ * are based on the blocks of data printed
+ */
+#ifdef __cplusplus
+extern "C" {
+#endif
+int shell_history_draw(int offset, int control_mode);
+#ifdef __cplusplus
+}
+#endif
 /* shell_blitter()
  *
  * Callback invoked by the emulator core to cause the display, or some portion
@@ -162,6 +175,7 @@ uint4 shell_milliseconds();
  * matrices, and to determine the initial setting of flag 28 on cold start.
  */
 const char *shell_number_format();
+
 
 /*
  * Checks if the user is copying content from the PC to RP42
