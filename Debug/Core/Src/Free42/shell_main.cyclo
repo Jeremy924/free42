@@ -1,3 +1,4 @@
+../Core/Src/Free42/shell_main.cc:211:6:0(PrintFrame*, unsigned int, bool)	11
 ../Core/Src/Free42/shell_main.cc:21:6:void shell_get_time_date(unsigned int*, unsigned int*, int*)	1
 ../Core/Src/Free42/shell_main.cc:25:6:void shell_powerdown()	1
 ../Core/Src/Free42/shell_main.cc:30:6:void shell_message(const char*)	1
@@ -9,17 +10,16 @@
 ../Core/Src/Free42/shell_main.cc:60:43:void shell_blitter(const char*, int, int, int, int, int)	13
 ../Core/Src/Free42/shell_main.cc:95:7:unsigned int shell_milliseconds()	1
 ../Core/Src/Free42/shell_main.cc:99:6:void shell_beeper(int)	1
-../Core/Src/Free42/shell_main.cc:103:7:long long unsigned int shell_get_mem()	3
-../Core/Src/Free42/shell_main.cc:130:6:void initializePrintFrames()	1
-../Core/Src/Free42/shell_main.cc:141:6:void shell_print(const char*, int, const char*, int, int, int, int, int)	8
-../Core/Src/Free42/shell_main.cc:210:6:void print_frame_to_screen(PrintFrame*, unsigned int)	8
-../Core/Src/Free42/shell_main.cc:247:5:int shell_history_draw(int, int)	16
-../Core/Src/Free42/shell_main.cc:309:6:void shell_check_for_copy()	3
-../Core/Src/Free42/shell_main.cc:323:13:const char* shell_platform()	1
-../Core/Src/Free42/shell_main.cc:327:5:int shell_date_format()	1
-../Core/Src/Free42/shell_main.cc:331:6:bool shell_clk24()	1
-../Core/Src/Free42/shell_main.cc:335:6:bool shell_low_battery()	1
-../Core/Src/Free42/shell_main.cc:339:5:int skin_getchar()	1
-../Core/Src/Free42/shell_main.cc:344:6:void skin_put_pixels(const unsigned char*)	1
-../Core/Src/Free42/shell_main.cc:348:6:void skin_finish_image()	1
-../Core/Src/Free42/shell_main.cc:354:6:void shell_annunciators(int, int, int, int, int, int)	1
+../Core/Src/Free42/shell_main.cc:103:7:long long unsigned int shell_get_mem()	1
+../Core/Src/Free42/shell_main.cc:156:6:void shell_print(const char*, int, const char*, int, int, int, int, int)	14
+../Core/Src/Free42/shell_main.cc:211:6:void print_frame_to_screen(PrintFrame*, unsigned int, bool)	4
+../Core/Src/Free42/shell_main.cc:244:5:int shell_history_draw(int, int)	44
+../Core/Src/Free42/shell_main.cc:335:6:void shell_check_for_copy()	3
+../Core/Src/Free42/shell_main.cc:349:13:const char* shell_platform()	1
+../Core/Src/Free42/shell_main.cc:353:5:int shell_date_format()	1
+../Core/Src/Free42/shell_main.cc:357:6:bool shell_clk24()	1
+../Core/Src/Free42/shell_main.cc:361:6:bool shell_low_battery()	1
+../Core/Src/Free42/shell_main.cc:365:5:int skin_getchar()	1
+../Core/Src/Free42/shell_main.cc:370:6:void skin_put_pixels(const unsigned char*)	1
+../Core/Src/Free42/shell_main.cc:374:6:void skin_finish_image()	1
+../Core/Src/Free42/shell_main.cc:380:6:void shell_annunciators(int, int, int, int, int, int)	1

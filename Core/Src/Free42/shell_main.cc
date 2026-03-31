@@ -106,125 +106,129 @@ uint8 shell_get_mem() {
 
 	uint32_t heap = (uint32_t) sbrk(0);
 
-	for (volatile int i = 0; i < 10000000; i++);
-
 	return (uint8) psp - heap;
 }
 
 
-#define PRINT_WIDTH 166
-#define PRINT_FRAMES 16
+
+
+#include <stdint.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define PRINT_FRAMES 50
 
 struct PrintFrame {
-	uint8_t* print_data;
-	uint8_t  actual_width;
-	uint8_t  x_offset;
-	uint8_t  height;
-	int bytesperline;
+    uint8_t* print_data;
+    uint16_t print_data_len;
+    uint8_t  actual_width;
+    int16_t  x_offset;
+    uint8_t  height;
+    uint16_t bytesperline;
+    bool     valid;
 };
 
-struct PrintFrame print_frames[PRINT_FRAMES];
-unsigned int frame_offset = 0;
-bool is_first = true;
+static struct PrintFrame print_frames[PRINT_FRAMES];
 
-void initializePrintFrames() {
-	for (int i = 0; i < PRINT_FRAMES; i++) {
-		print_frames[i].print_data = 0;
-	}
+static uint8_t q_wr = 0;     // next write position
+static uint8_t q_rd = 0;     // oldest frame position
+static uint8_t q_count = 0;  // number of valid frames [0..PRINT_FRAMES]
+static bool is_first = true;
 
-	is_first = false;
+static void initializePrintFrames(void) {
+    for (int i = 0; i < PRINT_FRAMES; i++) {
+        print_frames[i].print_data = (uint8_t*) malloc(162);
+        print_frames[i].print_data_len = 162;
+        print_frames[i].valid = false;
+    }
+    q_wr = q_rd = q_count = 0;
+    is_first = false;
 }
 
-//uint8_t* print_frames[PRINT_FRAMES];
-//uint8_t print_page = 255;
-// Store output by blitting, then snapshot the full screen
+static void free_frame(struct PrintFrame *f) {
+    if (f->print_data) free(f->print_data);
+    f->print_data = NULL;
+    f->valid = false;
+}
+
+// Store output frame in ring buffer (drops oldest on overflow)
 void shell_print(const char *text, int length,
                  const char *bits, int bytesperline,
                  int x, int y, int width, int height)
 {
-    (void)text; (void)length;
-    if (!bits || bytesperline <= 0 || width <= 0 || height <= 0) return;
+    (void)text; (void)length; (void)y;
 
     if (is_first) initializePrintFrames();
 
-    struct PrintFrame* frame = &print_frames[frame_offset++];
-    if (frame_offset >= PRINT_FRAMES) frame_offset = 0;
+    if (!bits || bytesperline <= 0 || width <= 0 || height <= 0) return;
 
-    // if this frame was in use, then make sure to de allocate the data first
-    if (frame->print_data != 0) free(frame->print_data);
+    // overflow-safe size calc
+    size_t bpl = (size_t)bytesperline;
+    size_t h   = (size_t)height;
+    if (h != 0 && bpl > (SIZE_MAX / h)) return;
+    size_t nbytes = bpl * h;
 
-    // save data to new frame
-    frame->print_data = (uint8_t*) malloc(bytesperline * height);
-    if (frame->print_data == 0) return;
-    memcpy(frame->print_data, bits, bytesperline * height);
-
-    frame->x_offset = x;
-    frame->height = height;
-    frame->actual_width = width;
-    frame->bytesperline = bytesperline;
-
-    //printf("frame offset: %d, xoffset: %d, height: %d, width: %d\n", frame_offset - 1, frame->x_offset, frame->height, frame->actual_width);
-
-    /*
-    if (print_page == 255) {
-    	print_frames[0] = (uint8_t*) malloc(PRINT_WIDTH);
-
-    	if (print_page != 0)
-    		print_page = 0;
-    	else print_page = 255;
+    // If full, drop oldest
+    // TODO: LOCK if concurrent with reader
+    if (q_count == PRINT_FRAMES) {
+    	if (print_frames[q_rd].print_data_len < nbytes)
+    		free_frame(&print_frames[q_rd]);
+        q_rd = (uint8_t)((q_rd + 1) % PRINT_FRAMES);
+        q_count--;
     }
 
-    if (print_page == 255) return;
+    struct PrintFrame *f = &print_frames[q_wr];
 
-    int required_frames = height / 8;
-    if (required_frames * 8 < height) required_frames++;
+    // overwrite slot (it should be invalid, but free defensively)
+    uint8_t* buf;
+    if (f->print_data_len < nbytes) {
+		free_frame(f);
 
-    uint8_t* target_frames[required_frames];
+		buf = (uint8_t*)malloc(nbytes);
+		f->print_data_len = nbytes;
+		if (!buf) return;
+    } else buf = f->print_data;
 
-    for (int i = 0; i < required_frames; i++) {
-    	int index = print_page + (required_frames - 1) - i;
-    	if (index >= PRINT_FRAMES) {
-    		index = 0;
-    	}
+    memcpy(buf, bits, nbytes);
 
-    	if (print_page >= index) target_frames[i] = NULL; // don't overlap the start
-    	else {
-    		if (print_frames[index] == NULL) print_frames[index] = (uint8_t*) malloc(PRINT_WIDTH);
-    		target_frames[i] = print_frames[index];
-    	}
+    // publish frame (write metadata, then mark valid at end)
+    f->print_data    = buf;
+    f->x_offset      = (int16_t)x;
+    f->height        = (uint8_t)height;
+    f->actual_width  = (uint8_t)width;
+    f->bytesperline  = (uint16_t)bytesperline;
+    f->valid         = true;
 
-    	memset((void*) target_frames[i], 0, PRINT_WIDTH);
-    }
-
-	for (int yi = 0; yi < height; yi++) {
-		for (int xi = x; xi < x + width; xi++) {
-			uint8_t* target_frame = target_frames[yi / 8];
-
-			if (((int) bits[xi / 8 + yi * bytesperline] & (1 << (xi % 8))) != 0) {
-				target_frame[xi] |= (1 << yi % 8);
-			}
-		}
-	}*/
+    q_wr = (uint8_t)((q_wr + 1) % PRINT_FRAMES);
+    q_count++;
+    // TODO: UNLOCK
 }
 
-void print_frame_to_screen(struct PrintFrame* pf, unsigned int yoffset_from_bottom)
-{
-    int y0 = 31 - (int)yoffset_from_bottom - (int)pf->height; // destination top y
+#define MIN(a,b) ((a > b) ? b : a)
+#define MAX(a,b) ((a > b) ? a : b)
 
+void print_frame_to_screen(struct PrintFrame* pf, unsigned int yoffset_from_bottom, bool should_shift)
+{
+    if (!pf || !pf->valid || !pf->print_data) return;
+
+    int y0 = 31 - (int)yoffset_from_bottom - (int)pf->height;
     for (int sy = 0; sy < pf->height; sy++) {
-        int dy = y0 + sy;                          // destination y
+        int dy = y0 + sy;
         if (dy < 0) continue;
 
-        for (int sx = 0; sx < pf->actual_width; sx++) {
-            int dx = pf->x_offset + sx;            // destination x
+        int dx_offset = MAX(0, 132 - pf->actual_width);
+        int sx_offset = should_shift ? 0 : MAX(0, pf->actual_width - 132);
+        for (int sx = 0; sx < MIN(132, pf->actual_width); sx++) {
+            int dx = (int)pf->x_offset + sx + dx_offset;
             if (dx < 0) continue;
+            if (dx >= 132 || dy >= 32) continue;
 
-            unsigned int index = dx + (dy / 8) * 132;
+            unsigned int index = (unsigned int)dx + (unsigned int)(dy / 8) * 132u;
             if (index >= frame_size) continue;
 
-            // Read source bit at (sx, sy)
-            unsigned char b = (unsigned char)pf->print_data[(sx / 8) + sy * pf->bytesperline];
-            int bit_on = (b & (1 << (sx % 8))) != 0;
+            unsigned char b = pf->print_data[((sx + sx_offset) / 8) + sy * pf->bytesperline];
+            int bit_on = (b & (1 << ((sx + sx_offset) % 8))) != 0;
 
             unsigned char mask = (unsigned char)(1u << (dy % 8));
             if (!bit_on) frame[index] &= (unsigned char)~mask;
@@ -233,79 +237,101 @@ void print_frame_to_screen(struct PrintFrame* pf, unsigned int yoffset_from_bott
     }
 }
 
-/*
- * 	if (key == 255) {
-		do {
-			key = RP_WA_KEY();
-		} while (key == 255);
-	}
- */
-
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 int shell_history_draw(int offset_rows, int control_mode)
 {
     if (is_first) initializePrintFrames();
 
-	uint8_t key = 255;
+    uint8_t key = 255;
+    uint8_t last_key = 255;
     bool anything_to_print = false;
+    bool should_shift = false;
+    int timer = 50;
+    int timer_events = 0;
 
     do {
-    	key = 255;
+        key = 255;
         int rows_drawn = 0;
-        int print_frame_id = frame_offset - 1;
         bool is_at_top = true;
 
-		memset(frame, 0, frame_size);
-		while (rows_drawn < 32 && print_frame_id >= 0) {
+        memset(frame, 0, frame_size);
 
-			if (print_frame_id >= PRINT_FRAMES) {
-				// frame_offset is inconsistent; stop rather than wrap/clamp
-				break;
-			}
+        // Snapshot queue state (recommended if concurrent)
+        // TODO: LOCK
+        uint8_t count = q_count;
+        uint8_t rd = q_rd;
+        // TODO: UNLOCK
 
-			struct PrintFrame *pf = &print_frames[print_frame_id];
+        // draw newest -> oldest
+        for (uint8_t i = 0; i < count && rows_drawn < (offset_rows + 32); i++) {
+            // newest index = (rd + count - 1 - i) % PRINT_FRAMES
+            uint8_t idx = (uint8_t)((rd + count - 1 - i) % PRINT_FRAMES);
+            struct PrintFrame *pf = &print_frames[idx];
 
-			// If frames are stored contiguously and older ones are below 0, stop.
-			if (pf->print_data == NULL || pf->height <= 0)
-				break;
+            if (!pf->valid || !pf->print_data || pf->height == 0) continue;
 
-			// If this frame would be entirely off-screen above the top, stop.
-			if (rows_drawn + pf->height > 32)
-				break;
+            anything_to_print = true;
 
-			anything_to_print = true;
-			if (rows_drawn >= offset_rows) {
-				print_frame_to_screen(pf, rows_drawn - offset_rows);
-				is_at_top = false;
-			}
-			rows_drawn += pf->height;
-			print_frame_id--;
-		}
+            if (rows_drawn + pf->height >= offset_rows) {
+                print_frame_to_screen(pf, (unsigned int)(rows_drawn - offset_rows), should_shift);
+                is_at_top = false;
+            }
 
-		RP_DISPLAY_DRAW(frame);
+            rows_drawn += pf->height;
+        }
 
-		if (control_mode == 1 && key == 255) {
-			do {
-				key = RP_WA_KEY();
-			} while (key == 255);
-			if (key == 18 && !is_at_top) offset_rows += 3;
-			else if (key == 23) offset_rows -= 3;
-			if (offset_rows < 0) offset_rows = 0;
-		}
+        RP_DISPLAY_DRAW(frame);
 
-    } while (control_mode == 1 && (key == 18 || key == 23) && anything_to_print);
+        if (control_mode == 1 && key == 255) {
+
+        	while (key == 255) {
+        		key = RP_WA_KEY();
+
+        		if (key == 100 + timer) {
+        			key = last_key;
+        			timer_events++;
+        		}
+
+                if (key == 18 && !is_at_top) {
+                	offset_rows += timer_events > 2 ? 12 : 8;
+                	timer = RP_REGISTER_TIMER((timer_events > 2) ? 200 : 400, 0, 0);
+                }
+                else if (key == 23) {
+                	offset_rows -= timer_events > 2 ? 12 : 8;
+                    if (offset_rows < 0) offset_rows = 0;
+                    else timer = RP_REGISTER_TIMER((timer_events > 2) ? 200 : 400, 0, 0);
+                }
+                else if (key == 28) should_shift = !should_shift;
+                else if (key != 255) core_repaint_display();
+                if (key != 255) last_key = key;
+                else {
+                	RP_UNREGISTER_TIMER(timer);
+                	timer = 50;
+                	timer_events = 0;
+                }
+        	}
+        }
+    } while (control_mode == 1 && (key == 18 || key == 23 || key == 28) && anything_to_print);
 
     if (!anything_to_print) {
         uint8_t row = 1, col = 10;
         RP_PRINT_TEXT("PRINTOUT BLANK", &row, &col);
     }
+
     return 0;
 }
+
 #ifdef __cplusplus
 }
 #endif
+
+
+
+
+
 void shell_check_for_copy() {
 	char* buf = (char*) malloc(256);
 

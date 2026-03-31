@@ -42,6 +42,7 @@ const char *shell_platform();
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 int shell_history_draw(int offset, int control_mode);
 #ifdef __cplusplus
 }

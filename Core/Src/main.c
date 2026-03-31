@@ -561,7 +561,7 @@ __ramFunc void alt_main_loop() {
 			if (last_key_down == 3) { // make it stay up
 				core_keyup();
 				shell_history_draw(0, 1);
-			}
+			} else core_keytimeout2();
 
 			timeout2 = 50;
 			continue;
